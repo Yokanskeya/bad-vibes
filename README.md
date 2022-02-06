@@ -20,15 +20,15 @@ Bad Vibes bot gives you many features that can be used for all members on your d
 ## 🏓 Easy To Use
 Bad Vibes bot gives you many features that can be used for all members on your discord server. You can see it on the commands page!
 
-## 📝 [Support Server](https://discord.gg/wrTHfMqzaQ)
+### 📝 [Support Server](https://discord.gg/wrTHfMqzaQ)
 
 > Join for your more information.
 
-## 🌐 [Website](https://bad-vibes.adamkhairusydan.repl.co/)
+### 🌐 [Website](https://bad-vibes.adamkhairusydan.repl.co/)
 
 > Visit it.
 
-## ✍️ Credit
+### ✍️ Credit
 
 > Adam Khairusydan
 
