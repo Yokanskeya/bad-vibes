@@ -21,15 +21,12 @@ Bad Vibes bot gives you many features that can be used for all members on your d
 Bad Vibes bot gives you many features that can be used for all members on your discord server. You can see it on the commands page!
 
 ### 📝 [Support Server](https://discord.gg/wrTHfMqzaQ)
-
 > Join for your more information.
 
 ### 🌐 [Website](https://bad-vibes.adamkhairusydan.repl.co/)
-
 > Visit it.
 
 ### ✍️ Credit
-
 > Adam Khairusydan
 
 <p align="center">©️ Bad Vibes Bot 2021 - All rights reserved.</p>
