@@ -13,7 +13,7 @@ module.exports = {
     aliases: ["redeem-premium", "premium-redeem"],
     cooldown: 360,
     usage: "redeem",
-    description: "Redeem code for get Kucluck Premium for free.",
+    description: "Redeem code for get Bad Vibes Premium for free.",
     memberpermissions: [`ADMINISTRATOR`],
     type: "server",
     run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
