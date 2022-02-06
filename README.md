@@ -24,7 +24,7 @@ Bad Vibes bot gives you many features that can be used for all members on your d
 ##### 📝 [Support Server](https://discord.gg/wrTHfMqzaQ)
 Join for your more information.
 
-##### 🌐 [Website](https://bad-vibes.adamkhairusydan.repl.co/)
+##### 🌐 [Website](https://bad-vibes.ml/)
 Visit it.
 
 ##### ✍️ Credit
