@@ -178,7 +178,7 @@ module.exports = client => {
     let iconURL = authoricon;
     let url = authorurl;
 
-    if (!name || name.length < 1) name = `${client.user.username} | By: Lukman_Nov#5797`;
+    if (!name || name.length < 1) name = `${client.user.username}`;
     if (!iconURL || iconURL.length < 1) iconURL = `${client.user.displayAvatarURL()}`;
     if (!url || url.length < 1) url = `https://discord.gg/wrTHfMqzaQ`;
 
