@@ -1,24 +1,24 @@
 {
-  "token": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME",
+  "token": "",
   "TOKEN": {
-    "MAIN": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME",
-    "TEST": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME"
+    "MAIN": "",
+    "TEST": ""
   },
   "prefix": "b!",
-  "ownerIDS": ["863031982018920488"],
+  "ownerIDS": [""],
   "channel": {
-    "Logs": "939274812159840277",
-    "Report": "939274812159840277",
-    "Error": "939274812159840277"
+    "Logs": "",
+    "Report": "",
+    "Error": ""
   },
 
   "websiteSettings": {
-    "support": "https://discord.gg/wrTHfMqzaQ",
-    "domain": "https://Bad-Vibes.adamkhairusydan.repl.co/",
+    "support": "",
+    "domain": "",
     "port": 80,
-    "callback": "https://Bad-Vibes.adamkhairusydan.repl.co/callback",
-    "clientID": "877365377884110919",
-    "secret": "6n3DIQHilOpDm87jMlAywP7P4yvBEsI3"
+    "callback": "",
+    "clientID": "",
+    "secret": ""
   },
   "status": {
     "text": "With U 💖 | {prefix}help",
@@ -47,14 +47,14 @@
     ]
   },
   "spotify": {
-    "clientID": "3eb159586f4248e9abe72aec520febea",
-    "clientSecret": "597b352318ca4f528e9bb730720ae022"
+    "clientID": "",
+    "clientSecret": ""
   },
   "settings": {
     "selfDeaf": true
   },
   "mongodb": {
     "data": "discord-bot/databases",
-    "connect": "mongodb+srv://kaisa08:kaisa081099@cluster0.rmymw.mongodb.net/databases"
+    "connect": ""
   }
 }
