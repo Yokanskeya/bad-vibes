@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/docs.css">
+  <title>FAQ | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+<script>
+  $(window).on('load', function () {
+    var collapse = document.querySelectorAll('#panel-category-faq');
+    collapse.forEach((x) => {
+      x.classList.add('show')
+    })
+  })
+</script>
+
+<body>
+  <%- include('../element/sidebar-docs'); -%>
+  <main class="container justify-content-center m-2" id="bassicsettings">
+    <div class="row bg-dark p-3 rounded-3">
+      <div class="heading">
+        <div class="rounded-circle d-flex justify-content-center align-items-center hastag mb-2"
+          style="width: 80px; height: 80px;"><i class="fas fa-hashtag text-white fa-3x pb"></i>
+        </div>
+        <h1 class="text-white">Welcome to #faq!</h1>
+        <p class="text-muted">This is the start of the #faq</p>
+        <hr>
+      </div>
+
+      <!-- FAQ -->
+      <div class="col-md-12 ps-0" id="faq">
+        <!-- BOT NOT RESPONDING -->
+        <div class="col-md-12 pt-3 pb-3" id="notresponding">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Bad Vibes Bot Not Responding to Commands</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">First, please check whether Bad Vibes Bot is online or not, and if online,
+                  please check whether Bad Vibes Bot is given permission to view and send messages on the text
+                  channel
+                  that you use to give commands.<br> Now if everything has been checked and still not responding,
+                  please check your prefix in guild by mention bot <code>@Bad Vibes</code> whether the prefix you
+                  are
+                  using is correct or not.
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939276101052694549/unknown.png"
+                    alt="notresponding">
+                </div>
+                <p class="description">If the bot still doesn't respond to commands you can report this problem to
+                  <a href="mailto:kaisa081099@gmail.com" style="text-decoration: none;">Dev@badvibes.com</a>. Or you
+                  can use command <code><%= config.prefix%>report [query]</code>.
+                </p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- LAGGING -->
+        <div class="col-md-12 pt-3 pb-3" id="vclagging">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Bad Vibes Voice Lagging</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">First, you can check whether your ping on the voice channel is high or low
+                  by
+                  clicking Voice Connected at the bottom.
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939276713202962553/unknown.png?width=279&height=480"
+                    alt="silent3">
+                </div>
+                <p class="description">If your ping is high you can directly set your server region in the
+                  following
+                  way.<br>
+                </p>
+                <p class="description">
+                  First click the gear button next to the name of the voice channel
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939277075620167690/unknown.png"
+                    alt="silent4">
+                </div>
+                <p class="description">Then in the Overview section you scroll down until you find REGION
+                  OVERRIDE.
+                  If you have found it, you can immediately select the region of your voice channel by adjusting
+                  it
+                  to your ping.
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://media.discordapp.net/attachments/901446802711142460/934632855403900989/6.PNG?width=796&height=480"
+                    alt="silent5">
+                </div>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BOT IS SILENT -->
+        <div class="col-md-12 pt-3 pb-3" id="silent">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Why is Bad Vibes not making a sound?</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">First, please see first, has Bad Vibes been muted by you or not?
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939277692346445844/unknown.png"
+                    alt="silent1">
+                </div>
+                <p class="description">If not, you can continue by checking the <strong>queue</strong> on your
+                  server, by running the <code><%= config.prefix%>queue</code> command.
+                </p>
+                <div class="img pb-3"> <img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939278058857320479/unknown.png"
+                    alt="silent2">
+                </div>
+                <p class="description">If it still doesn't sound, you can try removing Bad Vibes, then calling it
+                  back
+                  to your voice channel by playing a song using the <strong>command</strong> or <strong>if you
+                    have
+                    set up the music system</strong> you can directly enter the <strong>song title / link</strong>
+                  in the <strong>channel music system</strong>.</p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BOT IS SILENT AFTER MOVED -->
+        <div class="col-md-12 pt-3 pb-3" id="silentaftermoved">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Why does Bad Vibes after being moved make no sound?</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">First you can try by moving the Bad Vibes to the previous voice channel, then
+                  you move it again to the voice channel you want.
+                </p>
+                <p class="description">If it still doesn't sound, you can try removing Bad Vibes, then calling it
+                  back
+                  to your voice channel by playing a song using the <strong>command</strong> or <strong>if you
+                    have
+                    set up the music system</strong> you can directly enter the <strong>song title / link</strong>
+                  in the <strong>channel music system</strong>.
+                </p>
+
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PREMIUM FITURE-->
+        <div class="col-md-12 pt-3 pb-3" id="premiumfiture">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Premium Feature</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">Bad Vibes provides a special feature for you that helps develop the Bad Vibes
+                  bot
+                  by donating.
+                </p>
+                <p class="description">For those of you who are interested in helping to develop this bot by
+                  donating, we provide several special features. that is:<br>
+                  > - <span class="text-info">24/7 Stay Voice Channel</span><br>
+                  > - <span class="text-info">All Button Active</span><br>
+                  > - <span class="text-info">Audio Filter</span><br>
+                  > - <span class="text-info">Audio Equalizer</span><br>
+                  > - <span class="text-info">Auto Play Songs</span><br>
+                  > - <span class="text-info">Lyrics</span><br>
+                  > - <span class="text-info">Save and Play Queue</span><br>
+                </p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PREMIUM -->
+        <div class="col-md-12 pt-3 pb-3" id="premium">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Where and How can I get Bad Vibes Premium</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">For Bad Vibes Pro, you can have it by paying IDR 25k/month or $3/month. And
+                  you
+                  and all members on your Discord Server can use all Bad Vibes Pro features for 1 month.
+                </p>
+                <p class="description">You can check <a href="/premium" target="_blank">here</a> For get more
+                  information about Bad Vibes Pro.
+                </p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PREMIUM PROBLEM -->
+        <div class="col-md-12 pt-3 pb-3" id="premiumproblem">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">I've Bought Bad Vibes Pro But It's Not Working</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">For this case, you can directly contact our Admin who is at <a
+                    href="https://discord.gg/wrTHfMqzaQ" target="_blank" rel="unfollow"
+                    style="text-decoration: none;">Discord Channel</a> us. Or you can directly send an email to <a
+                    href="mailto:kaisa081099@gmail.com" target="_blank" rel="unfollow"
+                    style="text-decoration: none;">Dev@badvibes.com</a>.
+                </p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

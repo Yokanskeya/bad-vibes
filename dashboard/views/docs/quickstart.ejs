@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/docs.css">
+  <title>QuickStart | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+<script>
+  $(window).on('load', function () {
+    var collapse = document.querySelectorAll('.collapse-quickstart');
+    collapse.forEach((x) => {
+      x.classList.add('show')
+    })
+  })
+</script>
+
+<body>
+  <%- include('../element/sidebar-docs'); -%>
+  <main class="container justify-content-center m-2" id="bassicsettings">
+    <div class="row bg-dark p-3 rounded-3">
+      <div class="heading">
+        <div class="rounded-circle d-flex justify-content-center align-items-center hastag mb-2"
+          style="width: 80px; height: 80px;"><i class="fas fa-hashtag text-white fa-3x pb"></i>
+        </div>
+        <h1 class="text-white">Welcome to #quickstart!</h1>
+        <p class="text-muted">This is the start of the #quickstart</p>
+        <hr>
+      </div>
+      <div id="quickstart">
+        <!-- INVITE -->
+        <div class="col-md-12 pt-3 pb-3" id="Invite">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Invite a Bad Vibes Bot</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">Inviting Bad Vibes Bot on your server is very easy. First, please check if you have
+                  Administrator or Manage Server permissions. For the server owner has all the permissions even without
+                  roles. If you have confirmed that you have a role in managing the server, now you can invite Bad Vibes
+                  Bot using <a
+                    href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands"
+                    target="popup" onclick="openInvite()" class="text-decoration-none">this link</a>.</p>
+                <!-- IMAGE -->
+                <div class="img"><img
+                    src="https://cdn.discordapp.com/attachments/939276089220542464/939278609842057226/unknown.png?width=250&height=479"
+                    alt="invite">
+                </div>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- USE -->
+        <div class="col-md-12 pt-3 pb-3" id="Use">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+            </div>
+            <div class="col-md-11 pt-1">
+              <%- include('./heading'); -%>
+              <div class="embed">
+                <!-- TITLE -->
+                <h4 class="title">Use a Bad Vibes Bot</h4>
+                <!-- DESCRIPTION -->
+                <p class="description">Now you can use Bad Vibes Bot on your Discord server. To use Bad Vibes bot, you can
+                  use the required prefix + command. <br><br>Default Prefix:
+                  <code>[<%= config.prefix%>]</code><br>You can see the commands for Bad Vibes Bot <a href="/commands"
+                    target="_blank">here</a>, or you can send a message <code><%= config.prefix%>help [command]</code>.
+                </p>
+                <!-- FOOTER -->
+                <p class="footer"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write by:
+                  <%= owner.tag%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

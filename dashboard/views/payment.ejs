@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- OUTER SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9746709e58.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js"
+    integrity="sha256-rFie6glbD6Zy9CLbJuxIEyU/VRe34QOSc1QH4eXrDQk=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <!-- END OUTER SCRIPT -->
+  <!-- OUTER CSS -->
+  <link rel="stylesheet" href="@sweetalert2/theme-borderless/borderless.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- END OUTER CSS -->
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="/payment.css">
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/settings.css">
+  <!-- END MY CSS -->
+  <title>Payment | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <section>
+    <div class="container-lg p-5 mt-5 main-form" style="max-width: 900px;">
+      <div class="row pb-3 bg-dark justify-content-center rounded-3">
+        <!-- HEADER -->
+        <div class="col-md-12 d-flex p-2 heading">
+          <div class="d-flex justify-content-center">
+            <div class="flex-shrink-0 img">
+              <img src="<%= bot.user.displayAvatarURL({ dynamic: true}) %>" alt="logo">
+            </div>
+          </div>
+          <div class="d-flex align-items-start ps-3 justify-content-center flex-column bd-highlight"
+            style="height: 150px;">
+            <h1><%= bot.user.username %></h1>
+            <p>Pembayaran <%= bot.user.username %> Premium Guild</p>
+          </div>
+          <div class="d-flex justify-content-md-end ms-auto p-2 flex-column bd-highlight" style="height: 150px;">
+            <button class="btn text-white">Bahasa Indonesia
+              <img class="icon-flag"
+                src="https://media.discordapp.net/attachments/901446802711142460/931751586097680415/indonesia.png?width=480&height=480"
+                alt="ID" width="25px">
+            </button>
+          </div>
+        </div>
+        <!-- END HEADER -->
+        <!-- FORM -->
+        <div class="row gy-3 m-auto">
+          <div class="col-12 m-auto payment-control d-block p-4 shadow">
+            <form method="post" action="/paymentgate" class="row g-3 needs-validation" novalidate>
+              <!-- USER NAME -->
+              <div class="mb-3 text-start">
+                <label for="username" class="form-label">Username: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="username" name="username"
+                  value="<%= user.username%>#<%= user.discriminator%>" readonly>
+              </div>
+              <!-- END USER NAME -->
+
+              <!-- EMAIL -->
+              <div class="mb-3 text-start">
+                <label for="email" class="form-label">Email: <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" value="<%= user.email%>" id="email" name="email"
+                  autocomplete="off" required>
+                <div class="invalid-feedback">
+                  Masukan email kamu...
+                </div>
+              </div>
+              <!-- END EMAIL -->
+
+              <!-- GUILD NAME -->
+              <div class="mb-3 text-start">
+                <label for="guild" class="form-label">Nama Guild/Server: <span class="text-danger">*</span></label>
+                <select class="form-select" data-live-search="true" aria-label="guild" id="guild" name="guild" required>
+                  <option selected disabled value=""></option>
+                  <% user.guilds.filter(guild=>{
+                  const permsOnGuild = new Permissions(guild.permissions_new);
+                  if(permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) return guild;
+                  }).sort((a, b) => {
+                    return (bot.guilds.cache.get(a.id) == bot.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
+                  }).forEach(guild => { %>
+                  <option value="<%= guild.id%>"><%= guild.name%></option>
+                  <% }) %>
+                </select>
+                <div class="invalid-feedback">
+                  Mohon pilih Guild/Server kamu!.
+                </div>
+              </div>
+              <!-- END GUILD NAME -->
+
+              <!-- PERIODE -->
+              <div class="mb-3 text-start">
+                <label for="period" class="form-label">Pilih Paket: <span class="text-danger">*</span></label>
+                <select class="form-select" id="period" name="period"
+                  oninvalid="setCustomValidity('Please selecet one!')" oninput="setCustomValidity('')" required>
+                  <option selected disabled></option>
+                  <option value="oneMonth">1 Bulan (IDR 25k)</option>
+                  <option value="treeMonth">3 Bulan (IDR 65k)</option>
+                  <option disabled value="sixMonth">6 Bulan (Akan datang)</option>
+                  <option disabled value="twelveMonth">12 Bulan (Akan datang)</option>
+                </select>
+                <div class="invalid-feedback">
+                  Pilih paket kamu...
+                </div>
+              </div>
+              <!-- END PERIODE -->
+
+              <!-- TERMS -->
+              <div class="form-check mb-3" style="padding-left: 30px;">
+                <input class="form-check-input" type="checkbox" id="terms" name="terms" checked required>
+                <label class="form-check-label text-start" for="terms">I agree with the <a href="/terms"
+                    style="text-decoration: none;">terms and conditions</a></label>
+              </div>
+              <!-- END TERMS -->
+
+              <!-- BUTTONS -->
+              <div class="row mb-3 mt-3 align-items-end m-auto justify-content-center">
+                <div class="col-md">
+                  <div class="d-flex justify-content-center mx-auto bd-highlight">
+                    <button class="btn btn-secondary" type="button" onclick="location.href='/premium'"><i
+                        class="fas fa-angle-double-left"></i> Back</button>
+                    <div class="col-md">
+                      <div class="d-flex justify-content-end bd-highlight">
+                        <button class="btn btn-secondary" type="reset" id="btn-cancel-payment"><i
+                            class="fas fa-trash-restore"></i> Reset</button>
+                        <button class="btn btn-success" type="submit" id="btn-submit-payment"><i
+                            class="fas fa-money-bill-wave"></i> Pay</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END BUTTONS -->
+              <script>
+                (function () {
+                  'use strict'
+                  var forms = document.querySelectorAll('.needs-validation')
+                  Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                      form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                          event.preventDefault()
+                          event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                      }, false)
+                    })
+                })()
+              </script>
+            </form>
+          </div>
+        </div>
+        <!-- END FORM -->
+        <div class="row pt-3">
+          <div class="col-md">
+            <div class="d-flex justify-content-center bd-highlight">
+              <button class="btn align-items-end"
+                onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands', '_blank,')"
+                title="Invite"><img class="icon-footer"
+                  src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+                  alt="Logo" width="45px"></button>
+              <% let owner = bot.users.cache.get("863031982018920488")%>
+              <button class="btn align-items-end"
+                onclick="window.open('https://www.facebook.com/adamkhai0/', '_blank,')" title="Adam Khairusydan"><img
+                  class="icon-footer" src="<%= owner.displayAvatarURL()%>" alt="LN_Logo" width="40px"></button>
+              <button class="btn align-items-end" onclick="window.open('https://discord.gg/wrTHfMqzaQ', '_blank,')"
+                title="Support Server"><i class="fab fa-discord fa-2x"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md m-auto justify-content-center text-center ">
+            <p class="text-muted" style="font-size: 13px !important;"><i class="far fa-copyright text-muted"></i>
+              Bad Vibes Bot 2022 - All rights
+              reserved.<br>
+              <i class="fas fa-edit text-muted"></i> Web Designed by <a href="https://www.facebook.com/adamkhai0/"
+                target="_blank" rel="nofollow" style="color: #c5c5c5">Adam Khairusydan</a>
+            </p>
+            <hr>
+          </div>
+        </div>
+      </div>
+  </section>
+</body>
+
+</html>

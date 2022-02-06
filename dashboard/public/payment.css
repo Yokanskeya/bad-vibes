@@ -1,0 +1,30 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eee;
+}
+.payment-control {
+  background-color: #26292e;
+  border-radius: 10px;
+}
+.form-control:disabled, .form-control[readonly] {
+  background-color: #3b3f47;
+}
+.swal2-title {
+  color: #eee;
+}
+.swal2-html-container{
+  color: #eee;
+}
+#recaptcha > div {
+  margin: 0 auto .5em;
+}
+.swal2-checkbox, .swal2-radio {
+  background: none;
+}
+.swal2-validation-message {
+  background: none;
+  color: #eee;
+}

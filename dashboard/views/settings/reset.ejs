@@ -1,0 +1,180 @@
+<div class="container-lg p-2">
+  <h3><i class="fas fa-trash-restore fa-2x pb"></i> Reset Settings</h3>
+  <hr>
+  <div class="row">
+    <p class="text-muted">Resets of the Setups here! <br>If the checkbox can't be clicked, it means you haven't set it up.</p>
+    <form method="POST" action="/resetSuccess">
+      <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+      <div class="col">
+        <template id='allsettings'>
+          <swal-title>All Settings</swal-title>
+          <swal-html>Restore all settings to default like a new bot entering the server, except Leveling System!</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <input class="form-check-input" type="checkbox" id="resetAllSettings" name="resetAllSettings">
+          <label class="form-check-label" for="resetAllSettings">All Settings 
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#allsettings' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='Prefix'>
+          <swal-title>Prefix</swal-title>
+          <swal-html>Only reset the Prefix in server</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if (settingsSchema.Prefix != "?") { %>
+          <input class="form-check-input" type="checkbox" id="resetPrefix" name="resetPrefix">
+          <% } else { %>
+          <input class="form-check-input" type="checkbox" id="resetPrefix" name="resetPrefix" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetPrefix">Prefix 
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#Prefix' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='DjRole'>
+          <swal-title>Dj Role</swal-title>
+          <swal-html>Only reset the DJ Role in server</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if(settingsSchema.DjRoles.length > 5 ) { %>
+          <input class="form-check-input" type="checkbox" id="resetDjrole" name="resetDjrole">
+          <% } else { %>
+          <input class="form-check-input" type="checkbox" id="resetDjrole" name="resetDjrole" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetDjrole">Dj Role
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#DjRole' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='MusicSetup'>
+          <swal-title>Music Setup</swal-title>
+          <swal-html>Reset & Delete channel Music Setup</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if (musicsettings.channelId.length > 5 ) { %>
+          <input class="form-check-input" type="checkbox" id="resetMusicSetup" name="resetMusicSetup">
+          <% } else { %>
+          <input class="form-check-input" type="checkbox" id="resetMusicSetup" name="resetMusicSetup" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetMusicSetup">Music Setup
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#MusicSetup' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='BotChannelChat'>
+          <swal-title>Bot Channel Chat</swal-title>
+          <swal-html>Reset the Bot Channel Chat</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if(settingsSchema.BotChannel.length > 5 ) { %>
+            <input class="form-check-input" type="checkbox" id="resetBotChannelChat" name="resetBotChannelChat">
+          <% } else {%>
+            <input class="form-check-input" type="checkbox" id="resetBotChannelChat" name="resetBotChannelChat" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetBotChannelChat">Bot Channel Chat
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#BotChannelChat' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='Autorole'>
+          <swal-title>Autorole</swal-title>
+          <swal-html>Reset the Auto Role server</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if (autorole.RoleId.length > 5 ) { %>
+            <input class="form-check-input" type="checkbox" id="resetAutorole" name="resetAutorole">
+          <% } else { %>
+            <input class="form-check-input" type="checkbox" id="resetAutorole" name="resetAutorole" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetAutorole">Autorole
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#Autorole' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <template id='GreetingMessage'>
+          <swal-title>Greeting Message</swal-title>
+          <swal-html>Reset the Greeting Message server</swal-html>
+        </template>
+        <div class="form-check" style="padding-left: 30px;">
+          <% if(greetingmsg.ChannelId.length > 5) { %>
+            <input class="form-check-input" type="checkbox" id="resetGreetingMessage" name="resetGreetingMessage">
+          <% } else { %>
+            <input class="form-check-input" type="checkbox" id="resetGreetingMessage" name="resetGreetingMessage" disabled>
+          <% } %>
+          <label class="form-check-label" for="resetGreetingMessage">Greeting Message
+            <button class='show-example-btn btn btn-link text-white p-0' data-swal-toast-template='#GreetingMessage' type="button">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </label>
+        </div>
+      </div>
+      <div class="p-2 flex-grow-1"></div>
+      <div class="col ms-auto" style="float: right;">
+        <button type="reset" class="btn text-white" style="font-size: 20px;" id="btn-cancel-reset">Cancel </button>
+        <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-reset"><i class="fas fa-save"></i> Save</button>
+      </div>
+    </form>
+    <script>
+      Swal.bindClickHandler()
+        Swal.mixin({
+          toast: true,
+        }).bindClickHandler('data-swal-toast-template')
+    </script>
+    <script>
+      $('#btn-submit-reset').on('click', function (e) {
+        e.preventDefault();
+        var form = $(this).parents('form');
+        var cancelbtn = $('#btn-cancel-reset')
+        Swal.fire({
+          title: 'Do you want to save the changes?',
+          showDenyButton: true,
+          denyButtonColor: '#444444',
+          showCancelButton: false,
+          allowOutsideClick: false,
+          confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+          denyButtonText: `Don't save`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'Saved!',
+              text: '',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500,
+            })
+            form.submit()
+          } else if (result.isDenied) {
+            Swal.fire({
+              title: 'Changes are not saved',
+              text: '',
+              icon: 'info',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            cancelbtn.click();
+          }
+        })
+      });
+    </script>
+  </div>
+</div>

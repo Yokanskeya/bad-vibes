@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/settings.css">
+  <title>Setup Embed | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+
+<body>
+  <%- include('../element/sidebar-settings'); -%>
+  <main class="container justify-content-center m-2" id="greetingmessage">
+    <div class="row bg-dark p-3">
+      <div class="container-lg p-2">
+        <h3><i class="far fa-comment-alt fa-2x pb"></i> Setup Embed</h3>
+        <hr>
+        <div class="col-md-12">
+          <p class="text-muted">Change the Look of your Embeds (Color, Image, Thumbnail, ...)</p>
+          <div class="img" style="text-align: center; margin: auto;">
+            <img src="https://cdn.discordapp.com/attachments/939276089220542464/939281055402307614/unknown.png"
+              alt="example_Embed" style="border-radius: 10px; ">
+          </div>
+        </div>
+        <form id="form" method="post" action="/dashboard/<%= guild.id%>/setupEmbedSuccess">
+          <div class="input-group mb-3 mt-3">
+            <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+            <!-- FOOTER TEXT -->
+            <div class="mb-3">
+              <label for="footertext" class="form-label">Footer Text: </label>
+              <input type="text" maxlength="100" size="100" class="form-control" name="footertext" id="footertext"
+                aria-describedby="footertextHelp" placeholder="<%= settingsSchema.Embed.footertext %>">
+              <div id="footertextHelp" class="form-text"><i class="bi bi-info-circle text-muted"></i> Footer text for
+                the
+                text at the bottom of the embeds | Default: Your Guild Name.</div>
+            </div>
+            <!-- IMAGE -->
+            <div class="mb-3">
+              <label for="image" class="form-label">Image URL:</label>
+              <input type="url" class="form-control" id="image" name="imgEmbed" aria-describedby="imageHelp">
+              <div id="imageHelp" class="form-text"><i class="bi bi-info-circle text-muted"></i>
+                Image URL to be used as thumbnail and footer icon | Default: Your Guild Icon
+              </div>
+            </div>
+            <!-- COLOR -->
+            <div class="mb-3">
+              <label for="color" class="form-label">Color Embed: </label>
+              <input type="color" class="form-control form-control-color" id="color" aria-describedby="colorHelp"
+                value="<%= settingsSchema.Embed.color %>" title="Choose your color" name="colorEmbed">
+              <div id="colorHelp" class="form-text"><i class="bi bi-info-circle text-muted"></i>
+                Color embed to give color to the left of the embed | Default: RANDOM
+              </div>
+            </div>
+            <!-- THUMBNAIL -->
+            <div class="md-3">
+              <label class="form-label" for="thumb">Thumbnail: </label>
+              <div class="form-check form-switch">
+                <label class="form-check-label switch" for="thumb">
+                  <input class="form-check-input" name="thumbEmbed" id="thumb" type="checkbox" data-live-search="true"
+                    style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;"
+                    <%= settingsSchema.Embed.thumb ? 'checked' : '' %>>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div id="colorHelp" class="form-text"><i class="bi bi-info-circle text-muted"></i>
+                If you uncheck Bad Vibes will not send messages with thumbnails | Default: checked
+              </div>
+            </div>
+          </div>
+          <!-- BUTTON SAVE -->
+          <div class="d-flex" style="float: right;">
+            <button type="reset" class="btn text-white" style="font-size: 20px;" id="btn-cancel-se">Cancel </button>
+            <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-se"><i
+                class="fas fa-save"></i> Save
+            </button>
+          </div>
+        </form>
+        <script>
+          $('#btn-submit-se').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).parents('form');
+            var cancelbtn = $('#btn-cancel-se')
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: true,
+              denyButtonColor: '#444444',
+              showCancelButton: false,
+              allowOutsideClick: false,
+              confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire({
+                  title: 'Saved!',
+                  text: '',
+                  icon: 'success',
+                  showConfirmButton: false,
+                  timer: 1500,
+                })
+                form.submit()
+              } else if (result.isDenied) {
+                Swal.fire({
+                  title: 'Changes are not saved',
+                  text: '',
+                  icon: 'info',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+                cancelbtn.click();
+              }
+            })
+          });
+        </script>
+      </div>
+    </div>
+  </main>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- OUTER SCRIPT -->     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9746709e58.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js" integrity="sha256-rFie6glbD6Zy9CLbJuxIEyU/VRe34QOSc1QH4eXrDQk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- END OUTER SCRIPT -->
+    <!-- OUTER CSS -->
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- END OUTER CSS -->
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="/settings.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <!-- END MY CSS -->
+    <title>Settings | <%= bot.user.username %></title>
+    <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+  </head>
+  <!-- INNER SCRIPT -->
+  <script>
+    function showBassic() {
+      var popup = document.getElementById('myPopup');
+      popup.classList.toggle("show", true);
+    }
+    function closeBassic() {
+      var popup = document.getElementById('myPopup');
+      popup.classList.toggle("show", false);
+    }
+  </script>
+  <!-- END INNER SCRIPT -->
+  <body>
+    <%- include('./element/header'); -%>
+    <!-- MAIN BODY -->
+    <section style="margin-bottom: 90px; margin-top: 90px;">
+      <div class="container-fluid" style="max-width: 1400px;">
+        <div class="row gx-5 ms-auto" id="settings">
+          <div class="col-lg-3 left">
+            <div class="col d-flex guild-nav">
+              <div class="d-flex" style="background-color: #3b3f47; border-radius: 10px; padding: 10px; width: 300px;">
+                <div class="img" style="margin: auto;">
+                  <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" style="max-width: 70px; max-height: 70px; border-radius: 50px">` : `<img src="https://media.discordapp.net/attachments/901446802711142460/931743540684415016/discord-statistics.jpg" style="max-width: 70px; max-height: 70px; border-radius: 50px">` %>
+                </div>
+                <div class="d-blok" style="margin: auto; margin-left: 10px;">
+                  <h5><%= guild.name%></h5>
+                  <% if (premium) { %>
+                  <p class="text-muted" style="margin-bottom: 0; font-size: 15px;"><i class="fas fa-gem"></i> Premium
+                    Guild</p>
+                  <% } else { %>
+                  <p class="text-muted" style="margin-bottom: 0; font-size: 15px;">Not Premium</p>
+                  <% } %>
+                  <p class="text-muted" style="margin-bottom: 0; font-size: 15px;"><%= user.username%></p>
+                </div>
+              </div>
+            </div>
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="list-Music-list" data-bs-toggle="list"
+                href="#list-Music" role="tab" aria-controls="list-Music" onclick="deleteinput()"><i class="bi bi-music-note-list"></i> Music System</a>
+              <a class="list-group-item list-group-item-action" id="list-bassic-list" data-bs-toggle="list"
+                href="#list-bassic" role="tab" aria-controls="list-bassic" onclick="deleteinput()"><i
+                  class="fas fa-user-cog"></i> Bassic</a>
+              <a class="list-group-item list-group-item-action" id="list-ms-list" data-bs-toggle="list"
+                href="#list-ms" role="tab" aria-controls="list-ms" onclick="deleteinput()"><i class="bi bi-music-player-fill"></i> Music Settings</a>
+              <a class="list-group-item list-group-item-action" id="list-Autorole-list" data-bs-toggle="list"
+                href="#list-Autorole" role="tab" aria-controls="list-Autorole" onclick="deleteinput()"><i
+                  class="fas fa-user-tag"></i> Autorole</a>
+              <a class="list-group-item list-group-item-action" id="list-GM-list" data-bs-toggle="list" href="#list-GM"
+                role="tab" aria-controls="list-GM" onclick="deleteinput()"><i class="fas fa-tools"></i> Greeting
+                Message</a>
+              <a class="list-group-item list-group-item-action" id="list-RR-list" data-bs-toggle="list" href="#list-RR"
+                role="tab" aria-controls="list-RR" onclick="deleteinput()"><i class="far fa-comment-alt"></i> Setup
+                Embed</a>
+              <a class="list-group-item list-group-item-action" id="list-reset-list" data-bs-toggle="list" href="#list-reset"
+                role="tab" aria-controls="list-reset" onclick="deleteinput()"><i class="fas fa-trash-restore"></i> Reset Settings</a>
+              <a class="list-group-item list-group-item-action" href="/dashboard"><i class="fas fa-arrow-left" style="color: #bd0000;"></i> Switch
+                Server</a>
+            </div>
+          </div>
+          <div class="col-lg-9 right">
+            <div class="tab-content" id="nav-tabContent">
+              <!-- MUSIC SYSTEM -->
+              <div class="tab-pane fade show active" id="list-Music" role="tabpanel" aria-labelledby="list-Music-list">
+                <%- include('./settings/music-system'); -%>
+              </div>
+              <!-- BASSIC SETTINGS -->
+              <div class="tab-pane fade" id="list-bassic" role="tabpanel" aria-labelledby="list-bassic-list">
+                <%- include('./settings/bassic'); -%>
+              </div>
+              <!-- MUSIC SETTINGS -->
+              <div class="tab-pane fade" id="list-ms" role="tabpanel" aria-labelledby="list-ms-list">
+                <%- include('./settings/music-settings'); -%>
+              </div>
+              <!-- AUTO ROLE SETTINGS -->
+              <div class="tab-pane fade" id="list-Autorole" role="tabpanel" aria-labelledby="list-Autorole-list">
+                <%- include('./settings/autorole'); -%>
+              </div>
+              <!-- GREETING MESSAGE SETTINGS -->
+              <div class="tab-pane fade" id="list-GM" role="tabpanel" aria-labelledby="list-GM-list">
+                <%- include(`./settings/greetingmsg`)-%>
+              </div>
+              <!-- REACTION ROLES -->
+              <div class="tab-pane fade" id="list-RR" role="tabpanel" aria-labelledby="list-RR-list">
+                <%- include(`./settings/setupEmbed`)-%>
+              </div>
+              <div class="tab-pane fade" id="list-reset" role="tabpanel" aria-labelledby="list-reset-list">
+                <%- include(`./settings/reset`)-%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./element/footer'); -%>
+  </body>
+</html>

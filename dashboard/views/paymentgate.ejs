@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="/payment.css">
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/settings.css">
+  <!-- END MY CSS -->
+  <title>Payment | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <section>
+    <div class="container-lg p-5 main-form" style="max-width: 900px;">
+      <div class="row pb-3 bg-dark rounded-3">
+        <!-- HEADER -->
+        <div class="col-md-12 d-flex p-2 mt-3">
+          <div class="d-flex align-items-center">
+            <div class="flex-shrink-0 img">
+              <img src="<%= bot.user.displayAvatarURL({ dynamic: true}) %>" alt="logo">
+            </div>
+          </div>
+          <div class="d-flex align-items-start ps-3 justify-content-center flex-column bd-highlight"
+            style="height: 150px;">
+            <h1><%= bot.user.username %></h1>
+            <p>Konfirmasi Pembayaran <%= bot.user.username %> Premium Guild</p>
+          </div>
+        </div>
+        <!-- END HEADER -->
+        <div class="row gy-3 m-auto">
+          <div class="col-12 m-auto payment-control d-block p-4 shadow ">
+            <div class="col-md-12 justify-content-center d-block p-2">
+              <h2 class="text-center text-info"><%= guild.name %></h2>
+              <h5 class="text-center text-info">[<%= guild.id %>]</h5>
+            </div>
+            <% if(period == "oneMonth") period = "1 Bulan IDR 25k" %>
+            <% if(period == "treeMonth") period = "3 Bulan IDR 65k" %>
+            <% if(period == "1 Bulan IDR 25k")  { %>
+            <div class="img">
+              <img class="rounded mx-auto d-block"
+                src="https://cdn.discordapp.com/attachments/939276089220542464/939293690042650654/image0.png" alt="25k"
+                width="45%">
+              <% } else if (period == "3 Bulan IDR 65k") { %>
+              <img class="rounded mx-auto d-block"
+                src="https://cdn.discordapp.com/attachments/939276089220542464/939294118515970118/image0.png" alt="65k"
+                width="45%">
+              <% } %>
+            </div>
+            <div class="col-md pt-4 text-center">
+              <p class="text-info"><%= period%></p>
+              <p class="text-muted">Scan menggunakan aplikasi DANA untuk menyelesaikan transaksi.</p>
+            </div>
+            <form method="post" action="/paymentSuccess"
+              class="row mb-3 mt-3 align-items-end m-auto justify-content-center">
+              <input type="text" name="guildname" id="guildname" value="<%= guild.name%>" hidden>
+              <input type="text" name="guildid" id="guildid" value="<%= guild.id%>" hidden>
+              <input type="text" name="email" id="email" value="<%= email%>" hidden>
+              <input type="text" name="period" id="period" value="<%= period%>" hidden>
+              <div class="col-md">
+                <div class="d-flex justify-content-start bd-highlight">
+                  <button class="btn btn-secondary" type="button" onclick="location.href='/premium'"><i
+                      class="fas fa-angle-double-left"></i> Kembali</button>
+                  <div class="col-md">
+                    <div class="d-flex justify-content-end bd-highlight">
+                      <button class="btn btn-success" type="submit" id="btn-submit-payment"><i
+                          class="fas fa-money-bill-wave"></i> Konfirmasi Pembayaran</button>
+                      <script>
+                        $('#btn-submit-payment').on('click', function (e) {
+                          e.preventDefault();
+                          var form = $(this).parents('form');
+                          Swal.fire({
+                            imageUrl: 'https://c.tenor.com/EHFHLRuiiRcAAAAi/cute-penguin.gif',
+                            imageAlt: 'BadVibes_Logo',
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: false,
+                            timer: 3000,
+                          }).then((result) => {
+                            /* Read more about handling dismissals below */
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                              form.submit();
+                            }
+                          })
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-md">
+            <div class="d-flex justify-content-center bd-highlight">
+              <button class="btn align-items-end"
+                onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands', '_blank,')"
+                title="Invite"><img class="icon-footer"
+                  src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+                  alt="Logo" width="45px"></button>
+              <% let owner = bot.users.cache.get("863031982018920488")%>
+              <button class="btn align-items-end"
+                onclick="window.open('https://www.facebook.com/adamkhai0/', '_blank,')" title="Adam Khairusydan"><img
+                  class="icon-footer" src="<%= owner.displayAvatarURL()%>" alt="LN_Logo" width="40px"></button>
+              <button class="btn align-items-end" onclick="window.open('https://discord.gg/wrTHfMqzaQ', '_blank,')"
+                title="Support Server"><i class="fab fa-discord fa-2x"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md m-auto justify-content-center text-center ">
+            <p class="text-muted" style="font-size: 13px !important;"><i class="far fa-copyright text-muted"></i>
+              Bad Vibes Bot 2022 - All rights
+              reserved.<br>
+              <i class="fas fa-edit text-muted"></i> Web Designed by <a href="https://www.facebook.com/adamkhai0/"
+                target="_blank" rel="nofollow" style="color: #c5c5c5">Adam Khairusydan</a>
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+</body>
+<style>
+  .swal2-popup {
+    background: transparent !important;
+  }
+
+  body.swal2-shown>[aria-hidden="true"] {
+    transition: 0.1s filter;
+    filter: blur(10px);
+  }
+</style>
+
+</html>

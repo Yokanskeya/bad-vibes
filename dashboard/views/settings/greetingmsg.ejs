@@ -1,0 +1,93 @@
+<div class="container-lg p-2">
+  <h3><i class="fas fa-envelope-open-text fa-2x pb"></i> Greeting Messages</h3>
+  <hr>
+  <div class="row">
+    <div class="col" style="margin-bottom: 20px;">
+      <p class="text-muted">Greeting Message is used to greet new members on your server.</p>
+      <p class="text-muted">Format Message: <br>
+        <code>%mention%</code> = Mention Member<br>
+        <code>%guild%</code> = Guild Name<br>
+        <code>**% %**</code> = Bold font<br>
+      </p>
+      <p class="text-muted">For Example: <br>
+        <code>Hay, %mention% Welcome to **%guild%**. Take a Role on the #text-channel if you need to.</code>
+      </p>
+      <form method="POST" action="/greetingmsgSucces" validate>
+        <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+        <div class="form-group">
+          <label for="GreetingChannels" class="form-label">Channels:</label>
+          <select class="form-select" id="GreetingChannels" name="GreetingChannels" required>
+            <option selected disabled value="">Choose Your Welcome Channel...</option>
+            <% guild.channels.cache.filter(c=> c.type === "GUILD_TEXT" ).sort((a, b) => b.rawPosition - a.rawPosition).forEach((channel, i) => { %>
+            <option value="<%= channel.name%>">#<%= channel.name%></option>
+            <% }) %>
+          </select>
+          <br>
+          <label for="TextBox1" class="form-label">Message:</label>
+          <textarea name="greetingmsg" maxlength="500" size="500" autocomplete="off" class="form-control form-control-two"
+            id="TextBox1" rows="3"
+            placeholder="<%= greetingmsg.Message ? `Your Greetings Messages has been set. \n\nYour message is: \n\n${greetingmsg.Message}` : `Not Set` %>"
+            required></textarea>
+          <div id="counter" style="font-size: 14px; color: #a6a6a6; margin-top: 5px;"></div>
+          <script>
+            const messageEle = document.getElementById('TextBox1');
+            const counterEle = document.getElementById('counter');
+            messageEle.addEventListener('input', function (e) {
+              const target = e.target;
+              const maxLength = target.getAttribute('maxlength');
+              const currentLength = target.value.length;
+              counterEle.innerHTML = `${currentLength}/${maxLength}`;
+            });
+          </script>
+          <br>
+          <div class="form-check" style="padding-left: 30px;">
+            <label class="form-check-label" for="greetingbtn">Check for enabled Greeting Message</label>
+            <input type="checkbox" class="form-check-input" id="greetingbtn" name="greetingbtn"
+              <%= settingsSchema.Greeting ? "checked" : "" %> required>
+          </div>
+          <div class="col ms-auto" style="float: right;">
+            <button type="reset" class="btn text-white" style="font-size: 20px;" id="btn-cancel-gm">Cancel </button>
+            <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-gm"><i class="fas fa-save"></i> Save</button>
+          </div>
+        </div>
+      </form>
+      <script>
+        $('#btn-submit-gm').on('click', function (e) {
+          e.preventDefault();
+          var form = $(this).parents('form');
+          var cancelbtn = $('#btn-cancel-gm')
+          Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            denyButtonColor: '#444444',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'Saved!',
+                text: '',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+              })
+              form.submit()
+            } else if (result.isDenied) {
+              Swal.fire({
+                title: 'Changes are not saved',
+                text: '',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              cancelbtn.click();
+            }
+          })
+        });
+      </script>
+    </div>
+  </div>
+</div>

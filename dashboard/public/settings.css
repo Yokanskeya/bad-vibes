@@ -1,0 +1,199 @@
+* {
+  font-size: 18px;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.guild-nav {
+  background-color: #26292e;
+  border-radius: 10px;
+  color: #eee;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.list-group-item.active {
+  color: #f0a3ff;
+  border-color: transparent;
+  background-color: #26292e;
+}
+.list-group-item {
+  background-color: #26292e;
+  color: #eee;
+  transition: .2s;
+}
+.list-group-item:hover {
+  background-color: #26292e;
+  color: #9b4890;
+  padding-left: 50px !important;
+}
+.right {
+  padding: 20px;
+  background-color: #26292e;
+  border-radius: 10px;
+  color: #eee;
+}
+.form-check, .form-switch{
+  padding-left: 0;
+}
+.form-check-input:checked {
+  background-color: #828cff;
+  border: none;
+  box-shadow: none;
+}
+.form-check-input:not(:checked) {
+  border: none;
+  box-shadow: none;
+}
+.popup .popuptext {
+  visibility: hidden;
+  position: fixed;
+  left: 500px;
+  top: 80%;
+  padding: 15px;
+  border-radius: 10px;
+  width: 900px;
+  background-color: #444444;
+}
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  background-color: #444444;
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider-vol {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider-vol:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider-vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #828cff;
+  cursor: pointer;
+}
+
+.slider-vol::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #828cff;;
+  cursor: pointer;
+}
+#modal {
+  position: absolute;
+  visibility: hidden;
+}
+.popover {
+  border: none;
+}
+.popover-body{
+  font-size: 14px !important;
+  border-radius: 10px;
+  padding: 10px;
+}
+.form-control {
+  border: none;
+  color: #eee;
+  background-color: #3b3f47;
+}
+.form-control:focus {
+  box-shadow: none;
+  color: #eee;
+  background-color:#3b3f47;
+}
+.form-select {
+  box-shadow: none;
+  border: none;
+  color: #eee;
+  background-color: #3b3f47;
+  transition: 0.1s;
+  background-image: url("https://media.discordapp.net/attachments/901446802711142460/931730050787721256/SeekPng.com_white-arrow-png_87169.png");
+}
+.form-select:focus {
+  background-image: url("https://media.discordapp.net/attachments/901446802711142460/931729437215576064/255-2557792_up-arrow-top-image-png-white.png");
+  box-shadow: none;
+  border: none;
+  color: #eee;
+  background-color: #3b3f47;
+}
+.input-group-text {
+  color: #eee;
+  background-color: #494d55;  
+  box-shadow: none;
+  border: none;
+
+}
+.swal2-title {
+  font-size: 20px;
+}
+.swal2-actions button {
+  padding: 10px;
+}
+.swal2-popup {
+  background: #19191ac7;
+}
+.btn:focus{
+  box-shadow: none;
+}
+.btn {
+  transition: 0.2s;
+}
+.btn:hover {
+  opacity: 80%;
+}
+
+.progress { 
+  height: 5px;
+  background-color :rgb(128, 128, 128) !important;
+}
+.progress-bar {
+  background-color : #828cff;
+}
+@media screen and (max-width: 967px) {
+  #settings {
+    display: block;
+  }
+  .left {
+    width: auto;
+    margin-bottom: 5rem;
+  }
+  .right {
+    width: auto;
+    margin: 10px;
+  }
+  .popup .popuptext {
+    left: 17%;
+    width: auto;
+  }
+}

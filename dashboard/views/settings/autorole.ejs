@@ -1,0 +1,74 @@
+<div class="container-lg p-2">
+  <h3><i class="fas fa-user-tag fa-2x pb"></i> Autorole</h3>
+  <hr>
+  <div class="col" style="margin-bottom: 60px;">
+    <form id="formAR" method="POST" action="/autoroleSuccess">
+      <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+      <div class="form-grup">
+        <p class="text-muted">Assign an automatic role when a new member joins the server.</p>
+        <p class="text-muted">Auto role has been set:
+          <% if(autorole.RoleId.length > 5) { %>
+          <code><%= guild.roles.cache.get(autorole.RoleId).name%></code>
+          <% } else { %>
+          <code>Not Set</code>
+          <% } %>
+        </p>
+        <label for="autoroleId" class="form-label">Select Roles:</label>
+        <select class="form-select" data-live-search="true" aria-label="autoroleId" id="autoroleId" name="autoroleId"
+          autocomplete="off">
+          <option selected disabled>Choose here...</option>
+          <% guild.roles.cache.filter(role => !role.managed && role.name != `@everyone`).sort((a, b) => b.rawPosition - a.rawPosition).forEach((role, i) => { %>
+          <option value="<%= role.name%>">@<%= role.name%></option>
+          <% }) %>
+        </select>
+        <br>
+        <div class="form-check" style="padding-left: 30px;">
+          <label class="form-check-label" for="autorolecheck">Check for enabled Auto Role</label>
+          <input type="checkbox" class="form-check-input" id="autorolecheck" name="autorolecheck"
+            <%= settingsSchema.AutoRole ? "checked" : "" %> required>
+        </div>
+        <div class="col ms-auto" style="float: right;">
+          <button type="reset" class="btn text-white" style="font-size: 20px;" onclick="closeBassic()" id="btn-cancel-ar">Cancel </button>
+          <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-ar"><i class="fas fa-save"></i> Save</button>
+        </div>
+      </div>
+    </form>
+    <script>
+      $('#btn-submit-ar').on('click', function (e) {
+        e.preventDefault();
+        var form = $(this).parents('form');
+        var cancelbtn = $('#btn-cancel-ar')
+        Swal.fire({
+          title: 'Do you want to save the changes?',
+          showDenyButton: true,
+          denyButtonColor: '#444444',
+          showCancelButton: false,
+          allowOutsideClick: false,
+          confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+          denyButtonText: `Don't save`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'Saved!',
+              text: '',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500,
+            })
+            form.submit()
+          } else if (result.isDenied) {
+            Swal.fire({
+              title: 'Changes are not saved',
+              text: '',
+              icon: 'info',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            cancelbtn.click();
+          }
+        })
+      });
+    </script>
+  </div>
+</div>

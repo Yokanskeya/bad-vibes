@@ -1,0 +1,107 @@
+<div class="container-lg p-2">
+  <h3><i class="far fa-comment-alt fa-2x pb"></i> Setup Embed</h3>
+  <hr>
+  <div class="col-md-12">
+    <p class="text-muted">Change the Look of your Embeds (Color, Image, Thumbnail, ...)</p>
+    <div class="img" style="text-align: center; margin: auto;">
+      <img src="https://media.discordapp.net/attachments/901446802711142460/931630731107631124/unknown.png"
+        alt="example_Embed" style="border-radius: 10px; ">
+    </div>
+  </div>
+  <form method="post" action="/setupEmbedSuccess">
+    <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+    <div class="input-group mb-3 mt-3">
+      <!-- Color Embed -->
+      <span class="input-group-text" id="color">Color Embed
+        <span style="margin-left: 5px; color:#828cff" data-bs-toggle="popEmbed" data-bs-trigger="hover"
+          data-bs-content="Color embed to give color to the left of the embed | Default: RANDOM" data-bs-placement="top">
+          <i class="fas fa-question-circle"></i>
+        </span>
+      </span>
+      <input type="color" class="form-control form-control-color" id="exampleColorInput" aria-describedby="color"
+        value="<%= settingsSchema.Embed.color %>" title="Choose your color" name="colorEmbed">
+      <!-- Footer Text -->
+      <span class="input-group-text" id="footertext">Footer Text
+        <span style="margin-left: 5px; color:#828cff" data-bs-toggle="popEmbed" data-bs-trigger="hover"
+          data-bs-content="Footer text for the text at the bottom of the embeds | Default: Your Guild Name"
+          data-bs-placement="top">
+          <i class="fas fa-question-circle"></i>
+        </span>
+      </span>
+      <input type="text" maxlength="100" size="100" class="form-control" name="footertextEmbed" id="footertext"
+        aria-describedby="footertext" placeholder="<%= settingsSchema.Embed.footertext %>" autocomplete="off">
+    </div>
+    <div class="input-group mb-3">
+      <!-- Thumbnail -->
+      <label class="input-group-text" for="thumb">Thumbnail
+        <span style="margin-left: 5px; color:#828cff" data-bs-toggle="popEmbed" data-bs-trigger="hover"
+          data-bs-content="If you uncheck Kuckuck will not send messages with thumbnails | Default: checked"
+          data-bs-placement="top">
+          <i class="fas fa-question-circle"></i>
+        </span>
+      </label>
+      <div class="input-group-text">
+        <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input"
+          name="thumbEmbed" id="thumb" <%= settingsSchema.Embed.thumb ? 'checked' : '' %>>
+      </div>
+      <!-- Image URL -->
+      <label class="input-group-text" for="inputGroupFile01">Image URL
+        <span style="margin-left: 5px; color:#828cff" data-bs-toggle="popEmbed" data-bs-trigger="hover"
+          data-bs-content="Image URL to be used as thumbnail and footer icon | Default: Your Guild Icon"
+          data-bs-placement="top">
+          <i class="fas fa-question-circle"></i>
+        </span>
+      </label>
+      <input type="text" class="form-control" id="inputGroupFile01" name="imgEmbed"
+        placeholder="Must be a URL image so that no errors occur" autocomplete="off">
+    </div>
+    <script>
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popEmbed"]'))
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+      })
+    </script>
+    <!-- BUTTON SAVE -->
+    <div class="d-flex" style="float: right;">
+      <button type="reset" class="btn text-white" style="font-size: 20px;" id="btn-cancel-se">Cancel </button>
+      <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-se"><i class="fas fa-save"></i> Save</button>
+    </div>
+  </form>
+  <script>
+    $('#btn-submit-se').on('click', function (e) {
+      e.preventDefault();
+      var form = $(this).parents('form');
+      var cancelbtn = $('#btn-cancel-se')
+      Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        denyButtonColor: '#444444',
+        showCancelButton: false,
+        allowOutsideClick: false,
+        confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Saved!',
+            text: '',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500,
+          })
+          form.submit()
+        } else if (result.isDenied) {
+          Swal.fire({
+            title: 'Changes are not saved',
+            text: '',
+            icon: 'info',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          cancelbtn.click();
+        }
+      })
+    });
+  </script>
+</div>

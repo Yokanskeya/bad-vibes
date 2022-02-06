@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/premium.css">
+
+  <title>Premium | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <%- include('./element/header'); -%>
+  <!-- SCRIPT -->
+  <section class="pb-5">
+    <!--Head-->
+    <div class="premium-head">
+      <h1 class="head-text">Bad Vibes Premium</h1>
+      <h5 class="text-white" style="text-align: center;">Satisfy all your discord members with Bad Vibes Premium
+        features!</h5>
+    </div>
+    <div class="container">
+      <div class="col card-premium">
+        <div class="col">
+          <div class="card-premium-img">
+            <img class="img-premium"
+              src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+              alt="logo">
+          </div>
+          <div class="card-premium-star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-premium-title text-white">
+            <i class="fas fa-gem fa-2x" style="color: #ddc3ff; float: right;"></i>
+            <h1>Bad Vibes Premium</h1>
+            <p>If you subscribe, you will get more awesome features for all members on your discord server.</p>
+            <p>Bad Vibes Premium Provides clearer sound and has some features that cannot be used in Bad Vibes Bot Standard.
+            </p>
+            <p>Subscription starting from IDR 25k/month or $3.00/month can already enjoy premium features.</p>
+            <div class="card-premium-btn">
+              <a href="/#checklist" class="fitur-btn">Premium Fitur</a>
+              <a href="#payment" class="fitur-btn">Subcribe Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-5 text-white" id="payment">
+      <div class="row">
+        <div class="col-md-4 payment">
+          <h1>Pay with IDR</h1>
+          <div class="img-free">
+            <img src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+              width="60%"></i>
+          </div>
+          <h2>IDR 25k<span style="font-size: 12px;">/month</span></h2>
+          <hr>
+          <div class="btn-bayar">
+            <a href="/payment" class="btn-pay" title="Bayar">Pay</a>
+          </div>
+          <hr>
+        </div>
+        <div class="col-md-4 payment">
+          <div class="img-bayar">
+            <h1>Pay with USD</h1>
+            <form class="img-free">
+              <img
+                src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+                width="60%"></i>
+            </form>
+            <h2>$3.00<span style="font-size: 12px;">/month</span></h2>
+            <hr>
+            <div class="btn-bayar">
+              <a href="https://www.patreon.com/" class="btn-pay"
+                target="_blank" rel="unfollow" title="Pay">Pay</a>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include('./element/footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{
+  "token": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME",
+  "TOKEN": {
+    "MAIN": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME",
+    "TEST": "ODc3MzY1Mzc3ODg0MTEwOTE5.YRxkLg.G4fDvLYwn3bfEyHbgFTGcpL3LME"
+  },
+  "prefix": "b!",
+  "ownerIDS": ["863031982018920488"],
+  "channel": {
+    "Logs": "939274812159840277",
+    "Report": "939274812159840277",
+    "Error": "939274812159840277"
+  },
+
+  "websiteSettings": {
+    "support": "https://discord.gg/wrTHfMqzaQ",
+    "domain": "https://Bad-Vibes.adamkhairusydan.repl.co/",
+    "port": 80,
+    "callback": "https://Bad-Vibes.adamkhairusydan.repl.co/callback",
+    "clientID": "877365377884110919",
+    "secret": "6n3DIQHilOpDm87jMlAywP7P4yvBEsI3"
+  },
+  "status": {
+    "text": "With U 💖 | {prefix}help",
+    "text2": "https://bit.ly/3gnY95V",
+    "type": "PLAYING",
+    "url": "https://twitch.tv/#"
+  },
+
+  "mainNodes": {
+    "host": "node04.lavalink.eu",
+    "port": 2333,
+    "password": "Raccoon"
+  },
+  "testNodes": {
+    "host": "localhost",
+    "port": 80,
+    "password": "kokomilan111"
+  },
+  "clientsettings": {
+    "nodes": [
+      {
+        "host": "losingtime.dpaste.org",
+        "port": 2124,
+        "password": "SleepingOnTrains"
+      }
+    ]
+  },
+  "spotify": {
+    "clientID": "3eb159586f4248e9abe72aec520febea",
+    "clientSecret": "597b352318ca4f528e9bb730720ae022"
+  },
+  "settings": {
+    "selfDeaf": true
+  },
+  "mongodb": {
+    "data": "discord-bot/databases",
+    "connect": "mongodb+srv://kaisa08:kaisa081099@cluster0.rmymw.mongodb.net/databases"
+  }
+}

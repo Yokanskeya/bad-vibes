@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  font-size: 18px;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.command-head{
+  padding-top: 50px;
+}
+#category{
+  border-radius: 5px;
+  padding-bottom: 50px;
+}
+#category a{
+  background-color: #26292e;
+  color: white; 
+  transition: .2s;
+  border-bottom: 1px solid #222;
+}
+#category a:hover {
+  padding-left: 35px;
+  color: #9b4890;
+}
+#category a.active{
+  color: #f0a3ff;
+  border-color: transparent;
+  border-bottom: 1px solid #222;
+}
+
+#command_head{
+  margin-bottom: 100px;
+}
+
+.text-box-i{
+  width: auto;
+  padding: 20px;
+  background-color:#26292e;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.text-box-head-i{
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #fff;
+}
+.text-box-head-i:hover{
+  transition: 0.2s;
+  font-size: 25px;
+  color: #fff;
+}
+.text-box-i p{
+  margin: 5px;
+  padding: 20px;
+  background-color:  #3b3f47;
+  border-radius: 10px;
+}
+ul.text-box {
+  padding-left: 0;
+  list-style-type: none;
+}
+li.box-li{
+  width: auto;
+  padding: 20px;
+  background-color:#26292e;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+li.box-li .text-box-head{
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #fff;
+}
+li.box-li .text-box-head:hover{
+  transition: 0.2s;
+  font-size: 25px;
+  color: #fff;
+}
+li.box-li p{
+  margin: 5px;
+  padding: 20px;
+  background-color:  #3b3f47;
+  border-radius: 10px;
+}
+.command-img{
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.search-box{
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+.search-box input{
+  width: 100%;
+  outline: none;
+  border:none;
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: #fff;
+  background-color:  #26292e;
+}
+
+.form-control:focus {
+  background-color: #26292e;
+  color: #eee;
+  border: none;
+  box-shadow: none;
+}
+@media screen and (max-width: 967px) {
+  .command-img{
+      width: 100%;
+  }
+}

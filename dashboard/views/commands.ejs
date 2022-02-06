@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/commands.css">
+  <link rel="stylesheet" href="/footer.css">
+
+  <title>Commands | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <!-- SCRIPT -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myList li").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+  <!-- NAVBAR -->
+  <%- include('./element/header'); -%>
+  <!-- HEADER -->
+  <div class="d-blok justify-content-center" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <h1 class="text-white"><%= bot.user.username %> Commands</h1>
+  </div>
+  <!-- CONTENT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" id="category">
+        <div class="col-xs-3 d-flex mb-3" style="background-color: #26292e; border-radius: 10px; padding: 10px">
+          <div class="d-flex" style="background-color: #3b3f47; border-radius: 10px; padding: 10px; width: 100%;">
+            <div class="img" style="margin:auto;">
+              <img src="<%= bot.user.displayAvatarURL({size: 512}) %>" alt="Logo" style="max-width: 100px;">
+            </div>
+            <div class="d-block" style="margin:auto;">
+              <h5 class="text-white">Bad Vibes</h5>
+              <p class="text-muted mb-0" style="font-size:14px;">Category: <code><%= categories.length%></code></p>
+              <p class="text-muted mb-0" style="font-size:14px;">Commands: <code><%= bot.commands.size%></code></p>
+            </div>
+          </div>
+        </div>
+        <div class="list-group" id="myList" role="tablist">
+          <% categories.forEach((category, i) => { %>
+          <a class="list-group-item list-group-item-action <%= i == 0 ? 'active': '' %>" data-bs-toggle="list"
+            href="#<%= category%>" role="tab"><%= category%></a>
+          <% }) %>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="col-md-3 search-box">
+          <input type="text" class="form-control" id="myInput" placeholder="Search for commands.." autocomplete="off">
+          <div class="tab-content">
+            <% categories.forEach((category, k) => { %>
+            <div class="tab-pane fade <%= k== 0 ? 'show active' : '' %>" id="<%= category%>" role="tabpanel">
+              <% commands.filter((cmd) => cmd.category === category).forEach((cmd, i) => { %>
+              <ul class="text-box" id="myList">
+                <% if (cmd.category == "Premium" || cmd.premium == true) {%>
+                <li class="box-li" id="<%= cmd.name %>" style="border: 3px solid #f0a3ff;">
+                  <% } else { %>
+                <li class="box-li" id="<%= cmd.name %>">
+                  <% } %>
+                  <a class="text-box-head" href="#<%= cmd.name %>"><%= BotConfig.prefix%><%= cmd.name %></a>
+                  <% if (cmd.category == "Premium" || cmd.premium == true) {%>
+                  <i class="fas fa-gem" style="float: right; color: #f0a3ff;"></i>
+                  <% } %>
+                  <p class="user-select-none text-white"><%= cmd.description %></p>
+                  <p style="color: rgb(189, 189, 189); font-size: 15px;">
+                    Sub category: <code><%= cmd.type %></code><br>
+                    <% if (cmd.category === "Music" ) { %>
+                    DJ Role: <code><%= cmd.parameters.check_dj %></code><br>
+                    <% } %>
+                    Aliases: <code><% cmd.aliases && cmd.aliases.length > 0 ? cmd.aliases.forEach(a => { %>
+                            [<%= a %>],
+                            <% }) : "NO" %></code><br>
+                    Cooldown: <code><%= cmd.cooldown %></code><br>
+                    Usage: <code><%= BotConfig.prefix%><%= cmd.usage %></code><br>
+                    Member Permissions: <code><%= cmd.memberpermissions %></code>
+                  </p>
+                </li>
+              </ul>
+              <% }) %>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-blok justify-content-center" style="margin: 20px 0;">
+      <center><a href="#" class="btn btn-secondary">Back to Top</a> </center>
+    </div>
+  </div>
+  <%- include('./element/footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+  "website": {
+    "web": "https://bad-vibes.adamkhairusydan.repl.co/",
+    "premium": "https://bad-vibes.adamkhairusydan.repl.co/premium",
+    "supportserver": "https://discord.gg/wrTHfMqzaQ"
+  },
+  "img": {
+    "ERROR": "https://media.discordapp.net/attachments/904821764146745404/928183017267142656/PinClipart.com_symbol-clipart_9986.png?width=533&height=480",
+    "icon": "https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png?width=480&height=480",
+    "coin": "https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png",
+    "loading": "https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
+  },
+  "invite": "https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=identify%20email%20guilds%20bot%20applications.commands"
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/settings.css">
+  <title>Music Settings | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+
+<body>
+  <%- include('../element/sidebar-settings'); -%>
+  <main class="container justify-content-center m-2" id="bassicsettings">
+    <div class="row bg-dark p-3">
+      <div class="col-md-12">
+        <h3><i class="bi bi-music-player-fill fa-2x pb"></i> Music Settings</h3>
+        <hr>
+      </div>
+      <div class="row m-auto pb-2">
+        <form id="form" method="POST" action="/dashboard/<%= guild.id%>/musicsettingsSuccess">
+          <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+          <!-- Music System Setup -->
+          <div class="col-md-12" style="margin-bottom: 20px;">
+            <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-compact-disc"></i> Music
+              System Setup </h5>
+            <div class="col d-flex" style="margin-top: 10px; margin-bottom: 10px;">
+              <img
+                src="https://cdn.discordapp.com/attachments/784917578974756904/938513017472180294/New_BV_Logo__Effect_gif.gif"
+                alt="badvibes_queue" style="margin: auto; border-radius: 10px;">
+            </div>
+            <p class="text-muted">Start Listening to Music, by connecting to a Voice Channel and sending either the SONG
+              LINK or
+              SONG NAME in Your Channel!</p>
+            <% if (musicsettings.channelId.length > 5) { %>
+            <% let channel = guild.channels.cache.get(musicsettings.channelId) %>
+            <p class="text-muted">Your Music System setuped in : <a
+                href="https://discord.com/channels/<%= guild.id%>/<%= channel.id%>/<%= musicsettings.messageId%>"
+                target="_blank" style="text-decoration: none;">#<%= channel.name %></a>
+            </p>
+            <% } else { %>
+            <select oninput="showBassic()" class="form-select" data-live-search="true" aria-label="musicsetup"
+              name="musicsetup" autocomplete="off" required>
+              <option selected disabled>Choose channel here for setup Music System...</option>
+              <% guild.channels.cache.filter(c=> c.type === "GUILD_TEXT" ).sort((a, b) => b.rawPosition - a.rawPosition).forEach((channel, i) => { %>
+              <option value="<%= channel.name%>">#<%= channel.name%></option>
+              <% }) %>
+            </select>
+            <% } %>
+          </div>
+          <!-- PRUNING & AUTORESUME -->
+          <div class="row mt-4">
+            <!-- Pruning Message -->
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 20px;" name="Pruning-Message">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i
+                  class="fas fa-envelope-open-text"></i>
+                Pruning Message: </h5>
+              <p class="text-muted">Toggles playmessage (same as pruning...). If its true a message of playing a new
+                track
+                will be sent, even if your afk. If false it wont send any message if a new Track plays!
+              </p>
+              <div class="form-check form-switch">
+                <label class="form-check-label switch" for="pruning">
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="pruning" id="pruning"
+                    style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;"
+                    <%= settingsSchema.Pruning ? "checked" : "" %>>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <!-- AUTO RESUME -->
+            <div class="col-md-6 col-sm-12" style="margin-bottom: 20px;" name="Auto-Resume">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-retweet"></i> Auto
+                Resume: </h5>
+              <p class="text-muted">Toggle to enable or disable the Auto Resume feature of songs if the bot restarts.
+              </p>
+              <div class="flex-grow" style="height: 39px; margin-bottom: 10px;"></div>
+              <div class="form-check form-switch">
+                <label class="form-check-label switch" for="autoresume">
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="autoresume"
+                    id="autoresume" style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;"
+                    <%= settingsSchema.Autoresume ? "checked" : "" %>>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- FLEX GROW -->
+          <div class="p-2 flex-grow-1"></div>
+          <!-- BUTTONS -->
+          <div class="col pb-4 ms-auto" style="float: right;">
+            <button type="reset" class="btn text-white" style="font-size: 20px;" onclick="closeBassic()"
+              id="btn-cancel-ms1">Cancel </button>
+            <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-ms1"><i
+                class="fas fa-save"></i> Save</button>
+          </div>
+          <script>
+            $('#btn-submit-ms1').on('click', function (e) {
+              e.preventDefault();
+              var form = $(this).parents('form');
+              var cancelbtn = $('#btn-cancel-ms1')
+              Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                denyButtonColor: '#444444',
+                showCancelButton: false,
+                allowOutsideClick: false,
+                confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+                denyButtonText: `Don't save`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: 'Saved!',
+                    icon: 'success',
+                    showConfirmButton: false,
+                  })
+                  form.submit()
+                } else if (result.isDenied) {
+                  Swal.fire({
+                    title: 'Changes are not saved',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  cancelbtn.click();
+                }
+              })
+            });
+          </script>
+        </form>
+        <hr>
+      </div>
+      <% if (!player || !player.queue || !player.queue.current) { %>
+      <div class="col-md-12">
+        <div class="blok-player" id="notplayer">
+          <h3 style="text-align: center;">Bad Vibes not playing a song at the moment...</h3>
+          <div class="img pt-3"><img
+              src="https://cdn.discordapp.com/attachments/784917578974756904/938513017472180294/New_BV_Logo__Effect_gif.gif"
+              alt="music-system" style="border-radius: 10px;" class="rounded mx-auto d-block"></div>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="row m-auto">
+        <form id="form" method="POST" action="/dashboard/<%= guild.id%>/musicsettingsSuccessPremium"
+          style="border-radius: 10px; border: 2px solid #f0a3ff;">
+          <input type="text" value="<%= guild.id%>" name="guildID" hidden>
+          <div class="row pt-4">
+            <!-- AUTO PLAY -->
+            <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px;">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-play"></i> Auto Play:
+              </h5>
+              <p class="text-muted">Toggles for automatic song search based on the previous song.</p>
+              <div class="flex-grow" style="height: 10px; margin-bottom: 10px;"></div>
+              <div class="form-check form-switch">
+                <% if (premium) { %>
+                <label class="form-check-label switch" for="defaultautoplay">
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="defaultautoplay"
+                    id="defaultautoplay" style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;"
+                    <%= settingsSchema.AutoPlay ? "checked" : "" %>>
+                  <span class="slider round"></span>
+                </label>
+                <% } else { %>
+                <label class="form-check-label switch" for="defaultautoplay"><i class="fas fa-gem"
+                    style="color: #f0a3ff; margin-left: 10px; margin-top: 5px;" data-bs-toggle="popover2"
+                    data-bs-trigger="hover" data-bs-content="Your Guild Not Premium!" data-bs-placement="top"></i>
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="defaultautoplay"
+                    id="defaultautoplay" style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;" disabled>
+                  <span class="slider round"></span>
+                </label>
+                <% } %>
+              </div>
+            </div>
+            <!-- AFK -->
+            <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px;">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-history"></i> AFK:
+              </h5>
+              <p class="text-muted">Toggles if the Current Queue should be stated on 'afk' or not.</p>
+              <div class="flex-grow" style="height: 10px; margin-bottom: 10px;"></div>
+              <div class="form-check form-switch">
+                <% if (premium) { %>
+                <label class="form-check-label switch" for="afk">
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="afk" id="afk"
+                    style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;"
+                    <%= premium.BotAFK ? "checked" : "" %>>
+                  <span class="slider round"></span>
+                </label>
+                <% } else { %>
+                <label class="form-check-label switch" for="afk"><i class="fas fa-gem"
+                    style="color: #f0a3ff; margin-left: 10px; margin-top: 5px;" data-bs-toggle="popover2"
+                    data-bs-trigger="hover" data-bs-content="Your Guild Not Premium!" data-bs-placement="top"></i>
+                  <input class="form-check-input" type="checkbox" data-live-search="true" name="afk" id="afk"
+                    style="zoom:2;margin-left: auto;margin-top: auto;margin: auto;" disabled>
+                  <span class="slider round"></span>
+                  <script>
+                    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover2"]'))
+                    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                      return new bootstrap.Popover(popoverTriggerEl)
+                    })
+                  </script>
+                </label>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <!-- VOLUME -->
+          <div class="row">
+            <div class="col-md" style="margin-bottom: 20px;" name="Music-Settings">
+              <% if (premium) { %>
+              <label for="volume" class="form-label">
+                <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-volume-up"></i>
+                  Volume: <%= player.volume%> <i class="fas fa-exclamation-triangle" style="color: #c90000;"
+                    id="warnVolume" data-bs-toggle="popover" data-bs-trigger="hover"
+                    data-bs-content="A Volume above 100% might cause distortion!" data-bs-placement="top"></i></h5>
+              </label>
+              <input type="range" min="1" max="150" value="<%= player.volume%>" class="slider-vol" id="volume"
+                name="volume">
+              <p><span id="curentVolume" class="text-muted"></span></p>
+              <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                  return new bootstrap.Popover(popoverTriggerEl)
+                })
+              </script>
+              <script>
+                var slider = document.getElementById("volume");
+                var output = document.getElementById("curentVolume");
+                output.innerHTML = slider.value;
+                slider.oninput = function () {
+                  output.innerHTML = this.value;
+                }
+              </script>
+              <% } else { %>
+              <label for="volume" class="form-label">
+                <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">
+                  <i class="fas fa-volume-up"></i>
+                  Volume: <%= player.volume%>
+                  <i class="fas fa-gem" style="color: #f0a3ff; margin-left: 10px; margin-top: 5px;"
+                    data-bs-toggle="popover2" data-bs-trigger="hover" data-bs-content="Your Guild Not Premium!"
+                    data-bs-placement="top"></i>
+                </h5>
+              </label>
+              <input type="range" min="1" max="150" value="<%= player.volume%>" class="slider-vol" id="volume"
+                name="volume" disabled>
+              <p><span id="curentVolume" class="text-muted"></span></p>
+              <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover2"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                  return new bootstrap.Popover(popoverTriggerEl)
+                })
+              </script>
+              <script>
+                var slider = document.getElementById("volume");
+                var output = document.getElementById("curentVolume");
+                output.innerHTML = slider.value;
+                slider.oninput = function () {
+                  output.innerHTML = this.value;
+                }
+              </script>
+              <% } %>
+
+            </div>
+          </div>
+          <!-- EQUALIZER & FILTER -->
+          <div class="row">
+            <!-- EQUALIZER -->
+            <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px;" name="Equalizer-Settings">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff"><i class="fas fa-sliders-h"></i>
+                Equalizer: <%= player.get("eq")%>
+              </h5>
+              <p class="text-muted">Changes the Equalizer in your server</p>
+              <% if (premium) { %>
+              <label for="equalizer" class="form-label">Available Equalizer:</label>
+              <select class="form-select" id="equalizer" name="equalizer">
+                <option selected disabled value="">Select Your Equalizer Music Here...</option>
+                <option value="🎵 Music">🎵 Music</option>
+                <option value="🎙 Pop">🎙 Pop</option>
+                <option value="💾 Electronic">💾 Electronic</option>
+                <option value="📜 Classical">📜 Classical</option>
+                <option value="🎚 Metal">🎚 Metal</option>
+                <option value="📀 Full">📀 Full</option>
+                <option disabled value="💿 Light">💿 Light</option>
+                <option value="🕹 Gaming">🕹 Gaming</option>
+                <option value="🎛 Bassboost">🎛 Bassboost</option>
+                <option value="🔈 Earrape">🔈 Earrape</option>
+                <option value="↩️ Reset">↩️ Reset</option>
+              </select>
+              <% } else { %>
+              <label for="equalizer" class="form-label">Available Equalizer: <i class="fas fa-gem"
+                  style="color: #f0a3ff; margin-left: 10px; margin-top: 5px;" data-bs-toggle="popover2"
+                  data-bs-trigger="hover" data-bs-content="Your Guild Not Premium!" data-bs-placement="top"></i></label>
+              <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover2"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                  return new bootstrap.Popover(popoverTriggerEl)
+                })
+              </script>
+              <select class="form-select" id="equalizer" name="equalizer">
+                <option selected disabled value="">Select Your Equalizer Music Here...</option>
+                <option disabled value="🎵 Music">🎵 Music</option>
+                <option disabled value="🎙 Pop">🎙 Pop</option>
+                <option disabled value="💾 Electronic">💾 Electronic</option>
+                <option disabled value="📜 Classical">📜 Classical</option>
+                <option disabled value="🎚 Metal">🎚 Metal</option>
+                <option disabled value="📀 Full">📀 Full</option>
+                <option disabled value="💿 Light">💿 Light</option>
+                <option disabled value="🕹 Gaming">🕹 Gaming</option>
+                <option disabled value="🎛 Bassboost">🎛 Bassboost</option>
+                <option disabled value="🔈 Earrape">🔈 Earrape</option>
+                <option disabled value="↩️ Reset">↩️ Reset</option>
+              </select>
+              <% } %>
+
+            </div>
+            <!-- FILTER -->
+            <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px;" name="Filter-Settings">
+              <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">
+                <i class="fas fa-sliders-h"></i> Filter: <%= player.get("filter")%>
+              </h5>
+              <p class="text-muted">Changes the Filter in your server</p>
+
+              <% if (premium) { %>
+              <label for="filter" class="form-label">Available Filter:</label>
+              <select class="form-select" id="filter" name="filter">
+                <option selected disabled value="">Select Your Filter Music Here...</option>
+                <option value="💯 Vibrato">💯 Vibrato</option>
+                <option value="💢 Vibrate">💢 Vibrate</option>
+                <option value="🏮 Tremolo">🏮 Tremolo</option>
+                <option value="⏱ Speed">⏱ Speed</option>
+                <option value="⏱ Slowmode">⏱ Slowmode</option>
+                <option value="📉 Rate">📉 Rate</option>
+                <option value="📈 Pitch">📈 Pitch</option>
+                <option value="👻 Nightcore">👻 Nightcore</option>
+                <option value="👾 Darth Vader">👾 Darth Vader</option>
+                <option value="🐿️ Chipmunk">🐿️ Chipmunk</option>
+                <option value="👺 China">👺 China</option>
+                <option value="🎚 Low Bass">🎚 Low Bass</option>
+                <option value="🎚 Medium Bass">🎚 Medium Bass</option>
+                <option value="🎚 High Bass">🎚 High Bass</option>
+                <option value="🎚 Earrape Bass">🎚 Earrape Bass</option>
+                <option value="🔊 8D">🔊 8D</option>
+                <option value="↩️ Reset">↩️ Reset</option>
+              </select>
+              <% } else { %>
+              <label for="filter" class="form-label">Available Filter: <i class="fas fa-gem"
+                  style="color: #f0a3ff; margin-left: 10px; margin-top: 5px;" data-bs-toggle="popover2"
+                  data-bs-trigger="hover" data-bs-content="Your Guild Not Premium!" data-bs-placement="top"></i></label>
+              <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover2"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                  return new bootstrap.Popover(popoverTriggerEl)
+                })
+              </script>
+              <select class="form-select" id="filter" name="filter">
+                <option selected disabled value="">Select Your Filter Music Here...</option>
+                <option disabled value="💯 Vibrato">💯 Vibrato</option>
+                <option disabled value="💢 Vibrate">💢 Vibrate</option>
+                <option disabled value="🏮 Tremolo">🏮 Tremolo</option>
+                <option disabled value="⏱ Speed">⏱ Speed</option>
+                <option disabled value="⏱ Slowmode">⏱ Slowmode</option>
+                <option disabled value="📉 Rate">📉 Rate</option>
+                <option disabled value="📈 Pitch">📈 Pitch</option>
+                <option disabled value="👻 Nightcore">👻 Nightcore</option>
+                <option disabled value="👾 Darth Vader">👾 Darth Vader</option>
+                <option disabled value="🐿️ Chipmunk">🐿️ Chipmunk</option>
+                <option disabled value="👺 China">👺 China</option>
+                <option disabled value="🎚 Low Bass">🎚 Low Bass</option>
+                <option disabled value="🎚 Medium Bass">🎚 Medium Bass</option>
+                <option disabled value="🎚 High Bass">🎚 High Bass</option>
+                <option disabled value="🎚 Earrape Bass">🎚 Earrape Bass</option>
+                <option disabled value="🔊 8D">🔊 8D</option>
+                <option disabled value="↩️ Reset">↩️ Reset</option>
+              </select>
+              <% } %>
+            </div>
+          </div>
+          <!-- BUTTON SAVE -->
+          <div class="row">
+            <div class="col-auto ms-auto pb-4" style="float: right;">
+              <button type="reset" class="btn text-white" style="font-size: 20px;" onclick="closeBassic()"
+                id="btn-cancel-ms2">Cancel </button>
+              <button type="submit" class="btn btn-primary text-white" style="font-size: 20px;" id="btn-submit-ms2"><i
+                  class="fas fa-save"></i> Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <% } %>
+      <script>
+        $('#btn-submit-ms2').on('click', function (e) {
+          e.preventDefault();
+          var form = $(this).parents('form');
+          var cancelbtn = $('#btn-cancel-ms2')
+          Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            denyButtonColor: '#444444',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            confirmButtonText: '<i class="fas fa-save"></i> Yes Save it!',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'Saved!',
+                icon: 'success',
+                showConfirmButton: false,
+              })
+              form.submit()
+            } else if (result.isDenied) {
+              Swal.fire({
+                title: 'Changes are not saved',
+                text: '',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              cancelbtn.click();
+            }
+          })
+        });
+      </script>
+    </div>
+  </main>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

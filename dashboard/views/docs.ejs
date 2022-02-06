@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/docs.css">
+  <title>Documentation | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('./element/header'); -%>
+<script>
+  $(window).on('load', function () {
+    var collapse = document.querySelectorAll('.accordion-collapse');
+    collapse.forEach((x) => {
+      x.classList.add('show')
+    })
+  })
+</script>
+
+<body>
+  <%- include('./element/sidebar-docs'); -%>
+  <main class="container justify-content-center m-2" id="bassicsettings">
+    <div class="row bg-dark p-3 rounded-3">
+      <div class="heading">
+        <div class="rounded-circle d-flex justify-content-center align-items-center hastag mb-2"
+          style="width: 80px; height: 80px;"><i class="fas fa-hashtag text-white fa-3x pb"></i>
+        </div>
+        <h1 class="text-white">Welcome to #documentation!</h1>
+        <p class="text-muted">This is the start of the #documentation page</p>
+        <hr>
+      </div>
+      <div class="col-md-12 pt-3 pb-3" id="Dosc">
+        <div class="row m-2">
+          <div class="col-md-1">
+            <a href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands"
+              target="popup" onclick="openInvite()"><img src="<%= bot.user.displayAvatarURL() %>" alt="Logo"
+                width="60px">
+            </a>
+          </div>
+          <div class="col-md-11 pt-1">
+            <%- include('./docs/heading'); -%>
+            <div class="embed">
+              <!-- TITLE -->
+              <h4 class="title">About a Bad Vibes Bot</h4>
+              <!-- DESCRIPTION -->
+              <p class="description"><span class="text-info"><%= bot.user.username%></span> is a
+                Discord bot that was intentionally created to help
+                manage your Discord server, and also to entertain all members on your server with music or other
+                things. <br><span class="text-info"><%= bot.user.username%></span> has been in development since
+                November 2021.
+              </p>
+              <p class="description">Informations of <span class="text-info"><%= bot.user.username%></span>:
+                <br>Bot Name: <code><%= bot.user.tag%></code>
+                <br>Bot ID: <code><%= bot.user.id%></code>
+                <br>Runtime: <code><%= duration(bot.uptime).join(`︲`)%></code>
+                <br>Active Commands: <code><%= bot.commands.size%></code>
+              </p>
+              <ul class="description">
+                <li>General -- Stats
+                  <ul class="description">
+                    <li>Servers: <code><%= bot.guilds.cache.size%></code></li>
+                    <li>Users: <code><%= bot.users.cache.size%></code></li>
+                    <li>Commands Usage: <code><%= stats.Commands%></code></li>
+                    <li>Songs Played: <code><%= stats.Songs%></code></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="description">
+                <li>Version -- Stats
+                  <ul class="description">
+                    <li>Node.js: <code><%= process.version%></code></li>
+                    <li>Discord.js: <code><%= Discord.version%></code></li>
+                    <li>Bot: <code><%= version%></code></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="description">
+                <li>Developer
+                  <ul class="description">
+                    <li>Name: <code><%= owner.tag%></code></li>
+                    <li>ID: <code><%= owner.id%></code></li>
+                  </ul>
+                </li>
+              </ul>
+              <figure class="text-center">
+                <blockquote class="blockquote">
+                  <p class="text-white">Bad Vibes Bot 2022</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  <i class="far fa-copyright"></i> Copyright 2022 <cite title="Source Title">All rights
+                    reserved</cite>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </section>
+  <%- include('./element/footer'); -%>
+</body>
+
+</html>

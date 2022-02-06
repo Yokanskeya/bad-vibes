@@ -1,0 +1,245 @@
+* {
+    font-size: 18px;
+    color: #eee;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-login-home {
+    margin-left: 10px;
+    margin-right: 10px; 
+    width: auto; 
+    height: 50px; 
+    font-size: 22px; 
+    background-color: #5865F2; 
+    border: 0px;
+    transition: 0.3s;
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+.btn-login-home:hover { 
+    background-color: #4751c2; 
+    transform: scale(105%);
+}
+.btn-login-home:active { 
+    transform: scale(95%);
+    box-shadow: none;
+}
+.content {
+    margin-top: 8rem !important;
+    background-color: #1f1f20;
+    padding-top: 3rem;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* ABOUT */
+.about img {
+    width: 50%;
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.about img:hover {
+    width: 60%;
+}
+
+.img-about-right {
+    margin-left: 5rem;
+    float: right !important;
+}
+.img-about-left {
+    margin-right: 5rem;
+    float: left !important;
+}
+.btn.btn-xl.mt-4{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #f45353;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+.btn.btn-xl.mt-4:hover{
+    transform: scale(105%);
+}
+
+/* PREMIUM BOX */
+.content-feature {
+    padding: 20px;
+}
+.fitur-head {
+    text-align: center;
+    margin: auto;
+}
+.line-end {
+    margin: auto;
+    width: 50%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 2px solid #ddc3ff;
+}
+.line-end2 {
+    margin: auto;
+    margin-bottom: 50px;
+    width: 30%;
+    border-radius: 10px;
+    border: 2px solid #ddc3ff;
+}
+.card-premium {
+    margin: auto;
+    margin-bottom: 40px;
+    background-color: #24262b;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 450px;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+}
+.card-premium:hover {
+    transform: translateY(-5%);
+}
+.card-premium hr {
+    height: 5px;
+    border-radius: 5px;
+    color: #f45353;
+}
+.img-pb {
+    width: auto;
+    text-align: center;
+}
+.img-pb i {
+    padding: 10px;
+}
+.text {
+    padding: 15px;
+    text-align: center;
+}
+.text p {
+    font-size: 15px;
+}
+
+/* EXTRA CONTENT */
+.upgradenow {
+    text-decoration: none;
+}
+.upgradenow h1{
+    padding: 10px;
+    border: 5px solid #ddc3ff;
+    background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #B2EBF2 40%, #ffffff 60%, #ddc3ff 100%);
+    border-radius: 10px;
+    text-decoration: none;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 400%;
+    animation: gradient 10s linear infinite alternate;
+}
+@keyframes gradient {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }
+}
+.upgradenow h1:hover{
+    padding: 10px;
+    transition: 0.2s;
+    transform: scale(110%);
+    background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #B2EBF2 40%, #ffffff 60%, #ddc3ff 100%);
+    border-radius: 10px;
+    text-decoration: none;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 400%;
+    animation: gradient 10s linear infinite alternate;
+}
+
+/* CHECKLIST CONTENT */
+.cheklist-box{
+    width: 900px;
+    padding: 20px;
+    padding-bottom: 30px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border: 5px solid #ddc3ff;
+    border-radius: 10px;
+    background-color: #24262b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+table{
+    margin: auto;
+    width: 100%;
+}
+th{
+    text-align: center; 
+    padding: 15px;
+    font-size: 25px;
+}
+td{
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.img-home {
+    width: 40%;
+}
+@media screen and (max-width: 967px) {
+    .img-home {
+        max-width: 50%;
+    }
+    .btn-login-home{
+        font-size: 16px;
+        display: block;
+        width: auto;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .about img {
+        margin-bottom: 50px;
+        width: auto;
+        max-width: 100%;
+    }
+    .about img:hover {
+        width: 100%;
+    }
+    .img-about-left .img-about-right {
+        margin: auto;
+    }
+    
+    .about h1 {
+        text-align: center;
+    }
+    .about p {
+        font-size: 16px;
+        text-align: center;
+    }
+    .content-feature {
+        width: auto;
+        max-width: 967px;
+    }
+    .row-card-premium {
+        display: block;
+        width: auto;
+    }
+    .card-premium {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+    }
+    .rich-commands-btn a{
+        width: auto;
+        margin: auto;
+        display: block;
+    }
+    h4.text-ended {
+        text-align: center;
+    }
+    .cheklist-box {
+        width: auto;
+    }
+    
+}

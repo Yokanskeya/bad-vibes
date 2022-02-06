@@ -1,0 +1,46 @@
+{
+    "debug-logs": true, 
+    "anti-crash-logs": true,
+    "ratelimit-logs": true,
+
+    "debug-discordjs-logs": false,
+    "show-serverjoins": true,
+    "show_loaded_commands": false,
+    "show_loaded_events": false,
+
+    "auto-resume-save-cooldown": 2500,
+    "auto-resume-delay": 500,
+
+    "deleteMessagesBeforeTheLastSongPlayedMessages": true,
+
+
+    "COMMENT": "time_delay 0 === insta leave",
+    "leaveOnEmpty_Channel": {
+        "enabled": true,
+        "time_delay": 60000
+    },
+    "LeaveOnEmpty_Queue": {
+        "enabled": true,
+        "time_delay": 1800000
+    },
+    "NonLeaveOnEmpty_Queue": {
+        "enabled": false,
+        "time_delay": 6000
+    },
+
+
+    "default_db_data": {
+        "language": "en",
+        "pruning": true,
+        "unkowncmdmessage": true,
+        "autoresume": true,
+        
+        "defaultvolume": 70,
+        "defaultequalizer": false,
+        "defaultautoplay": false,
+        
+        "autorole": false,
+        "afk": false,
+        "greeting": false
+    }
+}

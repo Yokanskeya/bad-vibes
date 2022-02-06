@@ -1,0 +1,281 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.head-text{
+  margin-top: 80px;
+  text-align: center;
+  font-weight: 900;
+  background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #B2EBF2 40%, #ffffff 60%, #ddc3ff 100%);
+  font-size: 120px;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 400%;
+  animation: gradient 10s linear infinite alternate;
+
+}@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+.card-premium{
+  display: flex;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #3b3f47;
+  border: 3px solid #ddc3ff;  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+img.img-premium{
+  display: block;
+  margin: auto;
+  float: none;
+  width: 300px;
+}
+.card-premium-star{
+  display: flex;
+}
+.card-premium-star i{
+  color: #ddc3ff;
+  margin: auto;
+}
+.card-premium-btn{
+  display: flex;
+}
+.fitur-btn{
+  display: block;
+  margin: auto;
+  max-width: 170px;
+  padding: 10px;
+  background-color: #ddc3ff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.fitur-btn:hover{
+  color: #fff;
+  transition: 0.2s;
+  transform: scale(103%);
+}
+
+.container {
+  max-width: 1300px;
+}
+
+.col-md-12{
+  padding: 20px;
+  padding-bottom: 30px;
+  margin: auto;
+  border: 3px solid #ddc3ff;
+  margin-top: 5rem;
+  border-radius: 10px;
+  background-color: #24262b;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+table{
+  margin: auto;
+  width: 100%;
+}
+th{
+  text-align: center;
+  margin: auto;
+  padding: 30px;
+  font-size: 30px;
+}
+td{
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+}
+.btn-ceklist{
+  margin: 10px;
+  border-bottom: 0px;
+}
+
+.btn-ceklist:hover{
+  transition: 0.3s;
+  transform: scale(105%);
+}
+a.btn-ceklist-text{
+  width: auto;
+  padding: 10px;
+  background-color: rgb(250, 99, 99);;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+a.btn-ceklist-text:hover{
+  transition: 0.3s;
+  background-color: rgb(201, 79, 79);
+}
+
+/**Upgrade**/
+
+
+
+.bayar {
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  background-color: #24262b;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bayar:hover {
+transition: 0.5s;
+transform: scale(105%);
+
+}
+
+.bayar h1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 40px;
+  color: #ddc3ff;
+
+}
+
+.bayar i {
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  margin: auto;
+  color: #ddc3ff;
+}
+
+.bayar hr {
+  height: 5px;
+  color: #f45353;
+}
+
+.bayar p {
+  padding: 10px;
+  text-align: center;
+}
+
+.img-pb {
+  display: flex;
+  position: relative;
+  margin: auto;
+  padding: 5px;
+}
+
+.img-pb img {
+  margin: auto;
+  padding: 10px;
+}
+
+/**HARGA**/
+
+.payment{
+margin: auto;
+max-width: 600px;
+padding: 20px;
+text-align: center;
+background-color: #24262b;
+border-radius: 10px;
+padding: 10px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.payment h1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 40px;
+  color: #ddc3ff;
+
+}
+.payment h2{
+  margin-top: 30px;
+
+}
+
+.payment i {
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  margin: auto;
+  color: #ddc3ff;
+}
+
+.payment hr {
+  height: 5px;
+  color: #f45353;
+}
+
+.payment p {
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-pay{
+display: block;
+margin: auto;
+max-width: 170px;
+padding: 10px;
+background-color: #ddc3ff;
+font-size: 20px;
+font-weight: 500;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+outline: none;
+text-decoration: none;
+}
+.btn-pay:hover{
+transition: 0.2s;
+transform: scale(103%);
+color: #fff;
+}
+
+@media screen and (max-width: 967px) {
+  .head-text{
+      margin: auto;
+      width: 100%;
+      font-size: 70px;
+  }
+  .card-premium{
+      display: block;
+  }
+  .card-premium-title{
+      padding-top: 50px;
+  }
+  .bayar{
+      margin-bottom: 20px;
+  }
+  table.box-ceklist{
+      width: auto;
+      margin: 10px;
+      display: flex;
+
+  }
+  th,td{
+      padding: 5px;
+      font-size: 18px;
+  }
+  .payment{
+      margin-bottom: 20px;
+  }
+}

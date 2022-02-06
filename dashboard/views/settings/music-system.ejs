@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/settings.css">
+  <title>Music System | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+
+<body>
+  <%- include('../element/sidebar-settings'); -%>
+  <main class="container justify-content-center m-2" id="player">
+    <div class="row bg-dark p-3">
+      <!-- TITLE HEADER -->
+      <div class="col-md-12">
+        <h3><i class="bi bi-music-note-list fa-2x pb"></i> Music Player </h3>
+        <hr>
+      </div>
+      <!-- MUSIC PLAYER -->
+      <% if (!player || !player.queue || !player.queue.current) { %>
+      <!-- NOT PLAYING -->
+      <div class="col-md-12" id="notplayer">
+        <div class="blok-player">
+          <h3 style="text-align: center;">Kucluck not playing a song at the moment...</h3>
+          <div class="img pt-3"><img
+              src="https://cdn.discordapp.com/attachments/784917578974756904/938513017472180294/New_BV_Logo__Effect_gif.gif"
+              alt="music-system" style="border-radius: 10px;" class="rounded mx-auto d-block"></div>
+        </div>
+      </div>
+      <% } else { %>
+      <!-- PLAYING -->
+      <div class="row justify-content-center m-auto" id="playercurent">
+        <div class="col-md-8" data-live-search="true" id="nowplaying">
+          <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">
+            <img src="https://cdn.discordapp.com/emojis/927445485843791882.gif?size=96" style="max-width: 50px;"
+              alt="disk">
+            Now Playing: <br>
+            <a href="<%= player.queue.current.uri%>" target="_blank"
+              style="color:#828cff"><%= player.queue.current.title %></a><span></span>
+          </h5>
+        </div>
+        <div class="img col-md-4 mb-4" id="nowplayingimg">
+          <img src="https://img.youtube.com/vi/<%= player.queue.current.identifier%>/mqdefault.jpg"
+            class="rounded-3 shadow-sm" style="width: 100%; margin-top: 20px; border-radius: 5px;"
+            alt="player-thumbnail">
+        </div>
+        <div class="col-md-8 d-flex mb-3" id="infoplaying">
+          <h6 style="margin: 0px auto;"><i class="fas fa-hourglass-start"></i> Song Duration: <br>
+            <span style="color: #828cff;"><%= format(player.position)%> /
+              <%= format(player.queue.current.duration) %></span>
+          </h6>
+          <h6 style="margin: 0px auto;"><i class="fas fa-user-edit"></i> Song by: <br>
+            <span style="color: #828cff;"><%= player.queue.current.author%></span>
+          </h6>
+          <h6 style="margin: 0px auto;"><i class="fas fa-stream"></i> Queue length: <br>
+            <span style="color: #828cff;"><%= player.queue.length%> Songs</span>
+          </h6>
+        </div>
+        <div class="col-lg-4 ms-auto pt-3" id="progressbar">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar"
+              style="width: <%= player.position / player.queue.current.duration * 100 %>%"
+              aria-valuenow="<%= player.position %>" aria-valuemin="0"
+              aria-valuemax="<%= player.queue.current.duration %>">
+            </div>
+          </div>
+          <b class="text-muted"><%= format(player.position) %></b><b class="text-muted"
+            style="float:right;"><%= format(player.queue.current.duration) %></b>
+        </div>
+        <div class="col-md-8 mb-3" id="requester">
+          <h6 style="margin-bottom: 0; margin-top: 10px;"><img
+              src="https://cdn.discordapp.com/avatars/<%= player.queue.current.requester.id%>/<%= player.queue.current.requester.avatar%>.png"
+              alt="User Icon" style="width:auto; max-width: 30px;"> Requested by:
+            <%= player.queue.current.requester.tag%>
+          </h6>
+        </div>
+        <div class="col-md-4 mb-3 p-0">
+          <form method="post" class="d-flex justify-content-evenly" action="/dashboard/<%=guild.id%>/musicsystempost">
+            <div id="btn-control">
+              <% let member = guild.members.cache.get (user.id) %> <% if (member.voice.channel) { %>
+              <!-- PREVIOUS -->
+              <input type="checkbox" class="btn-check" id="btn-previous" autocomplete="off" name="previous"
+                title="Previous" <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%>>
+              <label class="btn btn-primary" for="btn-previous" data-bs-toggle="previous" data-bs-trigger="hover" data-bs-content="Previous the last song" data-bs-placement="top"><i class="fas fa-step-backward"></i>
+              </label>
+              <!-- PAUSE & RESUME BTN -->
+              <input type="checkbox" class="btn-check" id="btn-resume" autocomplete="off" name="pause" title="resume"
+                <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%>>
+              <label class="btn <%= player.playing ? 'btn-secondary' : 'btn-success' %>" for="btn-resume"
+                data-bs-toggle="resume" data-bs-trigger="hover"
+                data-bs-content="<%= player.playing ? 'Pause' : 'Resume' %> the current song" data-bs-placement="top"><i
+                class=" <%= player.playing? 'fas fa-pause' : 'fas fa-play'%>"></i>
+              </label>
+              <!-- SKIP -->
+              <input type="checkbox" class="btn-check" id="btn-skip" autocomplete="off" name="skip" title="Skip"
+                <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%>>
+              <label class="btn btn-primary" for="btn-skip" data-bs-toggle="skip" data-bs-trigger="hover"
+                data-bs-content="Skip the current song" data-bs-placement="top"><i class="fas fa-step-forward"></i>
+              </label>
+              <!-- SHUFFLE -->
+              <input type="checkbox" class="btn-check" id="btn-shuffle" autocomplete="off" name="shuffle"
+                title="Shuffle" <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%>>
+              <label class="btn btn-primary" for="btn-shuffle" data-bs-toggle="shuffle" data-bs-trigger="hover"
+                data-bs-content="Shuffle this queue" data-bs-placement="top"><i class="fas fa-random"></i>
+              </label>
+              <!-- STOP BTN -->
+              <input type="checkbox" class="btn-check" id="btn-stop" autocomplete="off" name="stop" title="Stop" 
+              <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%> 
+              <%= player.get(`autoplay`) ? 'disabled' : '' %>>
+              <label class="btn btn-danger" for="btn-stop" data-bs-toggle="stop" data-bs-trigger="hover"
+                data-bs-content="Stop & Clear Queue." data-bs-placement="top"><i class="fas fa-stop"></i>
+              </label>
+              <!-- LEAVE -->
+              <input type="checkbox" class="btn-check" id="btn-leave" autocomplete="off" name="leave" title="Leave"
+                <% if(player.voiceChannel != member.voice.channel.id) {%> disabled <%}%>>
+              <label class="btn btn-danger" for="btn-leave" data-bs-toggle="leave" data-bs-trigger="hover"
+                data-bs-content="Leave Voice Channel!" data-bs-placement="top"><i class="fas fa-sign-out-alt"></i>
+              </label>
+              <% } %> </div>
+              <!-- BTN CONTROL -->
+              <button class="btn btn-primary" type="submit" name="pause" title="Pause" id="submit" hidden></button>
+          </form>
+          <script>
+            var resume = [].slice.call(document.querySelectorAll('[data-bs-toggle="resume"]'));
+            var popoverResume = resume.map(function (popoverTriggerResume) {
+              return new bootstrap.Popover(popoverTriggerResume)
+            })
+            var pause = [].slice.call(document.querySelectorAll('[data-bs-toggle="pause"]'));
+            var popoverPause = pause.map(function (popoverTriggerPause) {
+              return new bootstrap.Popover(popoverTriggerPause)
+            })
+            var skip = [].slice.call(document.querySelectorAll('[data-bs-toggle="skip"]'));
+            var popoverSkip = skip.map(function (popoverTriggerSkip) {
+              return new bootstrap.Popover(popoverTriggerSkip)
+            })
+            var previous = [].slice.call(document.querySelectorAll('[data-bs-toggle="previous"]'));
+            var popoverPrevious = previous.map(function (popoverTriggerPrevious) {
+              return new bootstrap.Popover(popoverTriggerPrevious)
+            })
+            var shuffle = [].slice.call(document.querySelectorAll('[data-bs-toggle="shuffle"]'));
+            var popoverShuffle = shuffle.map(function (popoverTriggerShuffle) {
+              return new bootstrap.Popover(popoverTriggerShuffle)
+            })
+            var stopPl = [].slice.call(document.querySelectorAll('[data-bs-toggle="stop"]'));
+            var popoverStop = stopPl.map(function (popoverTriggerStop) {
+              return new bootstrap.Popover(popoverTriggerStop)
+            })
+            var leave = [].slice.call(document.querySelectorAll('[data-bs-toggle="leave"]'));
+            var popoverLeave = leave.map(function (popoverTriggerLeave) {
+              return new bootstrap.Popover(popoverTriggerLeave)
+            })
+          </script>
+          <script>
+            $('#btn-pause').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-previous').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-resume').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-skip').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-stop').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-leave').click(function () {
+              $('#submit').click();
+            })
+            $('#btn-shuffle').click(function () {
+              $('#submit').click();
+            })
+          </script>
+        </div>
+        <hr>
+      </div>
+      <!--  QUEUE -->
+      <div class="row m-auto justify-content-center">
+        <div class="d-flex" style="margin-bottom: 0.5rem; margin-top: 10px; color:#828cff;" id="queueTitle">
+          <img src="https://c.tenor.com/ykQ5HijpTrEAAAAi/headphones-music.gif"
+            style="max-width: 50px; max-height: 50px; margin-right: 10px;" alt="disk">
+          <h3 style="margin-top: 10px;"> Queue of <%=guild.name%> - [<%= player.queue.length%> Tracks]</h3>
+        </div>
+        <div class="row justify-content-md-center overflow-auto" id="queue" style="height: 800px;">
+          <% player.queue.map((song, i) => {%>
+          <div class="col-md-3 m-1 p-2 queuelist">
+            <ul style="list-style-type:none; margin: 0%; padding: 0%;" id="myList">
+              <li class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 130px;">
+                <div class="p-2 bd-highlight">
+                  <span class="text-white mb-0" style="font-size: 15px;"><%= ++i %>. <%= song.author%> -
+                    <%= song.title%></span><br>
+                  <span class="text-muted mb-0" style="font-size: 15px;">Duration:
+                    <%= format(song.duration)%></span><br>
+                  <span class="text-muted mb-0" style="font-size: 15px;">Req by: <%= song.requester.tag%></span><br>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+    <!-- END MUSIC PLAYER -->
+    </div>
+  </main>
+  <script type="text/javascript">
+    window.onload = startInterval
+    function startInterval() {
+      setInterval(() => {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            try {
+              // if it worked, parse that string, make it back into an object
+              var data = this.responseText
+              parser = new DOMParser();
+              var doc = parser.parseFromString(data, "text/html");
+              data = doc.querySelector("#nowplaying").innerHTML;
+              document.getElementById("nowplaying").innerHTML = data;
+              data = doc.querySelector("#nowplayingimg").innerHTML;
+              document.getElementById("nowplayingimg").innerHTML = data;
+              data = doc.querySelector("#infoplaying").innerHTML;
+              document.getElementById("infoplaying").innerHTML = data;
+              data = doc.querySelector("#requester").innerHTML;
+              document.getElementById("requester").innerHTML = data;
+              data = doc.querySelector("#progressbar").innerHTML;
+              document.getElementById("progressbar").innerHTML = data;
+              data = doc.querySelector("#queueTitle").innerHTML;
+              document.getElementById("queueTitle").innerHTML = data;
+              data = doc.querySelector("#queue").innerHTML;
+              document.getElementById("queue").innerHTML = data;
+            } catch (e) {
+              data = doc.querySelector("#player").innerHTML;
+              document.getElementById("player").innerHTML = data;
+              console.log(e)
+            }
+          }
+        };
+        xmlhttp.open("GET", "/dashboard/<%= guild.id %>/musicsystem", true);
+        xmlhttp.send();
+      }, 1000);
+    }
+  </script>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

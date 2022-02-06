@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md navbar-dark header mt-0">
+  <div class="container-fluid" style="max-width: 1800px;">
+    <a class="navbar-brand" href="/">
+      <img src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+        alt="Logo" class="d-inline-block align-center" style="max-width: 70px; padding-bottom: 20px !important; "></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link header-link" href="/commands"><i class="fab fa-rocketchat"></i> Commands</a>
+        <a class="nav-link header-link" href="/docs"><i class="far fa-file-alt"></i> Docs</a>
+        <a class="nav-link header-link" href="https://discord.gg/BuACxn4XUw" target="_blank"><i
+            class="fab fa-discord"></i> Discord
+          Server</a>
+        <a class="nav-link header-link"
+          href="https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands"><i
+            class="fas fa-user-plus"></i> Invite</a>
+        <a class="nav-link header-link" href="/dashboard"><i class="fas fa-sliders-h"></i> Dashboard</a>
+        <a class="nav-link header-link" href="/#upgrade"><i class="fas fa-gem"></i> Upgrade</a>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto btn-group">
+        <% if(user && user.id) { %>
+        <button type="button" class="btn dropdown-toggle" onclick="shownametag()" onblur="hidenametag()" id="btn"
+          data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+          <span id="nametag"></span>
+          <img class="user-icon" src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png"
+            alt="avatar-user" class="rounded-circle">
+        </button>
+        <script>
+          function shownametag() {
+            var data = document.getElementById('nametag');
+            data.classList.add('show')
+            data.innerHTML = '<%= user.username%>';
+          }
+          function hidenametag() {
+            var data = document.getElementById('nametag');
+            data.classList.remove('show')
+            data.innerHTML = '';
+          }
+        </script>
+        <ul class="dropdown-menu dropdown-menu-dark bg-dark dropdown-menu-lg-end">
+          <div class="col-xs-2" style="margin: auto; text-align: center;">
+            <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" alt="avatar-user"
+              class="rounded-circle mb-3"><br>
+            <p>Hallo, <%=user.username%></p>
+          </div>
+          <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="/logout">Logout <span class="ms-auto" style="float: right;"><i
+                  class="fas fa-sign-out-alt"></i></span></a></li>
+        </ul>
+        <% } else { %>
+        <button type="button" class="btn btn-secondary text-white btn-login" onclick="location.href='/login'">
+          <span class="icon"><i class="fas fa-sign-in-alt text-white"></i></span>
+          <span class="text p-0">Login</span>
+        </button>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- OUTER SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9746709e58.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js"
+    integrity="sha256-rFie6glbD6Zy9CLbJuxIEyU/VRe34QOSc1QH4eXrDQk=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <!-- END OUTER SCRIPT -->
+  <!-- OUTER CSS -->
+  <link rel="stylesheet" href="@sweetalert2/theme-borderless/borderless.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- END OUTER CSS -->
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="/payment.css">
+  <link rel="stylesheet" href="/header.css">
+  <!-- END MY CSS -->
+  <title>Terms and Conditions | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <section>
+    <div class="container mt-5" style="max-width: 900px;">
+      <div class="row mt-5 justify-content-center bg-dark">
+        <div class="col-md-12 d-flex p-4">
+          <div class="d-flex align-items-center">
+            <div class="flex-shrink-0 img">
+              <img src="<%= bot.user.displayAvatarURL({ dynamic: true}) %>" alt="logo">
+            </div>
+          </div>
+          <div class="d-flex align-items-start justify-content-center flex-column bd-highlight" style="height: 150px;">
+            <h1><%= bot.user.username %></h1>
+            <h5>Terms and Conditions</h5>
+          </div>
+          <div class="d-flex justify-content-md-end ms-auto p-2 flex-column bd-highlight" style="height: 150px;">
+            <button class="btn text-white">Bahasa Indonesia
+              <img
+                src="https://media.discordapp.net/attachments/901446802711142460/931751586097680415/indonesia.png?width=480&height=480"
+                alt="ID" width="25px">
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md d-block pb-4" translate="yes">
+            <div class="text-box" style="max-height: 550px; overflow:auto; padding: 10px;">
+              <h4 id="scrollspyHeading1"># Tentang</h4>
+              <p>Saya, Adam Khairusydan selaku developer Bad Vibes sangat berterimakasih kepada kalian yang menggunakan
+                Bot Discord ini. Bad Vibes adalah sebuah bot Discord yang sengaja dibuat untuk membantu mengurus server
+                Discord anda, dan juga dapat untuk menghibur semua member yang ada di server anda dengan musik ataupun
+                hal lainnya. Dengan adanya fitur tersebut saya sengaja memberikan beberapa fitur khusus untuk kalian
+                yang membantu mendonate saya untuk mengembangan Bot ini. </p>
+              <h4 id="scrollspyHeading2"># Fitur Khusus</h4>
+              <p>Untuk kalian yang berminat untuk membantu mengembangan Bot ini dengan cara mendonate, kami memberikan
+                beberapa fitur khusus. yaitu
+              <ul>
+                <li>24/7 Stay Voice Channel</li>
+                <li>All Button Active</li>
+                <li>Audio Filter</li>
+                <li>Audio Equalizer</li>
+                <li>Auto Play Songs</li>
+                <li>Lyrics</li>
+                <li>Save and Play Queue</li>
+              </ul>
+              </p>
+              <h4 id="scrollspyHeading2"># Pembayaran</h4>
+              <p>Metode pembayaran yang digunakan Bad Vibes adalah DANA untuk pembayaran melalui IDR, dan Patreon untuk
+                pembayaran melalu USD.</p>
+              <h4 id="scrollspyHeading2"># Ketentuan</h4>
+              <p>Bagi kalian yang mendonate harap lakukan verifikasi ulang untuk claim Premium Fitur. Silahkan kalian
+                verifikasi di <a href="https://discord.gg/BuACxn4XUw" class="text-info" target="_blank">Support
+                  Server</a> lalu kalian
+                <% let guildSupport = bot.guilds.cache.get("625018767180693504") %>
+                <% let channelPayment = guildSupport.channels.cache.get("939274812159840277") %>
+                <% let owner = bot.users.cache.get("863031982018920488")%>
+                pilih channel <a href="https://discord.com/channels/625018767180693504/939274812159840277"
+                  target="_blank" class="text-info" rel="noopener noreferrer"> #<%= channelPayment.name %> </a> disitu
+                kalian bisa langsung upload bukti pembayaran kalian. Atau kalian bisa langsung private chat saya <span
+                  class="text-info"><%= owner.tag%></span> untuk mengirimkan bukti pembayarannya.
+              </p>
+              <p>Jika sudah mengirimkan bukti pembayaran kami usahakan secepat mungkin untuk membuka akses Premium Guild
+                ke guild anda. Anda akan mendapatkan private message dari Bad Vibes jika guild anda sudah Premium.</p>
+              <p>Perlu kalian ketahui, pembayaran yang sudah masuk tidak dapat di kembalikan.</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3 justify-content-center">
+            <div class="col-md">
+              <div class="d-flex justify-content-start bd-highlight">
+                <button class="btn" onclick="location.href='/'" title="Home"><i
+                    class="fas fa-angle-double-left fa-2x"></i></button>
+                <div class="col-md">
+                  <div class="d-flex justify-content-end bd-highlight">
+                    <button class="btn align-items-end" title="Invite"
+                      onclick="window.open('https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands', '_blank,')"><img
+                        src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png"
+                        alt="LN_Logo" width="45px"></button>
+                    <button class="btn align-items-end" title="Adam Khairusydan"
+                      onclick="window.open('https://www.facebook.com/adamkhai0/', '_blank,')"><img
+                        src="<%= owner.displayAvatarURL()%>" alt="LN_Logo" width="40px"></button>
+                    <button class="btn align-items-end" title="Support Server"
+                      onclick="window.open('https://discord.gg/wrTHfMqzaQ', '_blank,')"><i
+                        class="fab fa-discord fa-2x"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<style>
+  button {
+    transition: all 0.2;
+
+  }
+
+  button:hover {
+    transform: scale(105%);
+  }
+</style>
+
+</html>

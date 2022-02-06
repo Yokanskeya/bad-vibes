@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- OUTER SCRIPT -->     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9746709e58.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js" integrity="sha256-rFie6glbD6Zy9CLbJuxIEyU/VRe34QOSc1QH4eXrDQk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- END OUTER SCRIPT -->
+    <!-- OUTER CSS -->
+    <link rel="stylesheet" href="@sweetalert2/theme-borderless/borderless.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- END OUTER CSS -->
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="/payment.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/settings.css">
+    <!-- END MY CSS -->
+    <title>Error | <%= bot.user.username %></title>
+    <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+  </head>
+  <body>
+    <% if (premium) { %> 
+      <script>
+        let timerInterval
+        Swal.fire({
+          title: 'Your Guild Has Premium!',
+          imageUrl: "https://cdn.discordapp.com/attachments/901446802711142460/918761121161310228/kucluck_koin_1.png",
+          html: 'I will close in <b></b> milliseconds.',
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location = "/premium";
+            console.log('I was closed by the timer')
+          }
+        })
+      </script>
+    <% } %>
+    <section>
+      <template id='dana_QR'>
+        <swal-title>Scan for Pay with Dana</swal-title>
+        <swal-image src="https://media.discordapp.net/attachments/901446802711142460/932393500106960916/unknown.png" alt="DANA" />
+      </template>
+      <template id='ovo_QR'>
+        <swal-title>Scan for Pay with OVO</swal-title>
+        <swal-image src="https://media.discordapp.net/attachments/901446802711142460/932393638833582150/unknown.png" alt="OVO" />
+      </template>
+      <template id='BCA_QR'>
+        <swal-title>Scan for Pay with BCA</swal-title>
+        <swal-image src="https://media.discordapp.net/attachments/901446802711142460/932393728906260520/unknown.png" alt="BCA" />
+        <swal-html>Rek: 2730232732<br>M Lukman Novawiyadi</swal-html>
+      </template>
+      <template id='QRIS'>
+        <swal-title>Scan for Pay with All Methods</swal-title>
+        <swal-image src="https://media.discordapp.net/attachments/901446802711142460/933668334963130398/unknown.png" alt="QRIS" />
+      </template>
+      <div class="container-lg p-5" style="margin-top: 100px;">
+        <div class="row gy-5">
+          <div class="col payment-control d-flex p-4">
+            <div class="col-lg-2">
+              <div class="img" style="margin: auto; text-align: center;">
+                <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" style="max-width: 200px; max-height: 200px; border-radius: 50px">` : `<img src="https://media.discordapp.net/attachments/901446802711142460/931743540684415016/discord-statistics.jpg" style="max-width: 200px; max-height: 200px; border-radius: 50px">` %>
+              </div>
+            </div>
+            <div class="col">
+              <h1><%= guild.name%></h1>
+              <p>
+                Member Count: <%= guild.memberCount%> <br>
+                Login by: <%= user.username%>
+              </p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="row gy-3">
+          <div class="col payment-control d-block p-4">
+            <form method="post" action="/paymentgate" validate>
+              <div class="input-group mb-3">
+                <label for="guildname">
+                  <span class="input-group-text">Guild Name:</span>
+                </label>
+                <input type="text" class="form-control" id="guildname" name="guildname" value="<%= guild.name%>" readonly>
+              </div>
+              <div class="input-group mb-3">
+                <label for="guildid">
+                  <span class="input-group-text">Guild ID:</span>
+                </label>
+                <input type="text" class="form-control" id="guildid" name="guildid" value="<%= guild.id%>" readonly>
+              </div>
+              <div class="input-group mb-3">
+                <label for="username">
+                  <span class="input-group-text" >Username:</span>
+                </label>
+                <input type="text" class="form-control" id="username" name="username" value="<%= user.username%>#<%= user.discriminator%>" readonly>
+              </div>
+              <div class="input-group mb-3">
+                <label for="email">
+                  <span class="input-group-text">Email:</span>
+                </label>
+                <input type="email" class="form-control" value="<%= user.email%>" id="email" name="email" required>
+              </div>
+              <div class="input-group mb-3">
+                <label for="period">
+                  <span class="input-group-text">Period of time</span>
+                </label>
+                <select class="form-select" id="period" name="period" oninvalid="setCustomValidity('Please selecet one!')" oninput="setCustomValidity('')" required>
+                  <option selected disabled></option>
+                  <option value="oneMonth">1 Month (IDR 25k)</option>
+                  <option value="treeMonth">3 Months (IDR 65k)</option>
+                  <option disabled value="sixMonth">6 Months (Comming Soon)</option>
+                  <option disabled value="twelveMonth">12 Months (Comming Soon)</option>
+                </select>
+              </div>
+              <!-- <div class="input-group mb-3">
+                <label for="paymentmethod">
+                  <span class="input-group-text">Payment Method</span>
+                </label>
+                <select class="form-select" id="paymentmethod" name="paymentmethod" oninvalid="setCustomValidity('Please selecet one!')" oninput="setCustomValidity('')" required>
+                  <option selected disabled></option>
+                  <option value="Dana" data-template="dana_QR">Dana</option>
+                  <option value="OVO" data-template="ovo_QR" >OVO</option>
+                  <option value="BCA" data-template="BCA_QR" >Transfer Bank BCA</option>
+                  <option value="QRIS" data-template="QRIS" >QRIS (All Method)</option>
+                </select>
+              </div>
+              <script>
+                var btn = document.getElementById('btn_qr');
+                document.getElementById('paymentmethod').onchange = function() {
+                  const data = document.getElementById(this.options[this.selectedIndex].getAttribute('data-template'))
+                  Swal.fire({
+                    template: data
+                  })
+                }
+              </script> -->
+              <!-- <div class="input-group mb-3">
+                <label for="proofofpayment">
+                  <span class="input-group-text">Proof of Payment</span>
+                </label>
+                <input type="file" class="form-control" id="proofofpayment" name="proofofpayment" aria-label="Upload" oninvalid="setCustomValidity('Please upload your Proof of Payment!')" oninput="setCustomValidity('')" required>
+              </div> -->
+              <div class="form-check mb-3" style="padding-left: 30px;">
+                <input class="form-check-input" type="checkbox" id="terms" name="terms" checked required>
+                <label class="form-check-label" for="terms">I agree with the <a href="#" style="text-decoration: none;">terms and conditions</a></label>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-secondary" onclick="location.href='/payment' " type="button"><i class="fas fa-arrow-left"></i> Switch Server</button>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-secondary" type="reset" id="btn-cancel-payment"><i class="fas fa-trash-restore"></i> Reset</button>
+                  <button class="btn btn-success" type="submit" id="btn-submit-payment"><i class="fas fa-money-bill-wave"></i> Pay</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

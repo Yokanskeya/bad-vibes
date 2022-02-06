@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/docs.css">
+  <title>Setup | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+<%- include('../element/header'); -%>
+
+<script>
+  $(window).on('load', function () {
+    var collapse = document.querySelectorAll('.collapse-setup');
+    collapse.forEach((x) => {
+      x.classList.add('show')
+    })
+  })
+</script>
+
+<body>
+  <%- include('../element/sidebar-docs'); -%>
+  <main class="container justify-content-center m-2" id="bassicsettings">
+    <div class="row bg-dark p-3 rounded-3">
+      <div class="heading">
+        <div class="rounded-circle d-flex justify-content-center align-items-center hastag mb-2"
+          style="width: 80px; height: 80px;"><i class="fas fa-hashtag text-white fa-3x pb"></i>
+        </div>
+        <h1 class="text-white">Welcome to #setup!</h1>
+        <p class="text-muted">This is the start of the #setup</p>
+        <hr>
+      </div>
+      <div id="quickstart">
+        <!-- SETUP -->
+        <div class="col-md-12 pt-3 pb-3" id="Setup">
+          <div class="row m-2">
+            <div class="col-md-1">
+              <%- include('./heading-img'); -%>
+              </a>
+            </div>
+            <div class="col-md-11 pt-1">
+              <div class="heading">
+                <%- include('./heading'); -%>
+                <div class="embed">
+                  <!-- TITLE -->
+                  <h4 class="title">Setup a Bad Vibes Bot</h4>
+                  <!-- DESCRIPTION -->
+                  <div class="description">
+                    <p>Now you are able to set up Bad Vibes on the dashboard or by using the commands on the Discord
+                      directly. <br>
+                      To set up Bad Vibes on the dashboard you need to login first, if you are already login, you can go
+                      directly to <a href="/dashboard" target="_blank">this link</a>. <br>
+                      To set up Bad Vibes on Discord directly by using the command you can follow the steps below..
+                    </p>
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                      <!-- PREFIX -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white" id="prefix">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-prefix" aria-expanded="false"
+                            aria-controls="panel-prefix" id="btn-prefix">
+                            <i class="fas fa-hashtag"></i> &nbsp Prefix
+                          </button>
+                        </h2>
+                        <div id="panel-prefix" class="accordion-collapse collapse" aria-labelledby="prefix">
+                          <div class="accordion-body description pt-0">
+                            <p>You can custom prefix according to what you need to run all commands in your guild. How
+                              to
+                              run the command <code><%= config.prefix%>prefix [new Prefix]</code>, for example
+                              <code><%= config.prefix%>prefix k!</code>,
+                              and now the prefix for your guild is <code>k!</code>.<br>When you have changed the
+                              prefix
+                              run commands with the prefix you set earlier.
+                            </p>
+                            <div class="img"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939279029901619220/unknown.png"
+                                alt="prefix"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- MUSIC SETUP -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white"
+                          id="music-setup">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-music-setup"
+                            aria-expanded="false" aria-controls="panel-music-setup" id="btn-music-setup">
+                            <i class="fas fa-hashtag"></i> &nbsp Music System
+                          </button>
+                        </h2>
+                        <div id="panel-music-setup" class="accordion-collapse collapse" aria-labelledby="music-setup">
+                          <div class="accordion-body description pt-0">
+                            <p><span style="color: #ddc3ff; background-color: transparent;">Music System</span> is one
+                              of the features that can make it easier for you to play a song. To use this feature
+                              first, please create a new text channel, after the text channel has been created, run
+                              the command <code><%= config.prefix%>setup-music [#text-channel]</code>. Bad Vibes will
+                              create a new message
+                              to serve as <span style="color: #ddc3ff; background-color: transparent;">Music
+                                System</span> in the text channel.<br>
+                              Now you can play songs without using commands. You only need to send a message in the
+                              form of a <strong>song title / url link / playlist link</strong> into the text channel.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939279910361530468/unknown.png?width=327&height=479"
+                                alt="music-setup"></div>
+                            <p><span style="color: #e01e01; background-color: transparent;"><i
+                                  class="fas fa-exclamation-triangle"></i> Important!!! <i
+                                  class="fas fa-exclamation-triangle"></i></span><br>
+                              Do not delete the text channel and the message. If the text channel and messages are
+                              deleted run the command <code><%= config.prefix%>reset</code> in the options menu select
+                              <span style="color: #ddc3ff; background-color: transparent;">Music System</span>.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- DJ ROLE -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white" id="djrole">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-djrole" aria-expanded="false"
+                            aria-controls="panel-djrole" id="btn-djrole">
+                            <i class="fas fa-hashtag"></i> &nbsp DJ Role
+                          </button>
+                        </h2>
+                        <div id="panel-djrole" class="accordion-collapse collapse" aria-labelledby="djrole">
+                          <div class="accordion-body description pt-0">
+                            <p>The DJ system is useful for using some music commands, so that those who don't have
+                              roles can't use them.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939645764173447199/unknown.png"
+                                alt="djrole"></div>
+                            <p>You can set the DJ role by running the command
+                              <code><%= config.prefix%>adddj [@djrole]</code>.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- BOT CHANNEL CHAT -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white" id="BCC">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-BCC" aria-expanded="false"
+                            aria-controls="panel-BCC" id="btn-BCC">
+                            <i class="fas fa-hashtag"></i> &nbsp Bot Channels Chat
+                          </button>
+                        </h2>
+                        <div id="panel-BCC" class="accordion-collapse collapse" aria-labelledby="BCC">
+                          <div class="accordion-body description pt-0">
+                            <p>You can set bot channel chat (max 5 channels), so that members in your guild are not
+                              disturbed by chat from bot.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939651757250842695/unknown.png"
+                                alt="BCC"></div>
+                            <p>You can set the chat bot by run the command
+                              <code><%= config.prefix%>addbotchat [#text-channel]</code>.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- AUTO ROLE -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white" id="autorole">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-autorole"
+                            aria-expanded="false" aria-controls="panel-autorole" id="btn-autorole">
+                            <i class="fas fa-hashtag"></i> &nbsp Auto Role
+                          </button>
+                        </h2>
+                        <div id="panel-autorole" class="accordion-collapse collapse" aria-labelledby="autorole">
+                          <div class="accordion-body description pt-0">
+                            <p><strong>Auto role</strong> serves to give automatic roles to members who have just
+                              joined your
+                              guild.<br>
+                              To set the auto role you can run the command
+                              <code><%= config.prefix%>autorole [@role]</code> and if you
+                              have set the auto role. Now run the command
+                              <code><%= config.prefix%>toggleautorole</code> to enable the
+                              function of the autorole.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939656391218585620/unknown.png"
+                                alt="autorole"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- PRUNING -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white" id="pruning">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-pruning"
+                            aria-expanded="false" aria-controls="panel-pruning" id="btn-pruning">
+                            <i class="fas fa-hashtag"></i> &nbsp Pruning Message
+                          </button>
+                        </h2>
+                        <div id="panel-pruning" class="accordion-collapse collapse" aria-labelledby="pruning">
+                          <div class="accordion-body description pt-0">
+                            <p>Toggles playmessage (same as pruning...). If its true a message of playing a new track
+                              will be sent, even if your afk. If false it wont send any message if a new Track plays!
+                              | Default: true aka send new Track information.<br>
+                              You can disable pruning by running the command <code><%= config.prefix%>pruning</code>.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939279910361530468/unknown.png"
+                                alt="pruning"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- REACTION ROLES -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white"
+                          id="reaction-role">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-reaction-role"
+                            aria-expanded="false" aria-controls="panel-reaction-role" id="btn-reaction-role">
+                            <i class="fas fa-hashtag"></i> &nbsp Reaction Roles
+                          </button>
+                        </h2>
+                        <div id="panel-reaction-role" class="accordion-collapse collapse"
+                          aria-labelledby="reaction-role">
+                          <div class="accordion-body description pt-0">
+                            <p>Reaction Roles, function as assistants in the guild, so you don't have to manually
+                              assign roles.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939282744553381908/unknown.png"
+                                alt="reaction-role1">
+                            </div>
+                            <p>To give members a choice of roles, you need to add roles by
+                              <code><%= config.prefix%>roleadd [@role] [emoji] [short description]</code>. max 5
+                              roles!.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939282936983847032/unknown.png"
+                                alt="reaction-role2">
+                            </div>
+                            <p>When you are done adding roles, now you need to run the command
+                              <code><%= config.prefix%>rolesend [#text-channel] [Title Embed]</code>
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939283262503813171/unknown.png"
+                                alt="reaction-role3">
+                            </div>
+                            <p>Bad will send a new message in the text channel to be used as a reaction roles
+                              function.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- GREETING MESSAGE -->
+                      <div class="accordion-item bg-transparent border-0 embed-accordion text-white">
+                        <h2 class="accordion-header bg-transparent border-0 embed-accordion text-white"
+                          id="greeting-message">
+                          <button
+                            class="accordion-button collapsed bg-transparent border-0 ps-0 embed-accordion text-white"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#panel-greeting-message"
+                            aria-expanded="false" aria-controls="panel-greeting-message" id="btn-greeting-message">
+                            <i class="fas fa-hashtag"></i> &nbsp Greeting Message
+                          </button>
+                        </h2>
+                        <div id="panel-greeting-message" class="accordion-collapse collapse"
+                          aria-labelledby="greeting-message">
+                          <div class="accordion-body description pt-0">
+                            <p>Greeting Message serves to give a message if a new member joins your guild.
+                            </p>
+                            <div class="img mb-3"><img
+                                src="https://cdn.discordapp.com/attachments/939276089220542464/939660222778191972/unknown.png"
+                                alt="greeting-message1">
+                            </div>
+                            <p>To set Greeting Message you need to run the command
+                              <code><%= config.prefix%>greetingset [#text-channel] [messages]</code>.
+                            </p>
+                            <div>
+                              <p><strong>Format for messages:</strong></p>
+                              <ul>
+                                <li><code>%mention%</code> = Mention Member</li>
+                                <li><code>%guild%</code> = Guild Name</li>
+                                <li><code>**% %**</code> = Bold font</li>
+                              </ul>
+                            </div>
+                            <p>
+                              <strong>Example:</strong><br>
+                              <code>!greetingset #welcome-channel Hay, %mention% Welcome to **%guild%**. Take a Role on the #text-channel if you need to.</code>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FOOTER -->
+                  <p class="footer mt-3"><img src="<%= owner.displayAvatarURL()%>" alt="ownerimg" width="30px"> Write
+                    by:
+                    <%= owner.tag%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  </section>
+  <%- include('../element/footer'); -%>
+</body>
+
+</html>

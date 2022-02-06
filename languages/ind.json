@@ -1,0 +1,1486 @@
+{
+  "cmds": {
+    "info": {
+      "botinfo": {
+        "loading": "Mendapatkan Bot-Informasi-Data",
+        "field1": {
+          "title": "🧑‍🤝‍🧑 Umum -- Statistik",
+          "value": "```yml\nServer: {totalGuilds}\nPengguna: {totalMembers}\nKoneksi: {connectedchannelsamount}```"
+        },
+        "field2": {
+          "title": "🛰️ Version -- Statistik"
+        },
+        "field3": {
+          "title": "🖥️ System -- Statistik",
+          "value": "```yml\nOS: Linux | Debian\nPenggunaan CPU: {cpu} %\nPenggunaan RAM: {ram} MB```"
+        },
+        "field4": {
+          "title": "🔰 Pengembang"
+        },
+        "field5": {
+          "title": "🔗 Tautan Penting",
+          "value": "**[Tautan Undang]({invitelink})・[Server Dukungan](https://discord.gg/wrTHfMqzaQ)・[Website](https://bad-vibes.adamkhairusydan.repl.co/)**"
+        },
+        "field6": {
+          "title": "⚙️ Commands -- Statistik"
+        },
+        "field7": {
+          "title": "🎵 Lagu -- Statistik"
+        },
+        "variable1": "`\\`\\`\\`yml\\nNama: ${client.user.tag} [${client.user.id}]\\nLatensi Bot: ${Math.round(Date.now() - message.createdTimestamp)}ms\\nApi Latensi: ${Math.round(client.ws.ping)}ms\\nWaktu tayang: ${duration(client.uptime).join(`︲`)}\\nPerintah Aktif: ${client.commands.map(a=>a).length}\\`\\`\\``",
+        "variable2": "``"
+      },
+      "command": {
+        "var1": "`Klik di sini untuk melihat semua perintah yang saya punya.`",
+        "var2": "`\\`\\`\\`yml\\nKategori: ${categoryresult.length}\\nPerintah: ${client.commands.size}\\`\\`\\` \n\\`\\`\\`yml\\nPerintah Global yang digunakan: ${statsGlobal.Commands}\\nPerintah Guild yang digunakan: ${statsGuild.Commands}\\`\\`\\``"
+      },
+      "commandcount": {
+        "tempmsg": "MENDAPATKAN DATA INFORMASI BOT",
+        "title": ":gear: **[`{cmdcount}`] Perintah**",
+        "description": ":gear: **[`{catcount}`] Kategori**\n:gear: **[`{lines}`] Baris Kode**\n:gear: 928140049206378568> **[`{letters}`] Surat Kode**",
+        "variable1": "``"
+      },
+      "help": {
+        "title1": "`💿 Informasi rinci tentan: \\`${cat.name}\\``",
+        "footer1": "Tidak ada informasi untuk ",
+        "error1": "NO CUSTOM COMMANDS DEFINED YET, do it with: `setup-customcommands`",
+
+        "title2": "`🔎 Rincihan Informasi Tentang: \\`${cmd.name}\\``",
+        "field1": {
+          "title": "**📌 Nama Perintah**"
+        },
+        "field2": {
+          "title": "**📝 Keterangan**"
+        },
+        "field3": {
+          "title": "**🧷 Alias**"
+        },
+        "field4": {
+          "title": "**⏰ Waktu Mengulangi Perintah**",
+          "value": "Detik"
+        },
+        "field5": {
+          "title": "**⏰ Bawaan Waktu Mengulangi Perintah**",
+          "value": "`\\`\\`\\`1 Detik\\`\\`\\``"
+        },
+        "field6": {
+          "title": "**⏰ Penggunaan**"
+        },
+        "footer2": "Syntax: <> = Dibutuhkan, []ilihan",
+
+        "buttons": {
+          "home": "Utama",
+          "back": "Kembali",
+          "forward": "Berikutnya",
+          "tutorial": "Tutorial (Akan Datang)"
+        },
+
+        "menuOptions": {
+          "label": "Ringkasan",
+          "value": "Overview",
+          "emoji": "📃",
+          "description": "Sekilas Tentang Saya",
+
+          "label2": "Informasi",
+          "value2": "Information",
+          "emoji2": "📌",
+          "description2": "Berbagai perintah tentang informasi",
+
+          "label3": "Musik",
+          "value3": "Music",
+          "emoji3": "🎶",
+          "description3": "Berbagai perintah untuk menjalanan musik",
+
+          "label4": "Filter Musik",
+          "value4": "Filter",
+          "emoji4": "🔊",
+          "description4": "Berbagai perintah untuk mengaktifkan Filter / Effek di musik",
+
+          "label5": "Premium",
+          "value5": "Premium",
+          "emoji5": "💎",
+          "description5": "Berbagai perintah premium",
+
+          "label6": "Lain-lain",
+          "value6": "Misc",
+          "emoji6": "⁉️",
+          "description6": "Berbagai macam perintah lainnya",
+
+          "label7": "Senang",
+          "value7": "Fun",
+          "emoji7": "🎉",
+          "description7": "Berbagai perintah senang-senang",
+
+          "label8": "Admin",
+          "value8": "Admin",
+          "emoji8": "🔑",
+          "description8": "Berbagai macam perintah Admin",
+
+          "label9": "Setting",
+          "value9": "Settings",
+          "emoji9": "⚙️",
+          "description9": "Berbagai macam perintah untuk setting bot"
+        },
+
+        "menuSelection": {
+          "value": "Klik saya untuk melihat halaman kategori help"
+        },
+
+        "OverviewEmbed": {
+          "footer": "Halaman Ringkasan\\n",
+          "title": "`Informasi Tentang __${client.user.username}__`",
+          "field": {
+            "title": "`:new: **__Semua Fitur Baru__**`",
+            "value": "`>>> :headphones: Sistem Musik canggih 🎧 dengan Penyaringan Audio Sistem :level_slider: Permintaan Musik yang unik dan masih banyak lagi!`"
+          },
+          "field2": {
+            "title": "`:question: **__Bagai mana cara menggunakan saya?__**`",
+            "value": "`>>> \\`${prefix}setup-music #text-channel\\` Untuk membuat Musik Sistem, Kemudian bergabung ke **Voice Channel** dan ketik lagu yang kamu inginkan! kamu juga bisa menggunakan \\`${prefix}play <SONGNAME/SONGLINK>\\` tanpa harus menyetting!\n atau kamu juga bisa langsung memainkan daftar putar dengan menggunakan \\`${prefix}playlist\\``"
+          },
+          "field3": {
+            "title": "`:chart_with_upwards_trend: **__Status:__**`",
+            "value": "`>>> :gear: **${client.commands.map(a=>a).length} Perintah** \\n:file_folder: on **${client.guilds.cache.size} Guilds** \\n⌚️ **${duration(client.uptime).map(i=> `\\`${i}\\``).join(`︲`)} Waktu Online** \\n📶 **\\`${Math.floor(client.ws.ping)}ms\\` Ping**`"
+          }
+        },
+        "helpmsg": {
+          "content": "`***Klik salah satu __Tombol__ untuk melihat halaman lainnya***`",
+          "error": "`:x: Aku tidak bisa mengirimkan pesan. Mungkin saya kehilangan peran **EMBED LINKS**`"
+        },
+
+        "noinfo": "Tidak ada informasi di temukan untuk **{command}**",
+
+        "buttonerror": "📌 **Hanya yang menjalankan {prefix}help yang bisa mereact!**",
+        "timeended": "Waktu telah habis, jalankan {prefix}help lagi!",
+        "footer3": "Halaman",
+        "footer4": "Untuk melihat keterangan dan informasi, jalankan"
+      },
+      "invite": {
+        "title": "Klik di sini untuk mengundang saya",
+        "buttons": {
+          "public": "Undang Bot Publik",
+          "server": "Server Dukungan",
+          "bot": "Undang Bot ini"
+        },
+        "variable1": "``"
+      },
+      "ping": {
+        "m1": "🔎 Menguji Kecepatan Koneksi ...",
+        "m2": "> - Bot Ping: {botping}ms\n\n> - Host Ping: {ping}\n\n> - Api Latency: {wsping}ms",
+        "variable1": "``"
+      },
+      "premiuminfo": {
+        "variabel1": "UPGDARE TO PREMIUM SEKARANG!",
+        "title1": "Kamu membutuhkan lebih banyak fitur dari Bad Vibes?",
+        "description1": "Jika Kamu berlangganan Bad Vibes Premium, Kamu akan mendapatkan lebih banyak fitur untuk Guild kamu. Dan semua anggota Guild kamu bisa menggunakannya.",
+        "field1": {
+          "title": "🌐",
+          "value": "`┕[[Website]](${url.website.web})`"
+        },
+        "field2": {
+          "title": "🏠",
+          "value": "`┕[[Support]](https://discord.gg/wrTHfMqzaQ)`"
+        },
+        "field3": {
+          "title": "📥",
+          "value": "`┕[[Invite]](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`"
+        }
+      },
+      "stats": {
+        "title": "🖥 The Stats of {botname}",
+        "field1": {
+          "title": "⚙️ GLOBAL Commands used:",
+          "value": ">>> `{allcommands} Commands` used\nin **all** Servers"
+        },
+        "field2": {
+          "title": "🎵 GLOBAL Songs played:",
+          "value": ">>> `{allsongs} Songs` played in\n**all** Servers"
+        },
+        "field3": {
+          "title": "⚙️ SERVER Commands used:",
+          "value": ">>> `{guildcommands} Commands` used in\n**this** Server"
+        },
+        "field4": {
+          "title": "🎵 SERVER Songs played:",
+          "value": ">>> `{guildsongs} Songs` played in\n**this** Server"
+        },
+        "variablex_1": "`\\u200b`",
+        "variable1": "`\\u200b`",
+        "variable2": "``"
+      },
+      "premiumlist": {
+        "title1": "🔎 Mengambil informasi Daftar Premium Guild",
+        "title2": "Daftar Premium Guild:",
+        "variable1": "Sampai dengan:",
+        "variable2": "Permanen"
+      },
+      "redeem": {
+        "title1": "`${emoji.msg.ERROR} Guild kamu sudah __PREMIUM GUILD__`",
+        "title2": "`🎉 DAPATKAN __BAD VIBES PREMIUM__ DISINI! 🎉`",
+        "title3": "`${emoji.msg.ERROR} Kode ini sudah __KADALUARSA!__`",
+        "title4": "📤 Ada Guild yang meminta **CODE REDEEM**",
+        "title5": "`✅ Berhasil menggunakan CODE Redeem`",
+        "title6": "`❌ DIBATALKAN KARNA KODE YANG ANDA MASUKAN SALAH`",
+        "title7": "`❌ DIBATALKAN KARNA KODE YANG ANDA MASUKAN SALAH / WAKTU HABIS!`",
+        "description1": "`>>> **Dapatkan BAD VIBES PREMIUM secara gratis dengan mengirimkam kode dibawah ini setelah pesan ini.** \\n\\n**CODE: ** ||**${redeem.code}**|| \\n         *Kadaluarsa: ${redeem.exp}*`",
+        "description2": "`Kami akan segera menggantikan kode baru, bergabung lah ke [[Support Server]](${url.website.supportserver}) untuk mendapatkan info tentang update kode baru!`",
+        "description3": "`**Mohon tunggu 1x24 jam untuk mendapatkan Bad Vibes Premium.** \\nJika dalam waktu 1x24 jam tidak mendapatkan Bad Vibes Premium, harap lapor ke [[Support Server]](${url.website.supportserver}) Atau jalankan perintah \\`${prefix}report <kasus>\\``",
+        "field1": {
+          "title": "🌐",
+          "value": "`┕[[Website]](${url.website.web})`"
+        },
+        "field2": {
+          "title": "🏠",
+          "value": "`┕[[Support]](https://discord.gg/wrTHfMqzaQ)`"
+        },
+        "field3": {
+          "title": "📥",
+          "value": "`┕[[Invite]](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`"
+        }
+      },
+      "setupinfo": {
+        "title": "Information for All Setups",
+        "field1": {
+          "title": "Prefix",
+          "value": "`>>> Setting your prefix in this server. \\`\\`\\` Run ${prefix}prefix \\`\\`\\``"
+        },
+        "field2": {
+          "title": "Music Channel",
+          "value": "`>>> Setup a Music Request Channel. \\`\\`\\`Run ${prefix}setup-music\\`\\`\\``"
+        },
+        "field3": {
+          "title": "DJ Role",
+          "value": "`>>> Setting DJ Role in this server. \\`\\`\\`Run ${prefix}adddj\\`\\`\\``"
+        },
+        "field4": {
+          "title": "Bot Chat",
+          "value": "`>>> Let's you enable a bot only chat where the community is allowed to use commands. \\`\\`\\`Run ${prefix}addbotchat\\`\\`\\``"
+        },
+        "field5": {
+          "title": "Reset All Setting",
+          "value": "`>>> Resets of the Setups as well as the prefix!. \\`\\`\\`Run ${prefix}reset\\`\\`\\``"
+        }
+      },
+      "uptime": {
+        "TIME NOT NEEDED": "",
+        "variable1": "`⏳ **${client.user.username}** Uptime`",
+        "variable2": "`\\`\\`\\`css\\n${duration(client.uptime).map(i=> `${i}`).join(`︲`)}\\`\\`\\``",
+        "variablex_3": "`**Date Launched**`",
+        "variable3": "moment(timestamp).format(`LLLL`)",
+        "variable4": "``"
+      }
+    },
+    "admin": {
+      "autorole": {
+        "var1": "`❗️ Mohon mention role dengan benar`",
+        "var2": "`❗️ Izin Hilang`",
+        "var3": "`❗️ Unch... Sepertinya nama role bawaan saya sudah diganti`",
+        "var4": "`❗️ Auto Role sudah disetting diserver ini!`",
+        "var5": "`**Role saya dibawah Role itu! Mohon untuk menaikan Role saya jika kamu ingin menggunakan perintah ini.**`",
+        "var6": "`>>> **Nama Role bawaan saya:** *${client.user.username}*`",
+        "var7": "`❗️ Autoroles sudah di setting!`",
+        "var8": "`*Autorole diserver ini: * ${added}\\nJika kamu ingin menggantinya silahkan reset terlebih dahulu. Jalankan \\`${prefix}reset\\` *-----> Ikuti langkahnya*`",
+        "var9": "`✅ **Auto Role telah disetting menjadi ${role}**`",
+        "var10": "`*Auto Role :* ${added}`"
+      },
+      "banned": {
+        "var1": "`❗️} Member tidak ditemukan. Mohon untuk mention member dengan benar!.`",
+        "var2": "`❗️ Katakan alasannya.`",
+        "var3": "`>>> Contoh: \\`${prefix}banned @user toxic\\``",
+        "var4": "`❗️ Kamu tidak bisa banned kamu sendiri!`",
+        "var5": "`❗️ Kamu tidak bisa banned saya!`",
+        "var6": "`${emoji.msg.ERROR} Kamu tidak bisa banned ADMINISTRATOR`",
+        "var7": "`Apakah kamu yakin untuk __BANNED **${member.user.tag}**__`",
+        "var8": "`*Balas dengan* __\\`yes\\`__ jika kamu yakin!`",
+        "var9": "`⛔ Kamu telah di__BANNED__ di__${message.guild.name}__`",
+        "var10": "`Alasan:`",
+        "var11": "`Banned by ${message.author.tag}`",
+        "var12": "`✅ **${member.user.tag}** Telah di__BANNED__`",
+        "err": "`❗️ DIBATALKAN KARENA BUKAN KATA / WAKTU TELAH HABIS!`"
+      },
+      "clearchat": {
+        "variable1": "`❗️ Saya tidak bisa menghapus lebih dari 99 pesan!`",
+        "variable2": "'Apakah kamu yakin untuk __menghapus 99 pesan yang berumur kurang dari 14 hari?__'",
+        "variable3": "`*Balas dengan* __\\`yes\\`__`",
+        "variable4": "`🗑 | Clear Chat sudah berhasil`",
+        "variable5": "`❗️ ERROR!! ❗️`",
+        "variable6": "`**Alasan: ** \n>>> ${e}`",
+        "variable7": "`❗️ DIBATALKAN KARENA BUKAN KATA / WAKTU TELAH HABIS!`",
+        "variable8": "`🗑 | Clear Chat sudah berhasil`",
+        "variable9": "`❗️ ERROR!! ❗️`",
+        "variable10": "`**Alasan: ** \n>>> ${e}`"
+      },
+      "giveroleall": {
+        "var1": "`❗️ Mohon mention role dengan benar!`",
+        "var2": "`❗️ Izin Hilang`",
+        "var3": "`**Role saya dibawah Role itu! Mohon untuk menaikan Role saya jika kamu ingin menggunakan perintah ini.**`",
+        "var4": "`❗️ Unch... Sepertinya nama role bawaan saya sudah diganti`",
+        "var5": "`>>> **Nama Role bawaan saya:** *${client.user.username}*`",
+        "var6": "❗️ Terjadi kesalahan",
+        "var7": "`${emoji.msg.SUCCESS} Memberikan ROLE ke semua member telah berhasil!`"
+      },
+      "kick": {
+        "var1": "`❗️ Member tidak ditemukan. Mohon untuk mention member dengan benar!`",
+        "var2": "`❗️ Katakan alasannya`",
+        "var3": "`>>> Contoh: \\`${prefix}kick @user toxic\\``",
+        "var4": "`❗️ Kamu tidak bisa kick kamu sendiri!`",
+        "var5": "`❗️ Kamu tidak bisa kick saya!`",
+        "var6": "`❗️ Kamu tidak bisa kick ADMINISTRATOR`",
+        "var7": "`Apakah kamu yakin untuk __MENGELUARKAN **${member.user.tag}**__`",
+        "var8": "`*Balas dengan* __\\`yes\\`__ jika kamu yakin!`",
+        "var9": "`Kicked by ${message.author.tag}`",
+        "var10": "`⛔ Kamu sudah di__KELUARKAN__ di__${message.guild.name}__`",
+        "var11": "`Alasan:`",
+        "var12": "`Banned by ${message.author.tag}`",
+        "var13": "`⛔ __${member.user.tag}__ Berhasil di__KELUARKAN__`",
+        "var14": "`Alasan:`",
+        "var15": "`❗️ DIBATALKAN KARENA BUKAN KATA / WAKTU TELAH HABIS!`"
+      },
+      "membercount": {
+        "var1": "`**✅ Member Count berhasil disetting**`",
+        "var2": "`>>> Mulai menghitung member di: ${channel}`"
+      },
+      "mute": {
+        "var1": "`❗️ Member tidak ditemukan. Mohon untuk mention member dengan benar!.`",
+        "var2": "`❗️ Kamu tidak bisa mute kamu sendiri!`",
+        "var3": "`❗️ Kamu tidak bisa mute saya!`",
+        "var4": "`❗️ Katakan alasannya`",
+        "var5": "`>>> Contoh: \\`${prefix}mute @user toxic\\``",
+        "var6": "`${emoji.msg.ERROR} Kamu tidak bisa mute ADMINISTRATOR`",
+        "var7": "`${emoji.msg.ERROR} Mute role tidak ditemukan!`",
+        "var8": "`${emoji.msg.SUCCESS} Mute role sudah dibuat!`",
+        "var9": "`${emoji.msg.SUCCESS} ${member.user.tag} sudah di__MUTE__.`",
+        "var10": "`**Member yang dimute: ** \\n${mutedmember.join(`, `)}`",
+        "var11": "`🔇 Kamu telah di MUTE di__${message.guild.name}__`",
+        "var12": "`Alasan:`",
+        "var13": "`Mute by ${message.author.tag}`",
+        "var14": "`Mute by ${message.author.tag}`",
+        "var15": "`🔇 __${member.user.tag}__ has been __MUTE__`",
+        "var16": "`Alasan:`"
+      },
+      "tempmute": {
+        "var1": "`${emoji.msg.ERROR} Member tidak ditemukan. Mohon untuk mention member dengan benar!`",
+        "var2": "`${emoji.msg.ERROR} Kamu tidak bisa mute kamu sendiri!`",
+        "var3": "`${emoji.msg.ERROR} Kamu tidak bisa mute saya!`",
+        "var4": "`${emoji.msg.ERROR} Mohon masukan waktu`",
+        "var5": "`>>> Contoh: \\`${prefix}tempmute @user 5m toxic\\``",
+        "var6": "`Format waktu:`",
+        "var7": "`\\`[Menit: m]\\`, \\`[Jam: h]\\`, \\`[Hari: d]\\``",
+        "var8": "`${emoji.msg.ERROR} Katakan alasannya`",
+        "var9": "`>>> Contoh: \\`${prefix}tempmute @user 5m toxic\\``",
+        "var10": "`${emoji.msg.ERROR} Kamu tidak bisa mute ADMINISTRATOR`",
+        "var11": "`${emoji.msg.ERROR} Mute role tidak ditemukan!`",
+        "var12": "`${emoji.msg.SUCCESS} Mute role sudah dibuat!`",
+        "var13": "`${emoji.msg.SUCCESS} ${member.user.tag} sudah di__MUTE__.`",
+        "var14": "`**Member yang dimute: ** \\n${mutedmember.join(`, `)}`",
+        "var15": "`Mute by ${message.author.tag}`",
+        "var16": "`🔇 __${member.user.tag}__ telah di__MUTE__`",
+        "var17": "`Alasan:`",
+        "var18": "`Sampai dengan:`",
+        "var19": "`Unmute by ${client.user.tag}`",
+        "var20": "`🗣️ __${member.user.tag}__ sekarang __UNMUTE__`"
+      },
+      "unmute": {
+        "var1": "`${emoji.msg.ERROR} Member tidak ditemukan. Mohon untuk mention member dengan benar!`",
+        "var2": "`${emoji.msg.ERROR} Kamu tidak dimute!`",
+        "var3": "`${emoji.msg.ERROR} Saya tidak dimuted!`",
+        "var4": "`${emoji.msg.ERROR} __${member.user.tag}__ sudah di__UNMUTED__`",
+        "var5": "`${emoji.msg.ERROR} __${member.user.tag}__ sudah di__UNMUTED__`",
+        "var6": "`Unmute by ${message.author.tag}`",
+        "var7": "`🗣️ Kamu sudah tidak dimute di__${message.guild.name}__`",
+        "var8": "`Unmute by ${message.author.tag}`",
+        "var9": "`🗣️ __${member.user.tag}__ sudah di__UNMUTED__`"
+      },
+      "vckick": {
+        "var1": "`${emoji.msg.ERROR} Member tidak ditemukan. Mohon untuk mention member dengan benar!`",
+        "var2": "`${emoji.msg.ERROR} katakan Alasannya`",
+        "var3": "`>>> Contoh: \\`${prefix}vckick @user toxic\\``",
+        "var4": "`${emoji.msg.ERROR} Kamu tidak bisa vckick kamu sendiri!`",
+        "var5": "`${emoji.msg.ERROR} Kamu tidak bisa vckick saya!`",
+        "var6": "`${emoji.msg.ERROR} Kamu tidak bisa vckick ADMINISTRATOR`)",
+        "var7": "`${emoji.msg.ERROR} Member itu sudah tidak di Voice Channel sekarang!`",
+        "var8": "`${emoji.msg.leave_on_empty} **${member} Anda telah dikeluarkan dari saluran suara** \\n\\n **Karena: ** \\n*||${reason}||*`"
+      }
+    },
+    "premium": {
+      "afk": {
+        "var1": "`❗️ **Saya tidak terhubung di Saluran Suara!**`",
+        "var2": "`**Berhasil __${data.BotAFK ? `Diaktifkan` : `Dinonaktifkan`}__ AFK MODE**`",
+        "var3": "`**I will now${data.BotAFK ? ` <#${data.BotAFKVc}>` : ` not`} stay afk in the Channel when there is nothing to play!**`"
+      },
+      "autoplay": {
+        "enabled": {
+          "title": "**Berhasil __Diaktifkan__ AUTOPLAY MODE**",
+          "description": "**Sekarang saya akan secara otomatis menambahkan Lagu saat Antrian Kosong (menimpa afk-Mode)!**"
+        },
+        "disabled": {
+          "title": "**Berhasil __Dinonaktifkan__ AUTOPLAY MODE**",
+          "description": "**Sekarang saya tidak akan secara otomatis menambahkan Lagu saat Antrian Kosong (menimpa afk-Mode)!**"
+        },
+        "variable1": "`${player.get(`autoplay`) ? client.la[ls].cmds.premium.autoplay.enabled.title : client.la[ls].cmds.premium.autoplay.disabled.title}`",
+        "variable2": "`${player.get(`autoplay`) ? client.la[ls].cmds.premium.autoplay.enabled.description : client.la[ls].cmds.premium.autoplay.disabled.description}`",
+        "variable3": "``"
+      },
+      "grab": {
+        "author": "Lagu Tersimpan:",
+        "field1": "⌛ **Durasi:**",
+        "field2": "💯 **Lagu Oleh:**",
+        "field3": "🔄 **Panjang antrian:**",
+        "field4": "🎶 **Mainkan:**",
+        "field5": "🔎 **Disimpan di:**",
+        "footer": "Diminta oleh: {usertag} ・ in: {guild}",
+        "variable1": "`${player.playing ? `▶` : `⏸`} **${player.queue.current.title}**`",
+        "variable2": "``"
+      },
+      "jump": {
+        "error1": "❗️ **Harap sertakan trek mana yang ingin Anda lompat**",
+        "error2": "❗️ **Itu harus berupa `Nomor Antrian`**",
+        "error3": "❗️ **Lagu itu tidak ada dalam Antrian**!",
+        "title": "👍 **Melompat ke: `{number}.` Lagu**",
+        "description": "⏭ **Dilewati `{number}` Lagu!**",
+        "variable1": "`${client.la[ls].common.example}: \\`${prefix}jump ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+        "variable2": "``"
+      },
+      "loop": {
+        "errortitle": "❗️ **Silakan tambahkan Metode Perulangan Anda!**",
+        "errordescription": "`loop song` / `loop queue` / `loop off`",
+        "track": {
+          "disabled": "✅ **Nonaktifkan mode Track Repeat!**",
+          "enabled": "👍 **Mengaktifkan mode Track Repeat!**"
+        },
+        "queue": {
+          "disabled": "✅ **Nonaktifkan mode Ulangi Antrian!**",
+          "enabled": "👍 **Mengaktifkan mode Ulangi Antrian!**"
+        },
+        "andsong": "✅ **Dan nonaktifkan Mode Pengulangan Lagu!**",
+        "andqueue": "✅ **Dan nonaktifkan Mode Ulangi Antrian!**",
+        "variable1": "``"
+      },
+      "lyrics": {
+        "var1": "❗️ | **Tidak ada yang sedang diputar sekarang...**",
+        "var2": "`**Lirik tidak ditemukan untuk -** \\`${SongTitle}\\``"
+      },
+      "volume": {
+        "variable1": "`${emoji.msg.ERROR} Anda dapat mengatur volume \\`1\\` - \\`150\\``",
+        "variable2": "`**Volume saat ini: \\`${player.volume}%\\`**`",
+        "variable3": "`${emoji.msg.ERROR} Anda dapat mengatur volume \\`1\\` - \\`150\\``",
+        "variable4": "`**Volume saat ini: \\`${player.volume}%\\`**`",
+        "variable5": "`${emoji.msg.raise_volume} Volume disetel ke: \\`${player.volume} %\\``",
+        "variable6": "`**Volume saat ini: \\`${player.volume}%\\`**`",
+        "variable7": "``"
+      },
+      "move": {
+        "variable1": "`${emoji.msg.ERROR} | Penggunaan Perintah Salah!`",
+        "variable2": "`Penggunaan: \\`${prefix}move <from> <to>\\`\\nContoh: \\`${prefix}move ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 } 1\\``",
+        "variable3": "`${emoji.msg.ERROR} | Penggunaan Perintah Salah!`",
+        "variable4": "`Penggunaan: \\`${prefix}move <from> <to>\\`\\nContoh: \\`${prefix}move ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 } 1\\``",
+        "variable5": "`${emoji.msg.ERROR} | Kesalahan Masukan Anda harus menjadi Angka yang lebih besar dari \\`1\\` dan lebih kecil maka \\`${player.queue.length}\\``",
+        "variable6": "`Memindahkan Lagu dalam Antrian dari Posisi \\`${args[0]}\\` to Posisi: \\`${args[1]}\\``",
+        "variable7": "`[${song.title}](${song.uri}) - \\`${format(song.duration)}\\` - diminta oleh **${song.requester.tag}**`",
+        "variable8": "``"
+      },
+      "playskip": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah Pencarian.`",
+        "soundcloud": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.soundcloud} Soundcloud & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "spotify": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.spotify} Spotify & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "apple": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.apple} Apple-Music & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "youtube": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.youtube} Youtube & kemudian ${emoji.msg.skip_track} Melompat ke sana!`"
+      }
+    },
+    "music": {
+      "addsimilar": {
+        "variable1": "``"
+      },
+      "clearqueue": {
+        "title": "🗑 **Membersihkan Antrian!**",
+        "variable1": "``"
+      },
+      "forceskip": {
+        "title": "⏹️ **Berhenti bermain dan keluar dari Saluran Anda!**",
+        "title2": "⏭ **Melewati Track saat ini!**",
+        "variable1": "`Saluran: <#${player.voiceChannel}>`",
+        "variable2": "``"
+      },
+      "forward": {
+        "allowed": "❗️ **Anda dapat meneruskan untuk `1` - `{duration}` Detik!**",
+        "title": "👍 **Meneruskan Lagu**",
+        "description": "**Diteruskan `{amount} Detik` ke: `{time}`**",
+        "field": "⌛ **Progress:**",
+        "variable1": "``"
+      },
+      "join": {
+        "title": "👍 **Bergabung ke Voice Channel!**",
+        "title2": "`${emoji.msg.ERROR} Aku sudah ada di dalam saluran suara!`",
+        "variable1": "`Channel: <#${player.voiceChannel}>`",
+        "variable2": "`Channel: <#${player.voiceChannel}>`",
+        "variable3": "`Channel: <#${player.voiceChannel}>`",
+        "variable4": "``"
+      },
+      "joinme": {
+        "var1": "`Tunggu sebentar...`",
+        "var2": "`${emoji.msg.ERROR} Aku tidak dialam saluran suara manapun coba gunakan perintah: \\`${prefix}join\\``"
+      },
+      "leave": {
+        "var1": "`${emoji.react.stop} Musik telah berhenti dan antrean dibersihkan! meninggalkan saluran suara!`",
+        "var2": "`${emoji.msg.ERROR} Saya tidak di saluran suara!`"
+      },
+      "loop": {
+        "errortitle": "❗️ **Silakan tambahkan Metode Perulangan Anda!**",
+        "errordescription": "`loop song` / `loop off`",
+        "track": {
+          "disabled": "✅ **Nonaktifkan mode Track Repeat!**",
+          "enabled": "👍 **Mengaktifkan mode Track Repeat!**"
+        },
+        "queue": {
+          "disabled": "✅ **Nonaktifkan mode Ulangi Antrian!**",
+          "enabled": "👍 **Mengaktifkan mode Ulangi Antrian!**"
+        },
+        "andsong": "✅ **Dan nonaktifkan Mode Pengulangan Lagu!**",
+        "andqueue": "✅ **Dan nonaktifkan Mode Ulangi Antrian!**",
+        "variable1": "``"
+      },
+      "moveme": {
+        "variable1": "`${emoji.msg.ERROR} Saya tidak di voice Channel`",
+        "variable2": "`${emoji.msg.ERROR} Silakan Sambungkan terlebih dahulu`",
+        "variable3": "`${emoji.msg.ERROR} Salurannya penuh, saya tidak bisa memindahkan Anda`",
+        "variable4": "`${emoji.msg.ERROR} Anda sudah ada di saluran saya `",
+        "variable5": "``"
+      },
+      "nowplaying": {
+        "variable1": "`${emoji.msg.ERROR} Tidak ada lagu yang dimainkan`",
+        "variable2": "`${player.playing ? `${emoji.msg.resume}` : `${emoji.msg.pause}`} **${player.queue.current.title}**`",
+        "variable3": "``"
+      },
+      "pause": {
+        "variable1": "`${emoji.msg.ERROR} Lagu sudah dijeda!`",
+        "variable2": "`Anda dapat melanjutkannya dengan: \\`${prefix}resume\\``",
+        "variable3": "``"
+      },
+      "play": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah Penelusuran.`",
+        "variableall": "Mencari Permintaan Anda di"
+      },
+      "playlist": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah Penelusuran.`",
+        "variableall": "Mencari Daftar Putar-Permintaan Anda di"
+      },
+      "playlofi": {
+        "variable1": "`:notes: __**Pilihan lain:**__`",
+        "variable2": "`>>> \\`\\`\\`default, indo, mix, work, jazz, sad, remix, chill\\`\\`\\``",
+        "variablex_3": "`:muscle: **Untuk memainkan satu jenis yang berbeda:**`",
+        "variable3": "`> \\`${prefix}playlofi <NAME>\\`\\n💡 **Contoh:**\\n> \\`${prefix}playlofi indo\\``",
+        "variable4": "``"
+      },
+      "playmusicmix": {
+        "variable1": "`:notes: __**Pilihan lain:**__`",
+        "variable2": "`>>> \\`\\`\\`blues, charts, chill, heavymetal, gaming, jazz, metal, magic-release, ncs, nocopyright, oldgaming, pop, remixes, rock, strange-fruits-gaming, top 50 Indonesia\\`\\`\\``",
+        "variablex_3": "`:muscle: **Untuk memainkan satu jenis yang berbeda:**`",
+        "variable3": "`> \\`${prefix}playmusicmix <NAME>\\`\\n💡 **Contoh:**\\n> \\`${prefix}playmusicmix pop\\``",
+        "variable4": "``"
+      },
+      "playprevious": {
+        "var": "Memutar Trek Sebelumnya di"
+      },
+      "playsc": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah pencarian.`",
+        "var": "Mencari Permintaan Anda di"
+      },
+      "playtop": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah Pencarian.`",
+        "soundcloud": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.soundcloud} Soundcloud & lalu menambahkannya ke TOP ANTRIAN`",
+        "spotify": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.spotify} Spotify & lalu menambahkannya ke TOP ANTRIAN`",
+        "apple": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.apple} Apple-Music & lalu menambahkannya ke TOP ANTRIAN`",
+        "youtube": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.youtube} Youtube & lalu menambahkannya ke TOP ANTRIAN`"
+      },
+      "queue": {
+        "variablex_1": "`**0) sCURRENT TRACK**`",
+        "variable1": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `LIVE STREAM` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*diminta oleh: ${player.queue.current.requester.tag}*`",
+        "variable2": "`${emoji.msg.ERROR} Tidak ada trek dalam antrian`",
+
+        "variablex_3": "`**0) CURRENT TRACK**`",
+        "variable3": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `LIVE STREAM` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*diminta oleh: ${player.queue.current.requester.tag}*`",
+
+        "variablex_4": "`**0) CURRENT TRACK**`",
+        "variable4": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `LIVE STREAM` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*diminta oleh: ${player.queue.current.requester.tag}*`",
+        "variable5": "``"
+      },
+      "queuestatus": {
+        "variable1": "`Informasi Antrian dari **${message.guild.name}**`",
+        "variable2": "`**Bergabung ke:** <#${player.voiceChannel}> **Dan terikat pada:** <#${player.textChannel}>`",
+        "variablex_3": "`${emoji.msg.autoplay_mode} Autoplay`",
+        "variable3": "`\\`\\`\\`${player.get(`autoplay`) ? `✅ Enabled` : `⛔️ Disabled`}\\`\\`\\``",
+        "variablex_4": "`${emoji.msg.disk} Current Track: `",
+        "variable4": "`${player.queue && player.queue.current ? `${player.playing ? `${emoji.msg.resume}` : `${emoji.msg.pause}`} [**${player.queue.current.title}**](${player.queue.current.uri})` : `\\`\\`\\`❗️ Nothing Playing\\`\\`\\``}`",
+        "variablex_5": "`${emoji.msg.time} Progress: `",
+        "variable5": "player.queue && player.queue.current ? createBar(player) : `\\`\\`\\`❗️ Nothing Playing\\`\\`\\``",
+        "variable6": "``"
+      },
+      "radio": {
+        "variable1": "`${emoji.msg.ERROR} Bukan stasiun radio yang valid`",
+        "variable2": "`Silakan gunakan Nomor antara \\`1\\` dan \\`183\\``",
+        "variable3": "`${emoji.msg.ERROR} Nomor Volume di luar Jangkauan`",
+        "variable4": "`Silakan gunakan Nomor antara \\`1\\` dan \\`150\\``",
+        "variable5": "`${emoji.msg.ERROR} Stasiun Radio tidak ditemukan`",
+        "variable6": "`Silakan gunakan Nomor antara \\`1\\` dan \\`183\\``",
+        "variable7": "``"
+      },
+      "removedupes": {
+        "variable1": "`${emoji.msg.cleared} Saya menghapus trek di posisi: \\`${Number(args[0])}\\``",
+        "variable2": "``"
+      },
+      "removetrack": {
+        "variable1": "`${emoji.msg.ERROR} Silakan tambahkan Trek yang ingin Anda hapus!`",
+        "variable2": "`Contoh: \\`hapus jejak ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+        "variable3": "`${emoji.msg.ERROR} Itu harus menjadi Nomor Antrian yang valid!`",
+        "variable4": "`Contoh: \\`hapus jejak ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+        "variable5": "`${emoji.msg.ERROR} Lagu Anda harus ada di Antrian!`",
+        "variable6": "`Contoh: \\`hapus jejak ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+        "variable7": "`${emoji.msg.cleared} Saya menghapus trek di posisi: \\`${Number(args[0])}\\``",
+        "variable8": "``"
+      },
+      "removevoteskip": {
+        "variable1": "`Menghapus Suara Anda!`",
+        "variable2": "`Sekarang ada: \\`${player.get(`votes`)}\\` dari \\`${voteamount}\\` membutuhkan Suara`",
+        "variable3": "`${emoji.msg.ERROR} Anda belum memilih!!`",
+        "variable4": "`Ada: \\`${player.get(`votes`)}\\` dari \\`${voteamount}\\` membutuhkan Suara`",
+        "variable5": "`${emoji.msg.ERROR} Tidak dapat menghapus Suara Anda!`",
+        "variable6": "`Karena belum ada Pengaturan Peran DJ yang dibuat, buatlah dengan mengetik \\`${prefix}adddj @DJ-Setup\\``",
+        "variable7": "``"
+      },
+      "restart": {
+        "variable1": "``"
+      },
+      "resume": {
+        "variable1": "`${emoji.msg.ERROR} Lagu sudah dilanjutkan!`",
+        "variable2": "`Anda dapat menjedanya dengan: \\`${prefix}pause\\``",
+        "variable3": "``"
+      },
+      "rewind": {
+        "variable1": "`${emoji.msg.ERROR} Anda dapat memundurkan untuk \\`1\\` - \\`${player.queue.current.duration}\\``",
+        "variable2": "`${emoji.msg.rewind} Memutar ulang lagu untuk \\`${args[0]} Seconds\\` to: ${format(Number(player.position))}`",
+        "variable3": "``"
+      },
+      "search": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah pencarian.`",
+        "variable2": "``"
+      },
+      "searchradio": {
+        "variable1": "`${emoji.msg.ERROR} Apa yang seharusnya menjadi Jenis pencarian`",
+        "variable2": "`Penggunaan: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nJenis yang valid: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nContoh: \\`${prefix}searchradio tag jazz\\`\\nContoh: \\`${prefix}searchradio state Austria\\``",
+        "variable3": "`${emoji.msg.ERROR} Apa yang harus saya cari?`",
+        "variable4": "`Penggunaan: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nJenis yang valid: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nContoh: \\`${prefix}searchradio tag jazz\\`\\nContoh: \\`${prefix}searchradio state Austria\\``",
+        "variable5": "`${emoji.msg.ERROR} Apa yang seharusnya menjadi Jenis pencarian`",
+        "variable6": "`Penggunaan: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nJenis yang valid: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nContoh: \\`${prefix}searchradio tag jazz\\`\\nContoh: \\`${prefix}searchradio state Austria\\``",
+        "variable7": "`Pilih Radio Anda dengan `Nomor INDEKS``",
+        "variable8": "`${emoji.msg.ERROR} Anda tidak memberikan pilihan`",
+        "variable9": "'${emoji.msg.ERROR} Pilihan dibatalkan.'",
+        "variable10": "`${emoji.msg.ERROR} Nomor yang Anda berikan bukan Nomor di dalam (1-${counter}).`",
+        "variable11": "`${emoji.msg.ERROR} Nomor yang Anda berikan terlalu kecil atau terlalu besar (1-${counter}).`",
+        "variable12": "``",
+        "variable13": "``"
+      },
+      "searchsc": {
+        "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah pencarian.`",
+        "variable2": "``"
+      },
+      "searchsimilar": {
+        "variable1": "``"
+      },
+      "seek": {
+        "variable1": "`${emoji.msg.ERROR} Anda dapat mencari dari \\`0\\` - \\`${player.queue.current.duration}\\``",
+        "variable2": "`Mencari lagu untuk: ${format(Number(args[0]) * 1000)}`",
+        "variable3": "``"
+      },
+      "shuffle": {
+        "variable1": "``"
+      },
+      "skip": {
+        "title": "⏹️ **Antrian lagu berakhir!**",
+        "title2": "⏭ **Melewati Track saat ini!**",
+        "variable1": "`Channel: <#${player.voiceChannel}>`",
+        "variable2": "`💢 Suara diperlukan \\`${votesRequired}\\` untuk melewatkan trek ini`",
+        "variable3": "`${emoji.msg.time} Batas waktu 1 menit`",
+        "variable4": "`⛔️ VOTE TIMEOUT ⛔️`",
+        "variable5": "`${emoji.msg.ERROR} DIBATALKAN KARENA BUKAN KATA / WAKTU TELAH HABIS!`",
+        "variable6": "❗️ Terjadi kesalahan"
+      },
+      "stop": {
+        "variable1": "`⏹ **Berhenti bermain dan Menghapus Antrian di: **`",
+        "variable2": "`>>> **🎙️ Channel: **<#${player.voiceChannel}>`"
+      },
+      "unshuffle": {
+        "variable1": "`${emoji.msg.ERROR} Anda belum mengacak Antrean ini!`",
+        "variable2": "`Untuk mengacaknya ketik: \\`${prefix}shuffle\\``",
+        "variable3": "`${emoji.msg.shuffle} **Un**shuffled the Queue`",
+        "variable4": "``"
+      }
+    },
+    "settings": {
+      "addbotchat": {
+        "variable1": "`${emoji.msg.ERROR} Silakan tambahkan Saluran dengan menyebutkan, misalnya: #text-channel!`",
+        "variable2": "`${emoji.msg.ERROR} Tampaknya Saluran tidak ada di Server ini!`",
+        "variable3": "`${emoji.msg.SUCCESS} Menambahkan Bot-Obrolan \\`${channel.name}\\``",
+        "variable4": "`${emoji.msg.ERROR} Channel ini sudah ada di List!`",
+        "variable5": "``**Bot Channel: ** ${chname}``"
+      },
+      "adddj": {
+        "variable1": "`${emoji.msg.ERROR} Silakan tambahkan Peran melalui ping, @role!`",
+        "variable2": "`${emoji.msg.ERROR} Tampaknya Peran tidak ada di Server ini!`",
+        "variable3": "`${emoji.msg.SUCCESS} Menambahkan PERAN DJ \\`${role.name}\\``",
+        "variable4": "`${emoji.msg.ERROR} Peran ini sudah ada dalam Daftar!`",
+        "variable5": "`**DJ Role:** ${djname}\\nJika Anda ingin mengubahnya, jalankan perintah \\`${prefix}reset\\` dan ikuti langkahnya.`"
+      },
+      "autoresume": {
+        "variable1": "`**Berhasil __${data.Autoresume ? `Diaktifkan` : `Dinonaktifkan`}__ Auto-Resume sistem = ON**`",
+        "variable2": "`**Saya ${data.Autoresume ? `` : ` tidak`} akan memulihkan Antrian - setelah BOT-RESTART!**`",
+        "variable3": "``"
+      },
+      "defaultautoplay": {
+        "variable1": "`**Berhasil __${client.settings.get(message.guild.id, `defaultap`) ? `Diaktifkan` : `Dinonaktifkan`}__ Autoplay Default = ON**`",
+        "variable2": "`**Sekarang saya${client.settings.get(message.guild.id, `defaultap`) ? `` : ` tidak`} Gunakan Autoplay = ON on 1. Track start!**`",
+        "variable3": "``"
+      },
+      "defaultequalizer": {
+        "variable1": "`**Berhasil __${client.settings.get(message.guild.id, `defaulteq`) ? `Diaktifkan` : `Dinonaktifkan`}__ the Default Equalizer (Music)**`",
+        "variable2": "`**I will now${client.settings.get(message.guild.id, `defaulteq`) ? `` : ` tidak`} use the Default Equalizer `Music` on 1. Track start!**`",
+        "variable3": "``"
+      },
+      "defaultvolume": {
+        "variable1": "`${emoji.msg.ERROR} Anda tidak menambahkan Volume Default baru`",
+        "variable2": "`**Volume Default Saat Ini adalah: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+        "variable3": "`${emoji.msg.ERROR} Anda tidak menambahkan Volume Default baru yang valid`",
+        "variable4": "`*Itu harus berupa **Angka***\\n**Volume Default Saat Ini adalah: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+        "variable5": "`${emoji.msg.ERROR} Anda tidak menambahkan Volume Default baru yang valid`",
+        "variable6": "`*Itu harus antara \\`150\\` dan \\`1\\`*\\n**Volume Default Saat Ini adalah: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+        "variable7": "`**Berhasil mengatur Volume Default baru menjadi: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+        "variable8": "``"
+      },
+      "prefix": {
+        "variable1": "`${emoji.msg.ERROR} Harap berikan awalan baru!`",
+        "variable2": "`Prefix saat ini: \\`${prefix}\\``",
+        "variable3": "`${emoji.msg.ERROR} Awalan tidak boleh memiliki dua spasi`",
+        "variable4": "`${emoji.msg.ERROR} Awalan tidak boleh lebih dari \\`5\\``",
+        "variable5": "`${emoji.msg.SUCCESS} Berhasil mengatur Prefix baru ke **\\`${args[0]}\\`**`",
+        "variable6": "``"
+      },
+      "removebotchat": {
+        "variable1": "`${emoji.msg.ERROR} Silakan tambahkan Saluran melalui ping, misalnya: #channel!`",
+        "variable2": "`${emoji.msg.ERROR} Tampaknya Saluran tidak ada di Server ini!`",
+        "variable3": "`${emoji.msg.ERROR} Saluran ini tidak ada di Pengaturan Saluran Bot!`",
+        "variable4": "`${emoji.msg.SUCCESS} Menghapus Bot-Obrolan \\`${channel.name}\\``",
+        "variable5": "`Semua obrolan Bot tersisa di:\\n> ${leftb}`",
+        "variable6": "``"
+      },
+      "removedj": {
+        "variable1": "`${emoji.msg.ERROR} Please add a Role via ping, @role!`",
+        "variable2": "`${emoji.msg.ERROR} It seems that the Role does not exist in this Server!`",
+        "variable3": "`${emoji.msg.ERROR} This Role is already a DJ-ROLE!`",
+        "variable4": "`${emoji.msg.SUCCESS} Removed the DJ ROLE \\`${role.name}\\``",
+        "variable5": "`All left Dj Roles:\\n> ${leftb}`",
+        "variable6": "``"
+      },
+      "reset": {
+        "menuoptions": {
+          "var1": "⚠️ Kembalikan semua pengaturan ke default kecuali Leveling Sistem ! ⚠️",
+          "var2": "Hanya mengatur ulang Peran DJ di server",
+          "var3": "Hanya setel ulang Awalan di server",
+          "var4": "Atur Ulang & Hapus saluran Musik Sistem",
+          "var5": "Setel Ulang Obrolan Saluran Bot",
+          "var6": "Setel ulang server Peran Otomatis",
+          "var7": "Setel ulang Pruning Message",
+          "var8": "Setel ulang Auto Play",
+          "var9": "Setel ulang Bot Equalizer",
+          "var10": "Setel ulang Bot Volume server",
+          "var11": "Setel ulang Reaction Roles server",
+          "var12": "Setel ulang Greeting Message server",
+          "var13": "Setel ulang Level and Poin SEMUA MEMBER!"
+        },
+        "var1": "`Pilih yang ingin Anda atur ulang di menu opsi`",
+        "var2": "`*Perintah ini aktif di ${ms(timeactive)}*`",
+        "var3": "`${emoji.msg.block} Waktu Habis ${emoji.msg.block}`",
+        "var4": "`Menghapus Pesan dalam ${ms(timedelete)}`",
+        "var5": "`❗️ Anda sudah memilih sesuatu, Pilihan ini sekarang dinonaktifkan!`",
+        "var6": "`❗️ Anda tidak diperbolehkan melakukan itu! Hanya: <@${cmduser.id}>`",
+        "var7": "`${emoji.msg.warning} Apakah Anda yakin mengatur ulang Semua Pengaturan Bot? ${emoji.msg.warning}`",
+        "var8": "`>>> **Semua pengaturan akan mengatur ulang semuanya di menu opsi, kecuali SISTEM LEVELING!**`",
+        "var9": "`⌛ Waktu ${ms(30000)} \n${ee.footertext}`",
+        "var10": "`❗️ Anda tidak diizinkan untuk bereaksi!`",
+        "var11": "`❗️ Anda sudah memilih sesuatu, Tombol ini sekarang dinonaktifkan!`",
+        "var12": "`${emoji.msg.SUCCESS} Mengatur ulang semuanya!`",
+        "var13": "`**Semua Pengaturan telah diatur ulang ke pengaturan default kecuali Leveling Sistem.** \\nPrefix Sekarang: \\`${prefix}\\``",
+        "var14": "`${emoji.msg.ERROR} Batalkan reset Semua Pengaturan`",
+        "var15": "`**⛔⛔WAKTU HABIS MOHON ULANGI PERINTAH LAGI!⛔⛔**`",
+        "var16": "`${emoji.msg.SUCCESS} Peran DJ di server ini telah diatur ulang!`",
+        "var17": "`Jika Anda ingin menambahkannya, jalankan perintah \\`${prefix}adddj\\``",
+        "var18": "`${emoji.msg.SUCCESS} Awalan di server ini telah diatur ulang!`",
+        "var19": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}prefix\\``",
+        "var20": "`${emoji.msg.SUCCESS} Setup Musik di server ini telah diatur ulang!`",
+        "var21": "`Jika Anda ingin mengaturnya lagi, jalankan perintah \\`${prefix}setup-music\\``",
+        "var22": "`${emoji.msg.SUCCESS} Bot Channel Chat di server ini telah diatur ulang!`",
+        "var23": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}addbotchat\\``",
+        "var24": "`${emoji.msg.SUCCESS} Auto Roles di server ini telah diatur ulang!`",
+        "var25": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}autorole\\``",
+        "var26": "`${emoji.msg.SUCCESS} Pruning Message di server ini telah diatur ulang!`",
+        "var27": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}pruning\\``",
+        "var28": "`${emoji.msg.SUCCESS} AutoPlay di server ini telah diatur ulang!`",
+        "var29": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}autoplay\\``",
+        "var30": "`${emoji.msg.SUCCESS} Equalizer di server ini telah diatur ulang!`",
+        "var31": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}equalizer\\``",
+        "var32": "`${emoji.msg.SUCCESS} Volume di server ini telah diatur ulang!`",
+        "var33": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}volume\\``",
+        "var34": "`${emoji.msg.SUCCESS} Reaction Role di server ini telah diatur ulang!`",
+        "var35": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}role-add\\``",
+        "var36": "`${emoji.msg.SUCCESS} Greeting Message di server ini telah diatur ulang!`",
+        "var37": "`Jika Anda ingin mengubahnya, jalankan perintah \\`${prefix}setup-greeting\\``",
+        "var38": "`${emoji.msg.SUCCESS} Leveling System di server ini telah diatur ulang!`",
+        "var39": "`Sekarang Semua Level Anggota \\`1\\`, Poin \\`0\\`, dan Sistem Leveling __DiNONAKTIFKAN__\\nJika Anda ingin MENGAKTIFKANnya jalankan perintah\\`${prefix}toggleleveling\\``",
+
+        "noset": "`${emoji.msg.ERROR} Tidak ada data untuk opsi ini.`",
+
+        "variable6": "`${emoji.msg.ERROR} DIBATALKAN KARENA BUKAN KATA YANG BENAR / WAKTU TELAH HABIS!`",
+        "variable7": "``"
+      },
+      "sendreactionrole": {
+        "var1": "`${emoji.msg.ERROR} Silakan atur Reaction Role terlebih dahulu`",
+        "var2": "`Jalankan \\`${prefix}setup-reactionrole\\``",
+        "var3": "`${emoji.msg.ERROR} Harap mention channelnya`",
+        "var4": "`${emoji.msg.ERROR} Harap Masukan Title Embed`",
+        "var5": "`${emoji.msg.SUCCESS} Reaction roles telah diatur di${channel}`",
+        "var6": "React emoji untuk mendapatkan role",
+
+        "err": "`>>> **Penggunaan: **\\`${prefix}role-send <@text-channel> <title>\\` \\n\\n*Contoh*: \\`${prefix}role-send @text-channel Take a role here!\\``"
+      },
+      "setup-embed": {
+        "variable1": "`Silakan pilih apa yang ingin Anda ubah`",
+        "variable2": "`1️⃣ **==** Mengganti **Color** dari Embeds\\n\\n2️⃣ **==** Mengganti **Image** dari Embeds\\n\\n3️⃣ **==** Mengganti **Footer Text** dari Embeds\\n\\n4️⃣ **==** ${es.thumb ? `**Disable** the Thumbnail for Embeds` : `**Enable** the Thumbnail for Embeds`}\\n\\n\\n\\n*Tanggapi dengan emoji yang tepat untuk tindakan yang tepat*`",
+        "variable3": "`❗️ Kamu tidak memiliki izin untuk menambahkan reaksi`",
+        "variable4": "`❗️ Waktu Anda telah habis`",
+        "variable5": "`Warna apa yang kamu mau?`",
+        "variable6": "`Kirim sekarang!\\n\\nPastikan untuk menggunakan yang valid **HEX CODE** untuk, Sebagai contoh: **\\`#ffee22\\`** __Diawali dengan__ \\`#\\``",
+        "variable7": "`❗️ Harap tambahkan WARNA yang valid`",
+        "variable8": "`Perhatikan bahwa HEX COLOR terlihat seperti itu: \\`#ffee22\\``",
+        "variable9": "`❗️ Harap tambahkan WARNA yang valid`",
+        "variable10": "`Perhatikan bahwa HEX COLOR terlihat seperti itu: \\`#ffee22\\``",
+        "variable11": "`${emoji.msg.SUCCESS} Warna Sematan yang baru adalah: \\`${es.color}\\``",
+        "variable12": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable13": "``",
+        "variable14": "`⏳ Waktu Anda telah habis`",
+        "variable15": "`Gambar mana yang ingin Anda gunakan?`",
+        "variable16": "`Perhatikan bahwa Anda tidak boleh menghapus gambar ini dari mana pun sumbernya! Tautan dihargai`",
+        "variable17": "`${emoji.msg.SUCCESS} Gambar Sematan baru adalah: \\`${es.link}\\``",
+        "variable18": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable19": "``",
+        "variable20": "`❗️ Harap tambahkan IMAGE-LINK yang valid`",
+        "variable21": "`❗️ Harap tambahkan IMAGE-LINK yang valid`",
+        "variable22": "`${emoji.msg.SUCCESS} Gambar Sematan baru adalah: \\`${es.link}\\``",
+        "variable23": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable24": "``",
+        "variable25": "`⏳ Waktu Anda telah habis`",
+        "variable26": "`Apa yang seharusnya menjadi Teks Footer baru Anda?`",
+        "variable27": "`Perhatikan bahwa itu adalah Teks yang sangat kecil dan di bagian bawah Sematan\\n\\nMasukkan Teks sekarang!`",
+        "variable28": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable29": "``",
+        "variable30": "`⏳ Waktu Anda telah habis`",
+        "variable31": "`${emoji.msg.SUCCESS} Thumbnailnya sekarang ${es.thumb ? `diaktifkan`: `dinonaktifkan`}`",
+        "variable32": "`${es.thumb ? `Sekarang saya akan menambahkan thumbnail ke setiap Pesan Sematan`: `Sekarang saya **tidak** menambahkan Thumbnail ke Embed Messages`}`",
+        "variable33": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable34": "``",
+        "variable35": "`❗️ Terjadi kesalahan, silakan hubungi: `adamkaisa#9997``",
+        "variable36": "``"
+      },
+      "setup-greeting": {
+        "err": {
+          "var1": "`${emoji.msg.ERROR} Sebutkan saluran teks dan ketik pesan.`",
+          "var2": "`Penggunaan: `",
+          "var2x": "`${prefix}greetingset <#text-channel> <messages>`",
+          "var3": "`Format Pesan: `",
+          "var3x": "`\\`%mention% = Untuk Sebutkan Anggota\\n%guild% = Untuk Sebut Nama Guild\\n**% %** = Untuk Bold font\\``",
+          "var4": "`Contoh: `",
+          "var4x": "`\\`\\`\\`cc\n${prefix}greetingset #welcome-channel Hay, %mention% Welcome to **%guild%**. Take a Role on the #text-channel if you need to.\\`\\`\\``"
+        },
+        "var1": "`${emoji.msg.SUCCESS} Greeting message telah ditetapkan!`",
+        "var2": "`>>> **Channel: ** <#${channel.id}> \\n **Pesan: ** ${msg}`",
+        "var3": "`${emoji.msg.ERROR} Pesan Ucapan sudah disetel!`",
+        "var4": "`>>> **Channel: ** <#${ChannelId}> \\n **Pesan: ** \\`\\`\\`${Message}\\`\\`\\` \\n\\n Jika Anda perlu mengatur ulang, jalankan \\`${prefix}reset\\` dan pilih Greeting Message`"
+      },
+      "setup-language": {
+        "variable1": "`***Pilih apa yang Anda butuhkan di \\`Menu Selection\\`!***`",
+        "variable2": "`❗️ ABGEBROCHEN the Setup!`",
+        "variable3": "`Pilih Bahasa baru Anda`",
+        "variable4": "`Bahasa saat ini adalah: **${languages[ls]}**\\n\\n***Perhatikan bahwa Sistem ini belum selesai!***\\n**Hanya sebagian Bahasa yang berfungsi adalah:**\\n> \\`English\\`, \\`Indonesia\\``",
+        "variable5": "`${emoji.msg.SUCCESS} Bahasa baru sekarang adalah **${languages[lang]}** \\`(${lang})\\``",
+        "variable6": "`${emoji.msg.SUCCESS} Mengatur Ulang Bahasa | Bahasa baru sekarang adalah **🇬🇧 English** (en)`",
+        "variable7": "`📑 Bahasa saat ini adalah ${thesettings}`",
+        "variable8": "`\\`\\`\\` ${e.message ? e.message : e.stack ? String(e.stack).substr(0, 2000) : String(e).substr(0, 2000)}\\`\\`\\``"
+      },
+      "setup-music": {
+        "var1": "`📃 Anterian Lagi di__${message.guild.name}__`",
+        "var2": "`**Saat ini ada __0 Lagu__ di Antrian**`",
+        "var3": "`Mulailah Mendengarkan Musik, dengan menyambungkan ke Saluran Suara dan mengirimkan **LINK LAGU** atau **NAMA LAGU** di Saluran ini!`",
+        "var4": "`🔴 Youtube 🟢 Spotify 🟠 Soundcloud, ⚪️ iTunes, 💾 and direct MP3 Links!`",
+        "var5": "`Pilihan Playlist Bad Vibes`",
+        "var6": "`❗️ **Mohon masukan channels!**`",
+        "var7": "`❗️ **Sistem Musik sudah ada**`",
+        "var8": "`**Sistem Musik Tersedia di: ** <#${data.channelId}>`",
+        "var9": "`✅ **Berhasil Setting Musik Sistem**`",
+        "var10": "`**Sistem Musik Tersedia di: ** <#${channel.id}>`"
+      },
+      "setup-reactionrole": {
+        "var1": "`${emojis.msg.ERROR} Tolong sebutkan peran`",
+        "var2": "`${emojis.msg.ERROR} Izin Hilang`",
+        "var3": "`**Level peran saya diturunkan! Harap tingkatkan peran saya sebelum menggunakan perintah ini!**`",
+        "var4": "`${emojis.msg.ERROR} Unch... Nama peran default saya telah diedit! tolong kembalikan peran default saya terlebih dahulu.`",
+        "var5": "`>>> **Nama peran default saya adalah:** *${client.user.username}*`",
+        "var6": "`Harap tentukan peran dan emoji`",
+        "var7": "`>>> **Penggunaan: ** \\`${prefix}role-add <@roles> <emoji> <description>\\` \\n\\n *Contoh: * \\`${prefix}role-add @roles 🎧 Role for DJ\\` `",
+        "var8": "`${emojis.msg.ERROR} Silakan masukkan Nama Peran`",
+        "var9": "`>>> **Penggunaan: ** \\`${prefix}role-add <@roles> <emoji> <description>\\` \\n\\n *Contoh: * \\`${prefix}role-add @roles 🎧 Role for DJ\\` `",
+        "var10": "`${emojis.msg.SUCCESS} Berhasil menambahkan peran ini ke database!`"
+      },
+      "setup-regionvc": {
+        "var1": "`${emoji.msg.ERROR} Silakan bergabung dengan saluran suara!`",
+        "var2": "`Pilih wilayah Anda RTC`",
+        "var3": "`❗️ Anda sudah memilih sesuatu, Pilihan ini sekarang dinonaktifkan!`",
+        "var4": "`❗️ Anda tidak diperbolehkan melakukan itu! Hanya: <@${cmduser.id}>`",
+        "succes": "`${emoji.msg.SUCCESS} Wilayah di 🔊 __${channel.name}__ telah diubah menjadi: __${menuoptiondata.value}__`"
+      },
+      "toggleautorole": {
+        "var1": "`${emoji.msg.ERROR} Peran Otomatis belum disetel!`",
+        "var2": "`**Silahkan Setup terlebih dahulu sebelum menggunakan perintah ini!**\\n \\`\\`\\`ml\\nJalankan: ${prefix}autorole\\`\\`\\``",
+        "var3": "`${emoji.msg.SUCCESS} Berhasil __${data.AutoRole ? `Diaktifkan` : `Dinonaktifkan`}__ Autorole`",
+        "var4": "`Sekarang aku ${data.AutoRole ? `` : `tidak`} akan Menambahkan <@&${autorole.RoleId}> kepada anggota baru.`"
+      },
+      "togglegreeting": {
+        "var1": "`${emoji.msg.ERROR} Pesan Ucapan belum disetel!`",
+        "var2": "`**Silahkan Setup terlebih dahulu sebelum menggunakan perintah ini!**\\n \\`\\`\\`ml\\nJalankan: ${prefix}setup-greeting\\`\\`\\``",
+        "var3": "`${emoji.msg.SUCCESS} Greeting Message Berhasil __${ss.Greeting ? `Diaktifkan` : `Dinonaktifkan`}__ `",
+        "var4": "`Sekarang aku ${ss.Greeting ? `` : `tidak`} akan mengirimkan Greeting Message jika ada member baru yang bergabung!`"
+      },
+      "togglepruning": {
+        "variable1": "`Pruning Message Berhasil __${data.Pruning ? `Diaktifkan` : `Dinonaktifkan`}__`",
+        "variable2": "`Sekarang aku ${data.Pruning ? `` : `tidak`} akan kirim Pesan saat Lagu dimulai.`",
+        "variable3": "``"
+      },
+      "toggleunknowncommandinfo": {
+        "variable1": "`${emoji.msg.SUCCESS} ${data.Unkowncmdmessage ? `Enabled`: `Disabled`} Unknown Command Information`",
+        "variable2": "`${data.Unkowncmdmessage ? 'Sekarang aku akan kirim Informasi ketika Perintah tidak ditemukan' : 'Saya tidak akan mengirim Informasi Perintah Tidak Dikenal'}`"
+      }
+    },
+    "customqueues": {
+      "savedqueue": {
+        "variable1": "`${emoji.msg.ERROR} Anda tidak memasukkan TYPE`",
+        "variable2": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name> [Options]\\`\\nJenis yang Tersedia:\\n\\`create\\`, \\`addcurrenttrack\\`, \\`addcurrentqueue\\`, \\`removetrack\\`, \\`removedupes\\`, \\`showall\\`, \\`createsave\\`, \\`delete\\`, \\`showdetails\\`, \\`play\\`, \\`shuffle\\``",
+        "variable3": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable4": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable5": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable6": "`Panjang Maksimum adalah \\`10\\``",
+        "variable7": "`${emoji.msg.ERROR} Antrian Anda sudah ada!`",
+        "variable8": "`Hapus: \\`${prefix}savedqueue delete ${Name}\\`\\nTampilkan isinya: \\`${prefix}savedqueue showdetails ${Name}\\``",
+        "variable9": "`${emoji.msg.SUCCESS} Dibuat ${Name}`",
+        "variable10": "`Tambahkan **Queue** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nTambahkan **Track** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+        "variable11": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable12": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable13": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable14": "`Panjang Maksimum adalah \\`10\\``",
+        "variable15": "`${emoji.msg.ERROR} Antrian Anda belum ada!`",
+        "variable16": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable17": "`${emoji.msg.ERROR} Tidak ada yang bermain`",
+        "variable18": "`${emoji.msg.ERROR} Tidak ada yang bermain!`",
+        "variable19": "`Sekarang ada: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+        "variable20": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable21": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable22": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable23": "`Panjang Maksimum \\`10\\``",
+        "variable24": "`${emoji.msg.ERROR} Antrian Anda belum ada!`",
+        "variable25": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable26": "`${emoji.msg.ERROR} Tidak ada yang bermain`",
+        "variable27": "`${emoji.msg.ERROR} Antriannya Kosong!`",
+        "variable28": "`${emoji.msg.SUCCESS} Ditambahkan ${tracks.length} Trek ke Antrian \\`${Name}\\``",
+        "variable29": "`Sekarang ada: \\`${newqueue.length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+        "variable30": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable31": "`Penggunaan: \\`${prefix}savedqueue removetrack <Name> [Options]\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable32": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable33": "`Panjang Maksimum \\`10\\``",
+        "variable34": "`${emoji.msg.ERROR} Anda tidak memasukkan Opsi (Trek yang ingin Anda hapus (ID OF IT))`",
+        "variable35": "`Lihat semua Trek Anda: \\`${prefix}savedqueue showdetails ${Name}\\`Penggunaan: \\`${prefix}savedqueue removetrack ${Name} <Song number>\\``",
+        "variable36": "`${emoji.msg.ERROR} Antrian Anda tidak ada!`",
+        "variable37": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable38": "`${emoji.msg.ERROR} Opsi yang Anda berikan di luar Jangkauan (\\`0\\` - \\`${tracks.length-1}\\`)`",
+        "variable39": "`Lihat semua Trek Anda: \\`${prefix}savedqueue showdetails ${Name}\\`Penggunaan: \\`${prefix}savedqueue removetrack ${Name} <Song number>\\``",
+        "variable40": "`Sekarang ada: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+        "variable41": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable42": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable43": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable44": "`Panjang Maksimum \\`10\\``",
+        "variable45": "`${emoji.msg.ERROR} Antrian Anda tidak ada!`",
+        "variable46": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable47": "`${emoji.msg.ERROR} Antrean Tersimpan Anda ${Name} kosong!`",
+        "variable48": "`Tambahkan **Queue** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nTambahkan **Track** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+        "variable49": "`Sekarang ada: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+        "variable50": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable51": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable52": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable53": "`Panjang Maksimum \\`10\\``",
+        "variable54": "`${emoji.msg.ERROR} Antrian Anda tidak ada!`",
+        "variable55": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable56": "`${emoji.msg.ERROR} Antrean Tersimpan Anda ${Name} kosong!`",
+        "variable57": "`Tambahkan **Queue** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nTambahkan **Track** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+        "variable58": "`Sekarang ada: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+        "variable59": "`${emoji.msg.ERROR} Anda belum memiliki Antrian yang tersimpan!`",
+        "variable60": "`Buat satu dengan: \\`${prefix}savedqueue create <SavedQueueName>\\``",
+        "variable61": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable62": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable63": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable64": "`Panjang Maksimum \\`10\\``",
+        "variable65": "`${emoji.msg.ERROR} Antrian Anda sudah ada!`",
+        "variable66": "`Hapus: \\`${prefix}savedqueue delete ${Name}\\`\\nTampilkan isinya: \\`${prefix}savedqueue showdetails ${Name}\\``",
+        "variable67": "`${emoji.msg.ERROR} Tidak ada yang bermain`",
+        "variable68": "`${emoji.msg.ERROR} Antriannya Kosong!`",
+        "variable69": "`${emoji.msg.SUCCESS} Dibuat ${Name} dan Ditambahkan ${tracks.length} Lacak ke sana`",
+        "variable70": "`Play it with: \\`${prefix}savedqueue play ${Name}\\`\\nTambahkan **Queue** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nTambahkan **Track** saat ini ke dalamnya: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+        "variable71": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable72": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable73": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable74": "`Panjang Maksimum \\`10\\``",
+        "variable75": "`${emoji.msg.ERROR} Antrian Anda belum ada!`",
+        "variable76": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable77": "`${emoji.msg.SUCCESS} Menghapus Antrian \\`${Name}\\``",
+        "variable78": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable79": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable80": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable81": "`Panjang Maksimum \\`10\\``",
+        "variable82": "`${emoji.msg.ERROR} Anda harus bergabung dengan saluran suara.`",
+        "variable83": "`${emoji.msg.ERROR} Anda harus berada di saluran suara saya untuk menggunakan perintah ini!`",
+        "variable84": "`Nama saluran: \\`${message.guild.channels.cache.get(player.voiceChannel).name}\\``",
+        "variable85": "`${emoji.msg.ERROR} Anda harus berada di saluran suara saya untuk menggunakan perintah ini!`",
+        "variable86": "`Nama saluran: \\`🔈 ${mechannel.name}\\``",
+        "variable87": "`${emoji.msg.ERROR} Antrian Anda belum ada!`",
+        "variable88": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable89": "`Mencoba untuk Memuat ${client.queuesaves.get(message.author.id, `${Name}`).length} trek`",
+        "variable90": "`Mungkin butuh sekitar \\`${Math.ceil(client.queuesaves.get(message.author.id, `${Name}`).length / 2)} Detik\\``",
+        "variable91": "`${emoji.msg.SUCCESS} Sarat ${client.queuesaves.get(message.author.id, `${Name}`).length} Melacak ke Antrean saat ini`",
+        "variable92": "`${emoji.msg.ERROR} Anda tidak memasukkan Nama Antrian Tersimpan`",
+        "variable93": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nNama Informasi:\\n\\`Bisa apa saja dengan maksimal 10 Huruf\\``",
+        "variable94": "`${emoji.msg.ERROR} Nama Antrian Tersimpan Anda terlalu panjang!`",
+        "variable95": "`Panjang Maksimum \\`10\\``",
+        "variable96": "`${emoji.msg.ERROR} Antrian Anda tidak ada!`",
+        "variable97": "`Buat dengan: \\`${prefix}savedqueue create ${Name}\\``",
+        "variable98": "`${emoji.msg.ERROR} Anda tidak memasukkan TYPE yang **valid**`",
+        "variable99": "`Penggunaan: \\`${prefix}savedqueue <Type> <Name>\\`\\nValid Types:\\n\\`create\\`, \\`addcurrenttrack\\`, \\`addcurrentqueue\\`, \\`removetrack\\`, \\`removedupes\\`, \\`showall\\`, \\`createsave\\`, \\`delete\\`, \\`showdetails\\`, \\`play\\`, \\`shuffle\\``",
+        "variable100": "``"
+      }
+    },
+    "filter": {
+      "3d": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`8D\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "bassboost": {
+        "variable1": "`${emoji.msg.ERROR} Level penguat bass harus salah satu dari yang berikut: \\`none\\`, \\`low\\`, \\`medium\\`, \\`high\\`, \\`earrape\\``",
+        "variable2": "`Penggunaan: \\`${prefix}bassboost <Level>\\`\\n\\nContoh: \\`${prefix}bassboost low\\``",
+        "variable3": "`${emoji.msg.SUCCESS}Bassboost atur ke \\`${level}\\``",
+        "variable4": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Equalizer baru*`",
+        "variable5": "``"
+      },
+      "china": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`CHINA\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "chipmunk": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`CHIPMUNK\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "cleareq": {
+        "variable1": "`${emoji.msg.SUCCESS} Menyetel ulang Equalizer`",
+        "variablex_2": "`${emoji.msg.equalizer} FILTER: `",
+        "variable2": "`${emoji.msg.ERROR} Tidak Ada`",
+        "variablex_3": "`${emoji.msg.equalizer} EQUALIZER: `",
+        "variable3": "`${player.get(`eq`)}`",
+        "variable4": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Equalizer baru*`",
+        "variable5": "``"
+      },
+      "clearfilter": {
+        "variable1": "`${emoji.msg.SUCCESS} Menyetel ulang Equalizer`",
+        "variablex_2": "`${emoji.msg.equalizer} FILTER: `",
+        "variable2": "`${emoji.msg.ERROR} Tidak Ada`",
+        "variablex_3": "`${emoji.msg.equalizer} EQUALIZER: `",
+        "variable3": "`${player.get(`eq`)}`",
+        "variable4": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar FILTER baru*`",
+        "variable5": "``"
+      },
+      "darthvader": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`DARTHVADER\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "equalizer": {
+        "variable1": "`${emoji.msg.ERROR} Level equalizer harus salah satu dari yang berikut`",
+        "variable2": "`Equalizer yang valid:\\n\\`music\\`, \\`pop\\`, \\`electronic\\`, \\`classical\\`, \\`rock\\`, \\`full\\`, \\`light\\`, \\`gaming\\`, \\`bassboost\\`, \\`earrape\\`\\n\\nPenggunaan: \\`${prefix}equalizer <Equalizer>\\`\\n\\nContoh: \\`${prefix}equalizer music\\``",
+        "variable3": "`${emoji.msg.SUCCESS} Setel Equalizer ke \\`${level}\\``",
+        "variable4": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Equalizer baru*`",
+        "variable5": "``"
+      },
+      "nightcore": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`NIGHTCORE\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "pitch": {
+        "variable1": "`${emoji.msg.ERROR} Harap sertakan Pengganda`",
+        "variable2": "`Penggunaan: \\`${prefix}pitch <Multiplicator>\\`\\n\\nContoh: \\`${prefix}pitch 1.2\\``",
+        "variable3": "`${emoji.msg.ERROR} Pengganda harus berupa Angka`",
+        "variable4": "`Penggunaan: \\`${prefix}pitch <Multiplicator>\\`\\n\\nContoh: \\`${prefix}pitch 1.2\\``",
+        "variable5": "`${emoji.msg.ERROR} Pengganda di luar jangkauan | Harus antara 0 dan 3`",
+        "variable6": "`Penggunaan: \\`${prefix}pitch <Multiplicator>\\`\\n\\nContoh: \\`${prefix}pitch 1.2\\``",
+        "variable7": "`${emoji.msg.SUCCESS} Pitch disetel ke\\`${args[0]}\\``",
+        "variable8": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable9": "``"
+      },
+      "rate": {
+        "variable1": "`${emoji.msg.ERROR} Harap sertakan Pengganda`",
+        "variable2": "`Penggunaan: \\`${prefix}speed <Multiplicator>\\`\\n\\nContoh: \\`${prefix}speed 1.5\\``",
+        "variable3": "`${emoji.msg.ERROR} Pengganda harus berupa Angka`",
+        "variable4": "`Penggunaan: \\`${prefix}speed <Multiplicator>\\`\\n\\nContoh: \\`${prefix}speed 1.5\\``",
+        "variable5": "`${emoji.msg.ERROR} Pengganda di luar jangkauan | Harus antara 0 dan 3`",
+        "variable6": "`Penggunaan: \\`${prefix}speed <Multiplicator>\\`\\n\\nContoh: \\`${prefix}speed 1.5\\``",
+        "variable7": "`${emoji.msg.SUCCESS} Speed disetel ke\\`${args[0]}\\``",
+        "variable8": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable9": "``"
+      },
+      "slowmo": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`SLOWMO\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "speed": {
+        "variable1": "`${emoji.msg.ERROR} Harap sertakan Pengganda`",
+        "variable2": "`Penggunaan: \\`${prefix}rate <Multiplicator>\\`\\n\\nContoh: \\`${prefix}rate 1.5\\``",
+        "variable3": "`${emoji.msg.ERROR} Pengganda harus berupa Angka`",
+        "variable4": "`Penggunaan: \\`${prefix}rate <Multiplicator>\\`\\n\\nContoh: \\`${prefix}rate 1.5\\``",
+        "variable5": "`${emoji.msg.ERROR} Pengganda di luar jangkauan | Harus antara 0 dan 3`",
+        "variable6": "`Penggunaan: \\`${prefix}rate <Multiplicator>\\`\\n\\nContoh: \\`${prefix}rate 1.5\\``",
+        "variable7": "`${emoji.msg.SUCCESS} Rate disetel ke\\`${args[0]}\\``",
+        "variable8": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable9": "``"
+      },
+      "tremolo": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`TREMOLO\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "vibrate": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`VIBRATO\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      },
+      "vibrato": {
+        "variable1": "`${emoji.msg.SUCCESS} Menerapkan \\`VIBRATE\\` Filter`",
+        "variable2": "`Catatan: *Mungkin perlu waktu hingga 5 detik hingga Anda mendengar Filter*`",
+        "variable3": "``"
+      }
+    },
+    "owner": {
+      "changeavatar": {
+        "variable1": "`${emoji.msg.ERROR} You are not allowed to run this Command`",
+        "variable2": "`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+        "variable3": "`${emoji.msg.SUCCESS} Berhasil, changed the Bot avatar!`",
+        "variable4": "``",
+        "variable5": "`${emoji.msg.ERROR} ERROR | Could not use your Image as an Avatar, make sure it is a \\`png\\` / \\`jpg\\``",
+        "variable6": "`${emoji.msg.SUCCESS} Berhasil, changed the Bot avatar!`",
+        "variable7": "``",
+        "variable8": "`${emoji.msg.ERROR} ERROR | Could not use your Image as an Avatar, make sure it is a \\`png\\` / \\`jpg\\` / \\`webp\\``",
+        "variable9": "`Penggunaan: \\`${prefix}changeavatar <AVATARLINK/IMAGE>\\``",
+        "variable10": "``"
+      },
+      "changename": {
+        "variable1": "`${emoji.msg.ERROR} You are not allowed to run this Command`",
+        "variable2": "`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+        "variable3": "`${emoji.msg.ERROR} You need to add a new Bot Name`",
+        "variable4": "`Penggunaan: \\`${prefix}changename <New Bot Name>\\``",
+        "variable5": "`${emoji.msg.ERROR} Bot Name too long, can't have more then 32 Letters!`",
+        "variable6": "`${emoji.msg.SUCCESS} Changed my Name to: \\`${user.username}\\``",
+        "variable7": "``",
+        "variable8": "``"
+      },
+      "changestatus": {
+        "variable1": "`${emoji.msg.ERROR} You are not allowed to run this Command`",
+        "variable2": "`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+        "variable3": "`What do you want to do?`",
+        "variable4": "`1️⃣ **== Change** Status **TEXT**\\n\\n2️⃣ **== Change** Status **TYPE**\\n\\n3️⃣ **== Change** Status **URL**\\n\\n🟢 **==** Change the Online/Idle/DnD state\\n\\n\\n\\n*React with the Right Emoji according to the Right action*`",
+        "variable5": "`${emoji.msg.ERROR} ERROR | Missing Permissions to add Reactions`",
+        "variable6": "`${emoji.msg.ERROR} ERROR | Your Time ran out`",
+        "variable7": "`Which Text should I display in the Status?`",
+        "variable8": "`${emoji.msg.ERROR}  ERROR Writing the File`",
+        "variable9": "``",
+        "variable10": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable11": "`${emoji.msg.ERROR} ERROR | Your Time ran out`",
+        "variable12": "`What Type do you wanna use?`",
+        "variable13": "`${emoji.msg.ERROR} ERROR | Your Time ran out`",
+        "variable14": "`${emoji.msg.ERROR}  ERROR Writing the File`",
+        "variable15": "``",
+        "variable16": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable17": "`What Type do you wanna use?`",
+        "variable18": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable19": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable20": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable21": "`${emoji.msg.ERROR} ERROR | Your Time ran out`",
+        "variable22": "`Which URL should I display in the Status, if I am streaming?`",
+        "variable23": "`${emoji.msg.ERROR} NOT A VALID URL`",
+        "variable24": "`${emoji.msg.ERROR} NOT A VALID TWITCH URL`",
+        "variable25": "`${emoji.msg.ERROR}  ERROR Writing the File`",
+        "variable26": "``",
+        "variable27": "`${emoji.msg.SUCCESS}  Berhasil set the new Status`",
+        "variable28": "`${emoji.msg.ERROR} ERROR | Your Time ran out`",
+        "variable29": "`${emoji.msg.ERROR} ERROR | PLEASE CONTACT `adamkaisa#9997``",
+        "variable30": "``"
+      },
+      "cmdreload": {
+        "variable1": "`${emoji.msg.ERROR} You are not allowed to run this command! Only the Owner is allowed to run this Cmd`",
+        "variable2": "`${emoji.msg.ERROR} Please include an argument`",
+        "variable3": "`${emoji.msg.ERROR} Could not find: \\`${args[0]}\\``",
+        "variable4": "`${emoji.msg.SUCCESS} Reloaded \\`${args[0]}\\``",
+        "variable5": "`${emoji.msg.ERROR} Could not reload: \\`${args[0]}\\``",
+        "variable6": "``"
+      },
+      "eval": {
+        "variable1": "`${emoji.msg.ERROR}  Error | You are not allowed to run this command! Only the **\\`adamkaisa#9997\\`** is allowed to run this Cmd`",
+        "variable2": "`${emoji.msg.ERROR}  Error | You have to at least include one evaluation arguments`",
+        "variable3": "`Bad Vibes Development | Evaluation`",
+        "variable4": "`\\`\\`\\`` + splitDescription[0] + `\\`\\`\\``",
+        "variable5": "`${emoji.msg.ERROR}  ERROR | Terjadi kesalahan!`",
+        "variable6": "``"
+      },
+      "leaveserver": {
+        "variable1": "`${emoji.msg.ERROR} You are not allowed to run this command! Only the Owner is allowed to run this Cmd`",
+        "variable2": "`${emoji.msg.ERROR} You have to add which Guild I should leave`",
+        "variable3": "`Penggunaan: \\`${prefix}leaveserver <SERVERID>\\``",
+        "variable4": "`${emoji.msg.ERROR} Could not find the Guild to Leave`",
+        "variable5": "`${emoji.msg.SUCCESS} Leaft ${g.name} | ${g.id}`",
+        "variable6": "``"
+      }
+    },
+    "misc": {
+      "invite": {
+        "var1": "`❗️ You can't Invite a Normal user! **IT MUST BE A BOT**`",
+        "var2": "`[Click here for invite me...](https://discord.com/api/oauth2/authorize?client_id=${user.id}&permissions=8&scope=bot%20applications.commands)`"
+      },
+      "math": {
+        "var1": "`❗️ Perhitungan Anda tidak valid!`",
+        "var2": "`Contoh:`",
+        "var2x": "`\\`\\`\\`cc\\n${prefix}math 25+2*3/1-4\\`\\`\\``"
+      },
+      "premium": {
+        "var1": "`__${message.guild.name}__ telah PREMIUM sampai: \\`${n ? n : `Permanen` }\\``",
+        "var2": "`Dapatkan **Bad Vibes Premium GRATIS** dengan menukarkan kode redeem, jalankan perintah \\`${prefix}redeem\\``",
+        "var3": "`✅ **DITERAPKAN UNTUK PREMIUM**`"
+      },
+      "report": {
+        "var1": "`${emoji.msg.ERROR} Harap tentukan kueri!`",
+        "var2": "`Lari \\`${prefix}report <your case>\\` \\n\\n **Sebagai contoh :** \\`\\`\\`yml\\n${prefix}report Saya menemukan bug di perintah putar, saya tidak bisa memutar lagu.\\`\\`\\``",
+        "var3": "`✅ **DITERAPKAN UNTUK LAPORAN KASUS**`"
+      },
+      "sayembed": {
+        "var1": "`<a:buffering:927445030564679691> Harap tunggu buat database sementara`",
+        "var2": "`Harap Sebutkan saluran untuk mengirim Sematan Anda!`",
+        "var3": "`⏳ Waktu Anda telah habis`",
+        "var4": "`Membatalkan Operasi!`",
+        "var5": "`${emoji.msg.SUCCESS} Harap masukkan __Title__`",
+        "var6": "`Masukkan *__cancel__* untuk Membatalkan Operasi!`",
+        "var7": "`${emoji.msg.SUCCESS} Harap masukkan __Deskripsi__\\n`",
+        "var25": "`Untuk deskripsi kosong masukkan \\`null\\``",
+        "var8": "`Judul Anda:`",
+        "var9": "`${es.footertext}\nSilakan masukkan Deskripsi untuk pengaturan selanjutnya~`",
+        "var10": "`${emoji.msg.SUCCESS} Silakan masukkan __Color Hex__`",
+        "var11": "`Perhatikan bahwa HEX COLOR terlihat seperti itu: \\`#ffee22\\` \\nRandom Color = \\`RANDOM\\` (use uppercase)`",
+        "var12": "`Deskripsi Anda:`",
+        "var13": "`${es.footertext}\nSilakan masukkan Warna Hex untuk pengaturan selanjutnya~`",
+        "var14": "`${emoji.msg.SUCCESS} Harap masukkan __Footer Embed__`",
+        "var15": "`Perhatikan bahwa Footer Embed terlihat seperti itu: \\`Bad Vibes Official\\` atau masuk \\`null\\` untuk footer kosong`",
+        "var16": "`Sematkan Warna Anda:`",
+        "var17": "`${es.footertext}\nSilakan masukkan Footer Embed untuk pengaturan selanjutnya~`",
+        "var18": "`${emoji.msg.SUCCESS} Silakan masukkan __Thumbnail__`",
+        "var19": "`**jika Anda tidak ingin Thumbnail, masukkan \\`null\\`**`",
+        "var20": "`Sematkan Footer Anda:`",
+        "var21": "`${es.footertext}\nSilakan masukkan Thumbnail untuk pengaturan selanjutnya~`",
+        "var22": "`${emoji.msg.SUCCESS} Ini contoh embed Anda, jika Anda yakin mengirim embed ini ke ${channel} mengatakan *__yes__* dan untuk Membatalkan Operasi katakan *__cancel__*`",
+        "var23": "`${emoji.msg.SUCCESS} Mengirim Embed`",
+        "var24": "`${emoji.msg.ERROR} Membatalkan Operasi!`",
+        "cancel": "Membatalkan Operasi!"
+      }
+    }
+  },
+  "common": {
+    "not_DJ": "`${emoji.msg.ERROR} **Anda tidak memiliki peran DJ!**`",
+    "deaf": "❗️ Anda tidak dapat menjalankan perintah ini saat Anda `DEAF` / `SERVERDEAF`",
+    "usernotfound": "❗️ Tidak dapat menemukan PENGGUNA",
+    "rolenotfound": "❗️ Tidak dapat menemukan ROLE",
+    "erroroccur": "❗️ Terjadi kesalahan",
+    "disabled": {
+      "title": "❗️ **Perintah ini saat ini, dinonaktifkan**",
+      "description": "**Admin dapat mengaktifkannya dengan: `{prefix}setup-commands`**"
+    },
+    "nothing_playing": "❗️ **Saat ini saya tidak memainkan sesuatu!**",
+    "join_vc": "❗️ **Anda harus bergabung dengan Saluran Suara terlebih dahulu!**",
+    "wrong_vc": "❗️ **Anda harus berada di saluran suara saya untuk menggunakan perintah ini!**",
+    "not_connected": "❗️ **Saya tidak terhubung ke Saluran Suara lagi!**",
+    "dms_disabled": "❗️ **Dm Anda dinonaktifkan!**",
+    "example": "Sebagai Contoh",
+    "botchat": {
+      "title": "❗️ **Kesalahan | Tidak di Obrolan Bot!**",
+      "description": "**Ada pengaturan obrolan Bot di GUILD ini! Coba gunakan Perintah Bot di sini:**"
+    },
+    "ping": "👍 **Untuk melihat semua jenis Perintah: `{prefix}help`!**",
+    "unknowncmd": {
+      "title": "❗️ **Perintah Tidak Dikenal, coba: `{prefix}help`!**",
+      "description": "**Awalan untuk Guild ini adalah: `{prefix}`**\n\n*Anda juga dapat **ping** saya, alih-alih menggunakan Awalan!*\n\n**Untuk melihat semua Jenis Perintah `{prefix}help [Cat/Cmd]`!**\n\n**Untuk melihat semua jenis pengaturan yang tersedia `{prefix}help`!**"
+    },
+    "cooldown": "⏳ Command Cooldown... Tunggu {time} detik lagi untuk menggunakan command`{commandname}` kembali.",
+    "premium": {
+      "title": "❗️ **Perintah ini hanya Premium!** ❗️",
+      "description": "Seorang Admin dapat meminta Server ini sebagai PREMIUM-GUILD dengan mengetik: `{prefix}premium`"
+    },
+    "permissions": {
+      "title": "❗️ **Anda tidak diperbolehkan menjalankan perintah ini!**",
+      "description": "**Anda memerlukan Izin ini:**"
+    },
+    "missingroles": {
+      "title": "❗️ **Anda tidak diperbolehkan menjalankan perintah ini!**",
+      "description": "**Anda membutuhkan Peran ini:**",
+      "description2": "**Anda harus menjadi Pemohon dari Lagu yang sedang diputar!**\nATAU: **Anda membutuhkan Peran ini:**"
+    },
+    "nodjs": "tidak ada Peran DJ yang disiapkan! Semua orang dapat menggunakan Perintah-Musik.",
+    "nobotchannels": "Tidak ada Bot-Channel yang disiapkan! Perintah dapat digunakan di semua Saluran.",
+    "somethingwentwrong": "❗️ **Terjadi kesalahan saat menjalankan Perintah ini!**"
+  },
+  "handlers": {
+    "erelaevents": {
+      "client_events": {
+        "variable3": "`${emoji.msg.ERROR} Antrian lagu telah berakhir atau Voice Channel Kosong`",
+        "variable4": "`Saya meninggalkan Voice Channel: ${client.channels.cache.get(player.voiceChannel).name} Karena kosong!`"
+      },
+      "events": {
+        "var1": "`> 👍 **Bergabung ke:** <#${player.voiceChannel}>\\n\\n> 📃 **Dan terikat pada** <#${player.textChannel}> \\n\\n> 🔊 **Volume: ** \\`${ss.Volume}\\``",
+        "var2": "`${emoji.msg.ERROR} **Interaksi ini gagal** karena Guild Anda tidak Premium!.`",
+        "var3": "`⏹ **Antrian kosong Berhenti memainkan lagu dan meninggalkan Saluran**`",
+        "var4": "`⏭ **Dilompati ke Lagu berikutnya!**`",
+        "var5": "`${emoji.msg.ERROR} **Anda tidak dapat menghentikan lagu, karena __AUTOPLAY ON__**`",
+        "var6": "`⏹ **Berhenti memainkan lagu**`",
+        "var7": "`⏹ **Berhenti memainkan lagu dan meninggalkan Saluran Suara di: \\`${ms(settings.LeaveOnEmpty_Queue.time_delay)}\\`**`",
+        "var8": "`▶️ **Dilanjutkan!**`",
+        "var9": "`⏸ **Dijeda!**`",
+        "var10": "`${player.get(`autoplay`) ? `${emoji.msg.SUCCESS} **Diaktifkan Autoplay**`: `${emoji.msg.ERROR} **Dinonaktifkan Autoplay**`}`",
+        "var11": "`🔀 **Mengacak ${player.queue.length} Lagu!**`",
+        "var12": "`${player.trackRepeat ? `${emoji.msg.SUCCESS} **Song Loop Diaktifkan**`: `${emoji.msg.ERROR} **Song Loop Dinonaktifkan**`}`",
+        "var13": "`${player.queueRepeat ? `${emoji.msg.SUCCESS} **Queue Loop Diaktifkan**`: `${emoji.msg.ERROR} **Queue Loop Dinonaktifkan**`}`",
+        "var14": "`⏩ **Memundurkan durasi lagu \\`10 detik\\`!**`",
+        "var15": "`⏪ **Memajukan durasi lagu \\`10 detik\\`!**`",
+        "var16": "`${emoji.msg.leave_on_empty} Saluran Suara / Antrian kosong, tidak keluar karena __AFK Mode Diaktifkan__.`",
+        "var17": "`${emoji.msg.leave_on_empty} Antrian / Saluran Suara kosong di __${client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild}__, Keluar dari Saluran Suara, karena __AFK Mode Tidak aktif__.`"
+      },
+      "musicsystem": {
+        "var1": "`⏭ **Dilompati ke Lagu berikutnya!**`",
+        "var2": "`⏹ **Berhenti memainkan lagu**`",
+        "var3": "`⏹ **Berhenti bermain dan meninggalkan Saluran**`",
+        "var4": "`⏭ **Dilompati ke Lagu berikutnya!**`",
+        "var5": "`⏹ **Berhenti memainkan lagu**`",
+        "var6": "`⏹ **Berhenti memainkan lagu dan keluar dari Saluran Suara**`",
+        "var7": "`⏹ **Berhenti memainkan lagu dan meninggalkan Saluran Suara di: \\`${ms(settings.LeaveOnEmpty_Queue.time_delay)}\\`**`",
+        "var8": "`▶️ **Dilanjutkan!**`",
+        "var9": "`⏸ **Dijeda!**`",
+        "var10": "`${player.get(`autoplay`) ? `${emoji.msg.SUCCESS} **Autoplay Diaktifkan**`: `${emoji.msg.ERROR} **Autoplay Dinonaktifkan**`}`",
+        "var11": "`🔀 **Shuffled ${player.queue.length} Songs!**`",
+        "var12": "`${player.trackRepeat ? `${emoji.msg.SUCCESS} **Song Loop Diaktifkan**`: `${emoji.msg.ERROR} **Song Loop Dinonaktifkan**`}`",
+        "var13": "`${player.queueRepeat ? `${emoji.msg.SUCCESS} **Queue Loop Diaktifkan**`: `${emoji.msg.ERROR} **Queue Loop Dinonaktifkan**`}`",
+        "var14": "`⏩ **Meneruskan lagu untuk \\`10 detik\\`!**`",
+        "var15": "`⏪ **Memutar ulang lagu untuk \\`10 detik\\`!**`",
+        "var16": "`🔊 **Volume global disetel ke \\`${player.volume} %\\`**`",
+        "var17": "`🔉 **Volume global disetel ke \\`${player.volume} %\\`**`",
+        "var18": "`🚪 **Keluar dari saluran suara!**`",
+        "var19": "`❗️ Tidak ada lagu dalam antrian __${guild.name}__ ❗️`",
+        "var20": "Pilihan daftar putar pembaruan terakhir: 18-01-2022",
+        "var21": "`Mulailah Mendengarkan Musik, dengan menyambungkan ke Saluran Suara dan mengirimkan **LINK LAGU** atau **NAMA LAGU** di Saluran ini!`",
+        "premium": "`${emoji.msg.ERROR} Guild Anda bukan Premium`"
+      }
+    },
+    "functionsjs": {
+      "functions": {
+        "variable1": "`Saya meninggalkan Voice Channel: \\`${client.channels.cache.get(player.voiceChannel).name}\\` karena Antrian lagu habis dalam: \\`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\\``",
+        "variablex_2": "`NO ROLES ADDED`",
+        "variable2": "`Add them with: \\`${client.settings.get(guild.id, `prefix`)} setup-roster\\``",
+        "variablex_3": "`**__${role.name.toUpperCase()} [${[...role.members.values()].length}]__**`",
+        "variable3": "[...role.members.values()].length === 0 ? `> No one has this Role` : role.members.map(member => `${the_roster_db.get(guild.id, `rosteremoji`)} <@${member.user.id}> | \\`${member.user.tag}\\``).join(`\\n`).substr(0, leftnum <= 1024 ? leftnum : 1024), the_roster_db.get(guild.id, `inline`)",
+        "variable4": "`Pilih Stasiun Anda, dengan mengetikkan Nomor `INDEX` yang benar!`",
+        "variable4_1": "`Contoh: `?radio 11``",
+        "variable5": "`Pilih Stasiun Anda, dengan mengetikkan Nomor `INDEX` yang benar!`",
+        "variable5_1": "`Contoh: `?radio 69``",
+        "variable6": "`Pilih Stasiun Anda, dengan mengetikkan Nomor `INDEX` yang benar!`",
+        "variable6_1": "`Contoh: `?radio 180``",
+        "variable7": "`${emoji.msg.ERROR} Tidak menemukan apa pun yang terkait dengan Lagu terbaru!`",
+        "variable8": "`${emoji.msg.ERROR} Antrian telah berakhir.`",
+        "variable9": "`Saya meninggalkan Saluran: \\`${client.channels.cache.get(player.voiceChannel).name}\\` karena Antrian kosong untuk: \\`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\\``",
+        "variable10": "`${user.member.user} | ${emoji.msg.ERROR} Tolong beri saya izin, `MANGE CHANNELS` --> Saya harus bisa membuat Channel ...`",
+        "variable11": "`${user.member.user} | ${emoji.msg.ERROR} Tolong beri saya izin, \\`MANGE CHANNELS\\` --> Saya harus bisa membuat Channel ...`",
+        "variable12": "-"
+      }
+    },
+    "playermanagerjs": {
+      "playermanager": {
+        "variable1": "`${emoji.msg.ERROR} Saya perlu izin untuk bergabung dengan saluran Anda`",
+        "variable2": "`${emoji.msg.ERROR} Saya perlu izin untuk berbicara di saluran Anda`",
+        "variable3": "`${emoji.msg.ERROR} Tidak ada Istilah pencarian yang valid? ... Mohon hubungi: `adamkaisa#9997``"
+      }
+    },
+    "playermanagers": {
+      "playlist": {
+        "variable1": "`${emoji.msg.ERROR} Error | Terjadi kesalahan saat menelusuri:`",
+        "variable2": "``",
+        "variable3": "`Mohon ulangi!`",
+        "variable4": "`:thumbsup: **Ditambahkan Daftar Putar 🩸 [${res.playlist.name}](${res.playlist.uri})**`"
+      },
+      "playtop": {
+        "variable1": "`Mohon ulangi!`",
+        "variable2": "`:thumbsup: **Anterian :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+        "variable3": "`Mohon ulangi!`",
+        "variable4": "`**`+res.playlist.name+`**`",
+        "variablex_5": "`Perkiraan waktu sampai bermain`",
+        "variable5": "time > 10 ? format(time).split(` | `)[0] : `NOW`",
+        "variable6": "`Ditambahkan: \\`${res.tracks[0].title}\\` - Ke Antrerian\\n**Channel:** ${res.tracks[0].author}\\n**Durasi Lagu:** ${res.tracks[0].isStream ? `LIVE STREAM` : format(res.tracks[0].duration).split(` | `)[0]}\\n**Perkiraan waktu sampai bermain** ${time}\\n**Posisi dalam antrian:** ${player.queue.length}\\n${res.tracks[0].uri}`"
+      },
+      "request": {
+        "variable1": "`Mohon ulangi!`",
+        "variable2": "`Mohon ulangi!`"
+      },
+      "search": {
+        "variable1": "`${emoji.msg.ERROR} Error | Terjadi kesalahan saat menelusuri:`",
+        "variable2": "``",
+        "variable3": "`${emoji.msg.ERROR} Error | Anda tidak memberikan pilihan`",
+        "variable4": "'${emoji.msg.ERROR} Error | Pilihan dibatalkan.'",
+        "variable5": "`:thumbsup: **Anterian :notes: [${track.title}](${track.uri})**`"
+      },
+      "similar": {
+        "variable1": "`${emoji.msg.ERROR} Error | Tidak menemukan apa pun yang terkait dengan Lagu terbaru`",
+        "variable2": "`:thumbsup: **Anterian :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+        "variable3": "`${emoji.msg.SUCCESS} Pilih Lagu Anda dengan `Nomor INDEKS``",
+        "variable4": "`${emoji.msg.ERROR} Error | Anda tidak memberikan pilihan`",
+        "variable5": "'${emoji.msg.ERROR} Error | Pilihan dibatalkan.'",
+        "variable6": "`${emoji.msg.ERROR} Error | Nomor yang Anda berikan terlalu kecil atau terlalu besar (1-${max}).`",
+        "variable7": "`Mohon ulangi!`",
+        "variable8": "`:thumbsup: **Anterian :notes: [${track.title}](${track.uri})**`"
+      },
+      "skiptrack": {
+        "variable1": "`${emoji.msg.ERROR} Error | Terjadi kesalahan saat menelusuri:`",
+        "variable2": "``",
+        "variable3": "`Mohon ulangi!`"
+      },
+      "song": {
+        "variable1": "`${emoji.msg.ERROR} Error | Terjadi kesalahan saat menelusuri:`",
+        "variable2": "``",
+        "variable3": "`Mohon ulangi!`",
+        "variable4": "`:thumbsup: **Anterian :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+        "variable5": "`Mohon ulangi!`"
+      }
+    }
+  }
+}

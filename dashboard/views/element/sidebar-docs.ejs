@@ -1,0 +1,371 @@
+<section class="align-items-start m-auto container">
+  <side class="navbar navbar-expand-md sticky-top" style="max-width: 400px;">
+    <div class="container justify-content-center">
+      <div class="row bg-dark rounded-3">
+        <div class="col-md d-flex rounded-3 bg-dark mb-3 guild-nav">
+          <div class="d-flex rounded-3 mb-2 mt-2" style="background-color: #3b3f47; padding: 10px; width: 100%;">
+            <div class="img" style="margin:auto;">
+              <img src="<%= bot.user.displayAvatarURL({size: 512}) %>" alt="Logo" style="max-width: 100px;">
+            </div>
+            <div class="d-block" style="margin:auto;">
+              <h5 class="text-white"><%= bot.user.username %> Documentation</h5>
+            </div>
+          </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+          aria-controls="offcanvasScrolling" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon navbar-toggler-icon-settings"><i class="fas fa-bars"></i></span>
+        </button>
+        <div id="global">
+          <div class="navbar-collapse" id="sidebar-settings">
+            <ul class="navbar-nav d-block">
+              <li>
+                <div class="accordion-item bg-dark text-white category border-0">
+                  <a class="accordion-header bg-dark text-white category border-0" id="panel-category-quickstarts"
+                    style="text-decoration: none;">
+                    <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                      type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-quickstart"
+                      aria-expanded="false" aria-controls="panel-category-quickstart" id="btn-quickstart"
+                      onclick="location.href='/docs/quickstart'">
+                      #quickstart
+                    </button>
+                  </a>
+                  <div id="panel-category-quickstart" class="accordion-collapse collapse collapse-quickstart"
+                    aria-labelledby="panel-category-quickstarts">
+                    <div class="accordion-body category-body">
+                      <a class="list-group-item bg-dark text-white list-group-item-action"
+                        href="/docs/quickstart#Invite" id="show-notresponding">How To Invite Bad Vibes</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/quickstart#Use"
+                        id="show-notresponding">How
+                        To Use Bad Vibes</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="accordion-item bg-dark text-white category border-0">
+                  <a class="accordion-header bg-dark text-white category border-0" id="panel-category-setups"
+                    style="text-decoration: none;">
+                    <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                      type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-setup"
+                      aria-expanded="false" aria-controls="panel-category-setup" onclick="location.href='/docs/setup'">
+                      #setup
+                    </button>
+                  </a>
+                  <div id="panel-category-setup" class="accordion-collapse collapse collapse-setup"
+                    aria-labelledby="panel-category-setups">
+                    <div class="accordion-body category-body">
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#prefix"
+                        id="show-prefix">Prefix</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action"
+                        href="/docs/setup#music-system" id="show-music-setup">Music System</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#djrole"
+                        id="show-djrole">DJ Role</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#BCC"
+                        id="show-BCC">Bot
+                        Channel Chat</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#auto-role"
+                        id="show-autorole">Auto Roles</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#pruning"
+                        id="show-pruning">Pruning</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action"
+                        href="/docs/setup#reaction-role" id="show-reaction-role">Reaction Roles</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action"
+                        href="/docs/setup#greeting-message" id="show-greeting-message">Greeting
+                        Message</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="accordion-item bg-dark text-white category border-0">
+                  <a class="accordion-header bg-dark text-white category border-0" id="panel-category-FAQS"
+                    style="text-decoration: none;">
+                    <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                      type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-faq" aria-expanded="false"
+                      aria-controls="panel-category-faq" id="btn-faq" onclick="location.href='/docs/faq'">
+                      #faq
+                    </button>
+                  </a>
+                  <div id="panel-category-faq" class="accordion-collapse collapse"
+                    aria-labelledby="panel-category-FAQS">
+                    <div class="accordion-body category-body">
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#notresponding"
+                        id="show-notresponding">Bot Not Responding</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#vclagging"
+                        id="show-notresponding">Voice Lagging / Interrupted</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#silent"
+                        id="show-notresponding">Bot is silent</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#silentaftermoved"
+                        id="show-notresponding">Bot is silent after moved VC</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#premiumfiture"
+                        id="show-premiumfiture">Premium Feature</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#premium"
+                        id="show-premium">Where and How can I get Bad Vibes Premium</a>
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#premiumproblem"
+                        id="show-premiumproblem">Premium Problem</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="accordion-item bg-dark text-white category border-0">
+                  <a class="accordion-header bg-dark text-white category border-0" id="panel-category-abouts"
+                    style="text-decoration: none;">
+                    <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                      type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-about"
+                      aria-expanded="false" aria-controls="panel-category-about" id="btn-about"
+                      onclick="location.href='/docs/'">
+                      #about
+                    </button>
+                  </a>
+                  <div id="panel-category-about" class="accordion-collapse collapse"
+                    aria-labelledby="panel-category-abouts">
+                    <div class="accordion-body category-body">
+                      <a class="list-group-item bg-dark text-white list-group-item-action" href="#">Bad Vibes</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="mobile">
+          <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel"><%= bot.user.username %> Documentation</h5>
+              <button type="button" class="btn-close text-white bg-light" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="navbar-collapse" id="sidebar-settings">
+                <ul class="navbar-nav d-block">
+                  <li>
+                    <div class="accordion-item bg-dark text-white category border-0">
+                      <a class="accordion-header bg-dark text-white category border-0" id="panel-category-quickstarts"
+                        style="text-decoration: none;">
+                        <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-quickstart"
+                          aria-expanded="false" aria-controls="panel-category-quickstart" id="btn-quickstart"
+                          onclick="location.href='/docs/quickstart'">
+                          #quickstart
+                        </button>
+                      </a>
+                      <div id="panel-category-quickstart" class="accordion-collapse collapse collapse-quickstart"
+                        aria-labelledby="panel-category-quickstarts">
+                        <div class="accordion-body category-body">
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/quickstart#Invite" id="show-notresponding">How To Invite Bad Vibes</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/quickstart#Use" id="show-notresponding">How
+                            To Use Bad Vibes</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="accordion-item bg-dark text-white category border-0">
+                      <a class="accordion-header bg-dark text-white category border-0" id="panel-category-setups"
+                        style="text-decoration: none;">
+                        <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-setup"
+                          aria-expanded="false" aria-controls="panel-category-setup"
+                          onclick="location.href='/docs/setup'">
+                          #setup
+                        </button>
+                      </a>
+                      <div id="panel-category-setup" class="accordion-collapse collapse collapse-setup"
+                        aria-labelledby="panel-category-setups">
+                        <div class="accordion-body category-body">
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#prefix"
+                            id="show-prefix">Prefix</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/setup#music-system" id="show-music-setup">Music System</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#djrole"
+                            id="show-djrole">DJ Role</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="/docs/setup#BCC"
+                            id="show-BCC">Bot
+                            Channel Chat</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/setup#auto-role" id="show-autorole">Auto Roles</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/setup#pruning" id="show-pruning">Pruning</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/setup#reaction-role" id="show-reaction-role">Reaction Roles</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action"
+                            href="/docs/setup#greeting-message" id="show-greeting-message">Greeting
+                            Message</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="accordion-item bg-dark text-white category border-0">
+                      <a class="accordion-header bg-dark text-white category border-0" id="panel-category-FAQS"
+                        style="text-decoration: none;">
+                        <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-faq"
+                          aria-expanded="false" aria-controls="panel-category-faq" id="btn-faq"
+                          onclick="location.href='/docs/faq'">
+                          #faq
+                        </button>
+                      </a>
+                      <div id="panel-category-faq" class="accordion-collapse collapse"
+                        aria-labelledby="panel-category-FAQS">
+                        <div class="accordion-body category-body">
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#notresponding"
+                            id="show-notresponding">Bot Not Responding</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#vclagging"
+                            id="show-notresponding">Voice Lagging / Interrupted</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#silent"
+                            id="show-notresponding">Bot is silent</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#silentaftermoved"
+                            id="show-notresponding">Bot is silent after moved VC</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#premiumfiture"
+                            id="show-premiumfiture">Premium Feature</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#premium"
+                            id="show-premium">Where and How can I get Bad Vibes Premium</a>
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#premiumproblem"
+                            id="show-premiumproblem">Premium Problem</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="accordion-item bg-dark text-white category border-0">
+                      <a class="accordion-header bg-dark text-white category border-0" id="panel-category-abouts"
+                        style="text-decoration: none;">
+                        <button class="accordion-button list-group-item collapsed bg-dark text-white category border-0"
+                          type="button" data-bs-toggle="collapse" data-bs-target="#panel-category-about"
+                          aria-expanded="false" aria-controls="panel-category-about" id="btn-about"
+                          onclick="location.href='/docs/'">
+                          #about
+                        </button>
+                      </a>
+                      <div id="panel-category-about" class="accordion-collapse collapse"
+                        aria-labelledby="panel-category-abouts">
+                        <div class="accordion-body category-body">
+                          <a class="list-group-item bg-dark text-white list-group-item-action" href="#">Bad Vibes</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </side>
+  <style>
+    section {
+      display: flex;
+    }
+
+    .navbar-toggler-icon-settings {
+      color: #eee;
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    .navbar-toggler-icon-settings::after {
+      content: "Show Menu";
+      padding-left: 5px;
+    }
+
+    .nav-link-settings {
+      transition: 0.2s ease-in-out;
+    }
+
+    .nav-link-settings:hover {
+      transform: translateX(5%);
+      color: #9b4890 !important;
+    }
+
+    side.navbar #sidebar-settings {
+      display: block !important;
+    }
+
+    @media screen and (max-width: 967px) {
+      section {
+        display: block;
+      }
+
+      #global {
+        display: none !important;
+      }
+
+      main.container {
+        margin: auto !important;
+        margin-bottom: 50px !important;
+      }
+    }
+  </style>
+  <!-- SCRIPT -->
+  <script>
+    function openInvite() {
+      window.open('https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands', 'popup', 'width=450,height=800'); return false;
+    }
+  </script>
+
+  <script>
+    function s() {
+    }
+    var el = document.getElementById('show-prefix');
+    el.onclick = showPrefix
+
+    function showPrefix() {
+      var op = document.getElementById(`btn-prefix`).click();
+    }
+
+    var el = document.getElementById('show-music-setup');
+    el.onclick = showMs
+
+    function showMs() {
+      var op = document.getElementById(`btn-music-setup`).click();
+    }
+
+    var el = document.getElementById('show-djrole');
+    el.onclick = shwoDJ
+
+    function shwoDJ() {
+      var op = document.getElementById(`btn-djrole`).click();
+    }
+
+    var el = document.getElementById('show-BCC');
+    el.onclick = showBCC
+
+    function showBCC() {
+      var op = document.getElementById(`btn-BCC`).click();
+    }
+
+    var el = document.getElementById('show-autorole');
+    el.onclick = showautorole
+
+    function showautorole() {
+      var op = document.getElementById(`btn-autorole`).click();
+    }
+
+    var el = document.getElementById('show-pruning');
+    el.onclick = showpruning
+
+    function showpruning() {
+      var op = document.getElementById(`btn-pruning`).click();
+    }
+
+    var el = document.getElementById('show-reaction-role');
+    el.onclick = showreaction
+
+    function showreaction() {
+      var op = document.getElementById(`btn-reaction-role`).click();
+    }
+
+    var el = document.getElementById('show-greeting-message');
+    el.onclick = showgreeting
+
+    function showgreeting() {
+      var op = document.getElementById(`btn-greeting-message`).click();
+    }
+  </script>

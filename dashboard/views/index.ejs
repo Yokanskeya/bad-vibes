@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/footer.css">
+  <title><%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <!-- SCRIPT -->
+  <script>
+    setTimeout(() => {
+      Swal.fire({
+        title: 'Upgrade Bad Vibes Premium Now!',
+        html: '<p><img src="https://cdn.discordapp.com/emojis/929361328836079656.gif?size=96&quality=lossless" alt="" width="30px">Get a discount for a 3 month subscription!.<img src="https://cdn.discordapp.com/emojis/929361328836079656.gif?size=96&quality=lossless" alt="" width="30px"></p>',
+        text: '',
+        color: '#eee',
+        imageUrl: 'https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png',
+        imageAlt: 'BadVibes_Logo',
+        imageWidth: 150,
+        showCancelButton: true,
+        confirmButtonText: '<i class="fa fa-thumbs-up text-muted"></i> Upgrade!',
+        confirmButtonColor: '#ddc3ff',
+        cancelButtonText: 'Close',
+        focusConfirm: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          location.href = '/premium';
+        }
+      })
+    }, 30000);
+  </script>
+  <!-- END SCRIPT -->
+  <!-- NAVBAR -->
+  <%- include('./element/header'); -%>
+  <!-- END NAVBAR -->
+  <!-- HEADING -->
+  <section class="mt-5" style="margin-bottom: 8rem;">
+    <div class="container head">
+      <div class="col-md" style="margin: auto; text-align: center;">
+        <img class="img-home"
+          src="https://cdn.discordapp.com/attachments/784917578974756904/938445237502763079/New_BV_png.png">
+        <h1>Bad Vibes Bot Official</h1>
+        <p>A Discord bot made of patience and compassion that can make the most of your Discord server!</p>
+      </div>
+      <div class="col-md" style="margin: auto; text-align: center;">
+        <button type="button"
+          onclick="location.href='https://discord.com/api/oauth2/authorize?client_id=<%= bot.user.id%>&permissions=8&redirect_uri=<%= callback%>&response_type=code&scope=identify%20email%20guilds%20bot%20applications.commands'"
+          class="text-white btn btn-login-home"><img
+            src="https://cdn.discordapp.com/attachments/784917578974756904/939312438849986560/New_BV_icon.png?size=96&quality=lossless" alt="K_Logo"
+            style="width: 20%; margin-left: -10px;"> Invite</button>
+        <% if(user && user.id) { %>
+        <button type="button" onclick="location.href='/logout'" class="text-white btn btn-login-home"><i
+            class="fab fa-discord fa-1x pb"></i> Logout</button>
+        <% }else { %>
+        <button type="button" onclick="location.href='/login'" class="text-white btn btn-login-home"><i
+            class="fab fa-discord fa-1x pb"></i> Login With Discord</button>
+        <% }%>
+      </div>
+    </div>
+  </section>
+  <!-- END HEADING -->
+  <!-- ABOUT -->
+  <section class="bg-dark mt-5 mb-5">
+    <div class="container pt-5">
+      <div class="row" style="max-width: 1300px; margin: auto; margin-bottom: 5rem;">
+        <div class="col-md about">
+          <img class="img-about-left"
+            src="https://cdn.discordapp.com/attachments/939276089220542464/939639595572822078/unknown.png?width=611&height=480">
+          <h1>Music System!</h1>
+          <hr>
+          <p>You can play music very easily with this system's music feature. <br> If you want to start Listening to
+            Music, you can simply connect to the Voice Channel and send the LINK OF THE SONG or TITLE OF THE SONG on
+            this Channel!</p>
+        </div>
+      </div>
+      <div class="row d-flex" style="max-width: 1300px; margin: auto; margin-bottom: 5rem;">
+        <div class="col-md about">
+          <img class="img-about-right"
+            src="https://cdn.discordapp.com/attachments/939276089220542464/939645764173447199/unknown.png?width=611&height=480">
+          <h1>DJ System!</h1>
+          <hr>
+          <p>The DJ system is useful for using some music commands, so that those who don't have roles can't use them.
+          </p>
+        </div>
+      </div>
+      <div class="row d-flex" style="max-width: 1300px; margin: auto; margin-bottom: 5rem;">
+        <div class="col-md about">
+          <img class="img-about-left"
+            src="https://cdn.discordapp.com/attachments/939276089220542464/939639595572822078/unknown.png?width=611&height=480">
+          <h1>100++ Commands</h1>
+          <hr>
+          <p>Bad Vibes gives you many features that can be used for all members on your discord server. You can see it
+            on
+            the commands page!</p>
+          <div class="rich-commands-btn">
+            <a href="/commands" class="btn btn-xl mt-4">View Commands</a>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex" style="max-width: 1300px; margin: auto; margin-bottom: 5rem;">
+        <div class="col-md about">
+          <img class="img-about-right"
+            src="https://cdn.discordapp.com/attachments/939276089220542464/939290538077737001/unknown.png?width=611&height=480">
+          <h1>Easy To Use</h1>
+          <hr>
+          <p>Bad Vibes gives you many features that can be used for all members on your discord server. You can see it
+            on
+            the commands page!</p>
+          <div class="rich-commands-btn">
+            <a href="#" class="btn btn-xl mt-4">Go to Quickstart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-blok content-feature">
+        <div class="d-flex justify-content-center">
+          <h1 style="color: #ddc3ff; text-transform: uppercase;"><%= bot.user.username%> <h1
+              style="color: #f45353; padding-left: 10px;">PREMIUM</h1>
+          </h1>
+        </div>
+        <div class="line-end"></div>
+        <div class="line-end2"></div>
+        <div class="d-flex justify-content-center">
+          <p style="text-align: center;">For those of you who want to subscribe to the PRO version of Bad Vibes bot,
+            <br>we will provide a myriad of special features
+          </p>
+        </div>
+        <div class="row row-card-premium" style="margin: auto; max-width: 1300px; margin-top: 50px;">
+          <div class="col-md-3 card-premium" style="margin-bottom: 20px;">
+            <div class="img-pb">
+              <i class="bi bi-file-earmark-music" title="Lyrics" style="font-size: 3em;"></i>
+              <i class="bi bi-music-note-list" title="Playlist" style="font-size: 3em;"></i>
+              <i class="bi bi-music-player" title="Filter" style="font-size: 3em;"></i>
+            </div>
+            <hr>
+            <div class="text">
+              <p>Bad Vibes Premium has a feature to display the lyrics of the song being played. You can also create
+                playlists with your server friends. And to maximize the performance of Bad Vibes Pro, add a Bass Booster
+                feature for those of you who like pause.</p>
+            </div>
+            <hr>
+          </div>
+          <div class="col-md-3 card-premium">
+            <div class="img-pb">
+              <i class="fab fa-spotify fa-3x pb" style="color: #1DB954;" title="Spotify"></i>
+              <i class="fab fa-soundcloud fa-3x pb" style="color: #FE5000" title="Sound Cloud"></i>
+              <i class="fab fa-youtube fa-3x pb" style="color: #FF0000;" title="Youtube"></i>
+            </div>
+            <hr>
+            <div class="text">
+              <p>Bad Premium can play music from Spotify, Sound Cloud, and Youtube. Just copy and paste the link
+                to
+                the song or playlist you want to listen to. So you can listen to any music from any source with your
+                friends on your voice channel.</p>
+              <div class="flex-grow" style="height: 32.5px;"></div>
+            </div>
+            <hr>
+          </div>
+          <div class="col-md-3 card-premium" style="margin-bottom: 20px;">
+            <div class="img-pb">
+              <i class="bi bi-clock-history" title="24/7" style="font-size: 3em;"></i>
+              <i class="fas fa-terminal fa-3x pb" title="Prefix"></i>
+              <i class="fas fa-user-cog fa-3x pb" title="Settings"></i>
+            </div>
+            <hr>
+            <div class="text">
+              <p>Bad Vibes Premium has a 24/7 stay feature on the voice channel. Don't like the prefix? Bad Vibes Pro can
+                customize as you like. Many members are jailed? I have a solution, you just create a DJ role on the
+                Discord Server and only give it to certain members.</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END ABOUT -->
+  <!-- UPGRADE CONTENT -->
+  <section class="mt-5 mb-5" id="upgrade">
+    <div class="container">
+      <div class="d-flex pt-4 justify-content-center">
+        <h1 class="fitur-head">You want to get more features from Bad Vibes bot ?</h1>
+      </div>
+      <div class="d-flex justify-content-center">
+        <h4 class="text-ended">If you subscribe, you will get more awesome features for all members on your discord
+          server.</h4>
+      </div>
+      <div class="d-flex pt-4 justify-content-center">
+        <a href="/premium" class="upgradenow">
+          <h1>UPGRADE NOW</h1>
+        </a>
+      </div>
+    </div>
+    <div class="container" id="checklist">
+      <div class="row-md">
+        <div class="col-md-9 m-auto mt-5 bg-dark cheklist-box table-responsive-md">
+          <table class="table table-dark table-borderless table-hover">
+            <th scope="col"> </th>
+            <th scope="col">Bad Vibes Standard</th>
+            <th scope="col">Bad Vibes Premium</th>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">24/7 Stay Voice Channel</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">All Button Active</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Audio Filter</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Audio Equalizer</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Auto Play Songs</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Songs Lyric</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Save and Play Queue</td>
+              <td><i class="fas fa-times" style="color: rgb(253, 130, 130);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Music System</td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Prefix Costume</td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+            <tr class="border-bottom border-secondary">
+              <td style="text-align: left;">Settings Costume</td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+              <td><i class="fas fa-check" style="color: rgb(132, 255, 132);"></i></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END UPGRADE CONTENT -->
+  <!-- FOOTER -->
+  <%- include('./element/footer'); -%>
+  <!-- END FOOTER -->
+</body>
+
+</html>

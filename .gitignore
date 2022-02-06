@@ -1,0 +1,6 @@
+node_modules
+logs
+databases/musicsettings
+databases/queuesaves
+databases/settings
+databases/leveling
