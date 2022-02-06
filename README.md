@@ -6,7 +6,7 @@
 
 > Join for your more information.
 
-## 🌐 [Website (https://bad-vibes.adamkhairusydan.repl.co/)
+## 🌐 [Website](https://bad-vibes.adamkhairusydan.repl.co/)
 
 > Visit it.
 
