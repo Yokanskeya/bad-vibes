@@ -998,12 +998,12 @@ module.exports = (client) => {
                 if (!player.queue || !player.queue.current) {
                   await player.destroy();
                    client.logger(`Destroyed because it went Empty in ${String(client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild).brightBlue}`)
-                  return client.channels.cache.get(player.textChannel).send({
-                    embeds: [new MessageEmbed()
-                      .setColor(es.color)
-                      .setTitle(eval(client.la[ls]["handlers"]["erelaevents"]["events"]["var17"]))
-                    ]
-                  })
+                 // return client.channels.cache.get(player.textChannel).send({
+                 //   embeds: [new MessageEmbed()
+                 //     .setColor(es.color)
+                 //     .setTitle(eval(client.la[ls]["handlers"]["erelaevents"]["events"]["var17"]))
+                 //   ]
+                 // })
                 }
               } catch (e) {
                 console.log(String(e.stack).grey.yellow)
