@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <%- include('./element/head'); -%>
+  <!-- MY CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <!-- END MY CSS -->
+  <title>404 | <%= bot.user.username %></title>
+  <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+</head>
+
+<body>
+  <section>
+    <script>
+      Swal.fire({
+        title: '404',
+        text: 'Bad Vibes Dashboard Error, Please report it!',
+        imageUrl: 'https://c.tenor.com/KLM8keUQpSwAAAAi/google-error404robot-error404.gif',
+        imageAlt: 'Custom image',
+        timer: 5000,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          window.location = "/";
+        }
+      })
+    </script>
+  </section>
+</body>
+
+</html>
