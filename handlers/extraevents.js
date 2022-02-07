@@ -43,7 +43,7 @@ module.exports = client => {
 
   client.logger = (data) => {
     if (!settings[`debug-logs`]) return;
-    let logstring = `${String(`K`+`u`+`c`+`l`+`u`+`c`+`k`+` Logs`).brightGreen}${` | `.grey}${`${moment().format("ddd DD-MM-YYYY HH:mm:ss")}`.cyan}${` [::] `.magenta}`
+    let logstring = `${String(`Bad Vibes Logs`).brightGreen}${` | `.grey}${`${moment().format("ddd DD-MM-YYYY HH:mm:ss")}`.cyan}${` [::] `.magenta}`
     if (typeof data == "string") {
       console.log(logstring, data.split("\n").map(d => `${d}`.green).join(`\n${logstring} `))
     } else if (typeof data == "object") {
