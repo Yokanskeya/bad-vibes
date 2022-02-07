@@ -976,19 +976,19 @@ module.exports = (client) => {
           if (premium && player) {
             if (player.get(`afk`) || premium.BotAFK) {
               return;
-              // client.logger(`Queue went empty in ${String(client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild).brightBlue}, not leaving, because AFK is enabled!`)
-              // setTimeout(() => {
-              //   return client.channels.cache.get(player.textChannel).send({
-              //     embeds: [new MessageEmbed()
-              //       .setColor(es.color)
-              //       .setTitle(eval(client.la[ls]["handlers"]["erelaevents"]["events"]["var16"]))
-              //     ]
-              //   }).then((msg) => {
-              //     setTimeout(() => {
-              //       msg.delete().catch(() => {});
-              //     }, 60000);
-              //   })
-              // }, settings.LeaveOnEmpty_Queue.time_delay);
+               client.logger(`Queue went empty in ${String(client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild).brightBlue}, not leaving, because AFK is enabled!`)
+               setTimeout(() => {
+                 return client.channels.cache.get(player.textChannel).send({
+                   embeds: [new MessageEmbed()
+                     .setColor(es.color)
+                     .setTitle(eval(client.la[ls]["handlers"]["erelaevents"]["events"]["var16"]))
+                   ]
+                 }).then((msg) => {
+                   setTimeout(() => {
+                     msg.delete().catch(() => {});
+                   }, 60000);
+                 })
+               }, settings.LeaveOnEmpty_Queue.time_delay);
             }
           }
           //if afk is disable return and not destroy the PLAYER
@@ -997,7 +997,7 @@ module.exports = (client) => {
               try {
                 if (!player.queue || !player.queue.current) {
                   await player.destroy();
-                  // client.logger(`Destroyed because it went Empty in ${String(client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild).brightBlue}`)
+                   client.logger(`Destroyed because it went Empty in ${String(client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild).brightBlue}`)
                   return client.channels.cache.get(player.textChannel).send({
                     embeds: [new MessageEmbed()
                       .setColor(es.color)
