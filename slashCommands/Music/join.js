@@ -65,7 +65,7 @@ module.exports = {
 					});
 					interaction.editReply({
 						ephemeral: true,
-						content: `:robot: Bot Ping: \`${Math.floor((Date.now() - createdTimestamp) - 2 * Math.floor(client.ws.ping))} ms\``,
+						content: `🤖 Bot Ping: \`${Math.floor((Date.now() - createdTimestamp) - 2 * Math.floor(client.ws.ping))} ms\``,
 						ephemeral: true
 					})
 				}
@@ -73,19 +73,19 @@ module.exports = {
 				else {
 					interaction.reply({
 						ephemeral: true,
-						content: `:hourglass:  Api Ping: \`${Math.floor(client.ws.ping)} ms\``,
+						content: `🔎  Api Ping: \`${Math.floor(client.ws.ping)} ms\``,
 						ephemeral: true
 					})
 				}
 			} else {
 				await interaction.reply({
 					ephemeral: true,
-					content: `<a:Loading:927444585469313076> Getting the Bot Ping...`,
+					content: `🔎 Getting the Bot Ping...`,
 					ephemeral: true
 				});
 				interaction.editReply({
 					ephemeral: true,
-					content: `:robot: Bot Ping: \`${Math.floor((Date.now() - createdTimestamp) - 2 * Math.floor(client.ws.ping))} ms\`\n\n:hourglass: Api Ping: \`${Math.floor(client.ws.ping)} ms\``,
+					content: `🤖 Bot Ping: \`${Math.floor((Date.now() - createdTimestamp) - 2 * Math.floor(client.ws.ping))} ms\`\n\n:hourglass: Api Ping: \`${Math.floor(client.ws.ping)} ms\``,
 					ephemeral: true
 				})
 			}
