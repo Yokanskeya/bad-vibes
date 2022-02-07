@@ -60,7 +60,7 @@ module.exports = {
 				if (StringOption == "botping") {
 					await interaction.reply({
 						ephemeral: true,
-						content: `<a:Loading:927444585469313076> Getting the Bot Ping...`,
+						content: `🔎 Getting the Bot Ping...`,
 						ephemeral: true
 					});
 					interaction.editReply({
