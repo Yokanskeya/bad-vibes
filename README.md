@@ -5,7 +5,7 @@
 
 ### 📌 About a Bad Vibes Bot
 Bad Vibes is a Discord bot that was intentionally created to help manage your Discord server, and also to entertain all members on your server with music or other things.
-Bad Vibes has been in development since November 2021.
+Bad Vibes has been in development since August 2021.
 
 ### 🎶 Music System!
 You can play music very easily with this system's music feature.
