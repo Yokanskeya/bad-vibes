@@ -4,14 +4,14 @@
       "botinfo": {
         "loading": "Mendapatkan Bot-Informasi-Data",
         "field1": {
-          "title": "🧑‍🤝‍🧑 Umum -- Statistik",
+          "title": "🧑‍🤝‍🧑 Umum",
           "value": "```yml\nServer: {totalGuilds}\nPengguna: {totalMembers}\nKoneksi: {connectedchannelsamount}```"
         },
         "field2": {
-          "title": "🛰️ Version -- Statistik"
+          "title": "🛰️ Version"
         },
         "field3": {
-          "title": "🖥️ System -- Statistik",
+          "title": "🖥️ System",
           "value": "```yml\nOS: Linux | Debian\nPenggunaan CPU: {cpu} %\nPenggunaan RAM: {ram} MB```"
         },
         "field4": {
@@ -22,10 +22,10 @@
           "value": "**[Tautan Undang]({invitelink})・[Server Dukungan](https://discord.gg/wrTHfMqzaQ)・[Website](https://bvbot.xyz/)**"
         },
         "field6": {
-          "title": "⚙️ Commands -- Statistik"
+          "title": "⚙️ Commands Statistik"
         },
         "field7": {
-          "title": "🎵 Lagu -- Statistik"
+          "title": "🎵 Lagu Statistik"
         },
         "variable1": "`\\`\\`\\`yml\\nNama: ${client.user.tag} [${client.user.id}]\\nLatensi Bot: ${Math.round(Date.now() - message.createdTimestamp)}ms\\nApi Latensi: ${Math.round(client.ws.ping)}ms\\nWaktu tayang: ${duration(client.uptime).join(`︲`)}\\nPerintah Aktif: ${client.commands.map(a=>a).length}\\`\\`\\``",
         "variable2": "``"
