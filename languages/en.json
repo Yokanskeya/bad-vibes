@@ -4,14 +4,14 @@
       "botinfo": {
         "loading": "Getting the Bot-Information-Data",
         "field1": {
-          "title": "🧑‍🤝‍🧑 General -- Stats",
+          "title": "🧑‍🤝‍🧑 General Stats",
           "value": "```yml\nServers: {totalGuilds}\nUsers: {totalMembers}\nConnections: {connectedchannelsamount}```"
         },
         "field2": {
-          "title": "🛰️ Version -- Stats"
+          "title": "🛰️ Version Stats"
         },
         "field3": {
-          "title": "🖥️ System -- Stats",
+          "title": "🖥️ System Stats",
           "value": "```yml\nOS: Linux | Debian\nCPU Usage: {cpu} %\nRAM Usage: {ram} MB```"
         },
         "field4": {
@@ -22,10 +22,10 @@
           "value": "**[Invite Link]({invitelink})・[Support Server](https://discord.gg/wrTHfMqzaQ)・[Website](https://bvbot.xyz/)**"
         },
         "field6": {
-          "title": "🖥 Commands -- Stats"
+          "title": "🖥 Commands Stats"
         },
         "field7": {
-          "title": "🎵 Songs -- Stats"
+          "title": "🎵 Songs Stats"
         },
         "variable1": "`\\`\\`\\`yml\\nName: ${client.user.tag} [${client.user.id}]\\nBot Latency: ${Math.round(Date.now() - message.createdTimestamp)}ms\\nApi Latency: ${Math.round(client.ws.ping)}ms\\nRuntime: ${duration(client.uptime).join(`︲`)}\\nActive Commands: ${client.commands.map(a=>a).length}\\`\\`\\``",
         "variable2": "``"
