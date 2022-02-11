@@ -2,7 +2,7 @@
   "cmds": {
     "info": {
       "botinfo": {
-        "loading": "Mendapatkan Bot-Informasi-Data",
+        "loading": "Mendapatkan Informasi Data Bot",
         "field1": {
           "title": "🧑‍🤝‍🧑 Umum",
           "value": "```yml\nServer: {totalGuilds}\nPengguna: {totalMembers}\nKoneksi: {connectedchannelsamount}```"
