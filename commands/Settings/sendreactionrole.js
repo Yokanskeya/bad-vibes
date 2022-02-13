@@ -72,7 +72,7 @@ module.exports = {
           embeds: [ new MessageEmbed()
               .setTitle(title)
               .setDescription(mapped)
-              .setFooter(client.getFooter(`${client.la[ls].cmds.settings.sendreactionrole.var6} ${es.footertext}\n${ee.footertext}`, client.user.displayAvatarURL()))
+              .setFooter(client.getFooter(`${client.la[ls].cmds.settings.sendreactionrole.var6} ${es.footertext}`, client.user.displayAvatarURL()))
               .setThumbnail(es.thumb ? es.footericon : null)
               .setColor(es.color)
           ],
