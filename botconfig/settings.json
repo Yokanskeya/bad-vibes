@@ -17,11 +17,11 @@
     "COMMENT": "time_delay 0 === insta leave",
     "leaveOnEmpty_Channel": {
         "enabled": true,
-        "time_delay": 600
+        "time_delay": 600000
     },
     "LeaveOnEmpty_Queue": {
         "enabled": true,
-        "time_delay": 600
+        "time_delay": 600000
     },
     "NonLeaveOnEmpty_Queue": {
         "enabled": false,
