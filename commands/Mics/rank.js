@@ -4,6 +4,7 @@ const {
   } = require("discord.js")
 const canvacord = require("canvacord");
 const Canvas = require("canvas");
+const background = "https://cdn.discordapp.com/attachments/939276089220542464/942286156970729523/RankCard.png";
 const config = require(`${process.cwd()}/botconfig/config.json`);
 const ee = require(`${process.cwd()}/botconfig/embed`);
 const emoji = require(`${process.cwd()}/botconfig/emojis.json`);
@@ -70,6 +71,7 @@ module.exports = {
         //define the ranking card
         const rank = new canvacord.Rank()
           .setAvatar(rankuser.displayAvatarURL({ dynamic: false, format: 'png' }))
+          .setBackground('IMAGE', background)
           .setCurrentXP(Number(curpoints.toFixed(2)), `#eeeeee`)
           .setRequiredXP(Number(curnextlevel.toFixed(2)), `#eeeeee`)
           .setStatus(status, false, 5)
