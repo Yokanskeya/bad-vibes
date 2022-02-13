@@ -18,7 +18,7 @@ const {
         let msg = await message.reply({
             embeds: [new MessageEmbed()
                 .setColor(es.color)
-                .setTitle(`<a:buffering:927445030564679691> Loading`)
+                .setTitle(`⏳ Loading`)
             ],
         });
         await levelingSystem.findOne({ GuildId : message.guild.id }, async (err, data) => {
