@@ -480,10 +480,10 @@
       },
       "playskip": {
         "variable1": "`${emoji.msg.ERROR} Anda perlu memberi saya URL atau istilah Pencarian.`",
-        "soundcloud": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.soundcloud} Soundcloud & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
-        "spotify": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.spotify} Spotify & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
-        "apple": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.apple} Apple-Music & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
-        "youtube": "`${emoji.msg.search} Mencari Permintaan Anda di ${emoji.msg.youtube} Youtube & kemudian ${emoji.msg.skip_track} Melompat ke sana!`"
+        "soundcloud": "`${emoji.msg.search} Mencari Permintaan Anda & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "spotify": "`${emoji.msg.search} Mencari Permintaan Anda & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "apple": "`${emoji.msg.search} Mencari Permintaan Anda & kemudian ${emoji.msg.skip_track} Melompat ke sana!`",
+        "youtube": "`${emoji.msg.search} Mencari Permintaan Anda & kemudian ${emoji.msg.skip_track} Melompat ke sana!`"
       }
     },
     "music": {
