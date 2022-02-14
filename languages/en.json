@@ -480,10 +480,10 @@
       },
       "playskip": {
         "variable1": "`${emoji.msg.ERROR} You need to give me a URL or a Search term.`",
-        "soundcloud": "`${emoji.msg.search} Searching for your Request on ${emoji.msg.soundcloud} Soundcloud & then ${emoji.msg.skip_track} Skipping to it!`",
-        "spotify": "`${emoji.msg.search} Searching for your Request on ${emoji.msg.spotify} Spotify & then ${emoji.msg.skip_track} Skipping to it!`",
-        "apple": "`${emoji.msg.search} Searching for your Request on ${emoji.msg.apple} Apple-Music & then ${emoji.msg.skip_track} Skipping to it!`",
-        "youtube": "`${emoji.msg.search} Searching for your Request on ${emoji.msg.youtube} Youtube & then ${emoji.msg.skip_track} Skipping to it!`"
+        "soundcloud": "`${emoji.msg.search} Searching for your Request & then ${emoji.msg.skip_track} Skipping to it!`",
+        "spotify": "`${emoji.msg.search} Searching for your Request & then ${emoji.msg.skip_track} Skipping to it!`",
+        "apple": "`${emoji.msg.search} Searching for your Request & then ${emoji.msg.skip_track} Skipping to it!`",
+        "youtube": "`${emoji.msg.search} Searching for your Request & then ${emoji.msg.skip_track} Skipping to it!`"
       }
     },
     "music": {
